@@ -1,0 +1,13 @@
+{
+  "ai_home": {
+    "title": "AI Stüdyosu",
+    "search_hint": "Ara (ör: silgi, pürüzsüz)",
+    "categories": {
+      "all": "Hepsi",
+      "portrait": "Portre",
+      "ai_magic": "AI Sihri",
+      "art": "Sanat",
+      "utility": "Araçlar"
+    }
+  }
+}

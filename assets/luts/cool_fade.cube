@@ -1,0 +1,5 @@
+# Cool Fade LUT Placeholder
+LUT_3D_SIZE 33
+DOMAIN_MIN 0.0 0.0 0.0
+DOMAIN_MAX 1.0 1.0 1.0
+# Placeholder — app uses cool-toned ColorFilter.matrix at runtime.

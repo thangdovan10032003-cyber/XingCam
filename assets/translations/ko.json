@@ -1,0 +1,33 @@
+{
+  "ai_home": {
+    "title": "AI 스튜디오",
+    "search_hint": "도구 검색 (예: 얼굴 보정, 개체 지우기)",
+    "categories": {
+      "all": "전체",
+      "portrait": "인물",
+      "ai_magic": "AI 매직",
+      "art": "아트",
+      "utility": "유틸리티"
+    },
+    "tools": {
+      "remover": {
+        "title": "AI 개체 지우개",
+        "subtitle": "불필요한 사물이나 사람을 완벽하게 제거"
+      },
+      "beautifier": {
+        "title": "AI 피부 보정",
+        "subtitle": "매끄러운 피부와 화사한 인물 보정"
+      },
+      "sky": {
+        "title": "AI 하늘 교체",
+        "subtitle": "AI 마법으로 하늘을 새롭게 변身"
+      }
+    }
+  },
+  "common": {
+    "save": "저장",
+    "cancel": "취소",
+    "processing": "처리 중...",
+    "done": "완료"
+  }
+}

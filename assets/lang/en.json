@@ -1,0 +1,17 @@
+{
+  "home": "XingCam",
+  "ai_tools": "AI Tools",
+  "camera": "Camera",
+  "gallery": "Gallery",
+  "settings": "Settings",
+  "onboarding_skip": "Skip",
+  "onboarding_next": "Next",
+  "onboarding_start": "Start",
+  "remove_object": "Remove Object",
+  "compare_result": "Compare Result",
+  "edit_again": "Edit Again",
+  "save_to_gallery": "Save to Gallery",
+  "object_removed": "Object removed!",
+  "no_photos": "No photos yet",
+  "open_camera": "Open Camera"
+}

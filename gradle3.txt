@@ -1,0 +1,582 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.1.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :gradle
+WARNING: Unsupported Kotlin plugin version.
+The `embedded-kotlin` and `kotlin-dsl` plugins rely on features of Kotlin `2.2.0` that might work differently than in the requested version `2.2.20`.
+
+> Task :gradle:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle:pluginDescriptors UP-TO-DATE
+> Task :gradle:processResources
+
+> Task :gradle:compileKotlin
+w: file:///C:/flutter/packages/flutter_tools/gradle/src/main/kotlin/Deeplink.kt:13:5 This annotation is currently applied to the value parameter only, but in the future it will also be applied to property.
+- To opt in to applying to both value parameter and property, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///C:/flutter/packages/flutter_tools/gradle/src/main/kotlin/Deeplink.kt:15:5 This annotation is currently applied to the value parameter only, but in the future it will also be applied to property.
+- To opt in to applying to both value parameter and property, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///C:/flutter/packages/flutter_tools/gradle/src/main/kotlin/Deeplink.kt:17:5 This annotation is currently applied to the value parameter only, but in the future it will also be applied to property.
+- To opt in to applying to both value parameter and property, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///C:/flutter/packages/flutter_tools/gradle/src/main/kotlin/Deeplink.kt:19:5 This annotation is currently applied to the value parameter only, but in the future it will also be applied to property.
+- To opt in to applying to both value parameter and property, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///C:/flutter/packages/flutter_tools/gradle/src/main/kotlin/FlutterPlugin.kt:12:8 'interface ApkVariant : Any, BaseVariant, InstallableVariant, AndroidArtifactVariant, InternalBaseVariant' is deprecated. Deprecated in Java.
+w: file:///C:/flutter/packages/flutter_tools/gradle/src/main/kotlin/FlutterPlugin.kt:625:69 'interface ApkVariant : Any, BaseVariant, InstallableVariant, AndroidArtifactVariant, InternalBaseVariant' is deprecated. Deprecated in Java.
+w: file:///C:/flutter/packages/flutter_tools/gradle/src/main/kotlin/FlutterPluginUtils.kt:12:8 'interface BaseVariantOutput : Any, OutputFile' is deprecated. Deprecated in Java.
+w: file:///C:/flutter/packages/flutter_tools/gradle/src/main/kotlin/plugins/PluginHandler.kt:168:70 Unchecked cast of 'NamedDomainObjectContainer<out BuildType>' to 'NamedDomainObjectContainer<BuildType>'.
+w: file:///C:/flutter/packages/flutter_tools/gradle/src/main/kotlin/plugins/PluginHandler.kt:169:75 Unchecked cast of 'NamedDomainObjectContainer<out BuildType>' to 'NamedDomainObjectContainer<BuildType>'.
+
+> Task :gradle:compileJava NO-SOURCE
+> Task :gradle:compileGroovy NO-SOURCE
+> Task :gradle:classes
+> Task :gradle:jar
+
+> Configure project :app
+WARNING: The option setting 'android.builtInKotlin=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+WARNING: The option setting 'android.newDsl=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+w: [33m[1mDeprecated 'org.jetbrains.kotlin.android' plugin usage[0m[0m
+The 'org.jetbrains.kotlin.android' plugin in project ':app' is no longer required for Kotlin support since AGP 9.0.
+[32m[1mSolution:[0m[0m
+[32m[3mRemove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.[0m[0m
+[36mSee [0m[34mhttps://kotl.in/gradle/agp-built-in-kotlin[0m[36m for more details.[0m
+
+
+> Configure project :camera_android
+w: file:///C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/camera_android-0.10.10+18/android/build.gradle.kts:31:1: 'fun Project.android(configure: Action<LibraryExtension>): Unit' is deprecated. Replaced by com.android.build.api.dsl.LibraryExtension.
+This class is not used for the public extensions in AGP when android.newDsl=true, which is the default in AGP 9.0, and will be removed in AGP 10.0.
+w: [33m[1mDeprecated 'org.jetbrains.kotlin.android' plugin usage[0m[0m
+The 'org.jetbrains.kotlin.android' plugin in project ':camera_android' is no longer required for Kotlin support since AGP 9.0.
+[32m[1mSolution:[0m[0m
+[32m[3mRemove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.[0m[0m
+[36mSee [0m[34mhttps://kotl.in/gradle/agp-built-in-kotlin[0m[36m for more details.[0m
+
+
+> Configure project :device_info_plus
+w: [33m[1mDeprecated 'org.jetbrains.kotlin.android' plugin usage[0m[0m
+The 'org.jetbrains.kotlin.android' plugin in project ':device_info_plus' is no longer required for Kotlin support since AGP 9.0.
+[32m[1mSolution:[0m[0m
+[32m[3mRemove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.[0m[0m
+[36mSee [0m[34mhttps://kotl.in/gradle/agp-built-in-kotlin[0m[36m for more details.[0m
+
+
+> Configure project :flutter_plugin_android_lifecycle
+w: file:///C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.35/android/build.gradle.kts:26:1: 'fun Project.android(configure: Action<LibraryExtension>): Unit' is deprecated. Replaced by com.android.build.api.dsl.LibraryExtension.
+This class is not used for the public extensions in AGP when android.newDsl=true, which is the default in AGP 9.0, and will be removed in AGP 10.0.
+w: [33m[1mDeprecated 'org.jetbrains.kotlin.android' plugin usage[0m[0m
+The 'org.jetbrains.kotlin.android' plugin in project ':flutter_plugin_android_lifecycle' is no longer required for Kotlin support since AGP 9.0.
+[32m[1mSolution:[0m[0m
+[32m[3mRemove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.[0m[0m
+[36mSee [0m[34mhttps://kotl.in/gradle/agp-built-in-kotlin[0m[36m for more details.[0m
+
+
+> Configure project :gal
+w: [33m[1mDeprecated 'org.jetbrains.kotlin.android' plugin usage[0m[0m
+The 'org.jetbrains.kotlin.android' plugin in project ':gal' is no longer required for Kotlin support since AGP 9.0.
+[32m[1mSolution:[0m[0m
+[32m[3mRemove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.[0m[0m
+[36mSee [0m[34mhttps://kotl.in/gradle/agp-built-in-kotlin[0m[36m for more details.[0m
+
+
+> Configure project :google_mlkit_commons
+w: [33m[1mDeprecated 'org.jetbrains.kotlin.android' plugin usage[0m[0m
+The 'org.jetbrains.kotlin.android' plugin in project ':google_mlkit_commons' is no longer required for Kotlin support since AGP 9.0.
+[32m[1mSolution:[0m[0m
+[32m[3mRemove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.[0m[0m
+[36mSee [0m[34mhttps://kotl.in/gradle/agp-built-in-kotlin[0m[36m for more details.[0m
+
+
+> Configure project :google_mlkit_face_detection
+w: [33m[1mDeprecated 'org.jetbrains.kotlin.android' plugin usage[0m[0m
+The 'org.jetbrains.kotlin.android' plugin in project ':google_mlkit_face_detection' is no longer required for Kotlin support since AGP 9.0.
+[32m[1mSolution:[0m[0m
+[32m[3mRemove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.[0m[0m
+[36mSee [0m[34mhttps://kotl.in/gradle/agp-built-in-kotlin[0m[36m for more details.[0m
+
+
+> Configure project :google_mlkit_selfie_segmentation
+w: [33m[1mDeprecated 'org.jetbrains.kotlin.android' plugin usage[0m[0m
+The 'org.jetbrains.kotlin.android' plugin in project ':google_mlkit_selfie_segmentation' is no longer required for Kotlin support since AGP 9.0.
+[32m[1mSolution:[0m[0m
+[32m[3mRemove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.[0m[0m
+[36mSee [0m[34mhttps://kotl.in/gradle/agp-built-in-kotlin[0m[36m for more details.[0m
+
+
+> Configure project :image_picker_android
+w: file:///C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/image_picker_android-0.8.13+19/android/build.gradle.kts:34:1: 'fun Project.android(configure: Action<LibraryExtension>): Unit' is deprecated. Replaced by com.android.build.api.dsl.LibraryExtension.
+This class is not used for the public extensions in AGP when android.newDsl=true, which is the default in AGP 9.0, and will be removed in AGP 10.0.
+w: [33m[1mDeprecated 'org.jetbrains.kotlin.android' plugin usage[0m[0m
+The 'org.jetbrains.kotlin.android' plugin in project ':image_picker_android' is no longer required for Kotlin support since AGP 9.0.
+[32m[1mSolution:[0m[0m
+[32m[3mRemove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.[0m[0m
+[36mSee [0m[34mhttps://kotl.in/gradle/agp-built-in-kotlin[0m[36m for more details.[0m
+
+
+> Configure project :isar_flutter_libs
+w: [33m[1mDeprecated 'org.jetbrains.kotlin.android' plugin usage[0m[0m
+The 'org.jetbrains.kotlin.android' plugin in project ':isar_flutter_libs' is no longer required for Kotlin support since AGP 9.0.
+[32m[1mSolution:[0m[0m
+[32m[3mRemove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.[0m[0m
+[36mSee [0m[34mhttps://kotl.in/gradle/agp-built-in-kotlin[0m[36m for more details.[0m
+
+
+> Configure project :jni
+w: [33m[1mDeprecated 'org.jetbrains.kotlin.android' plugin usage[0m[0m
+The 'org.jetbrains.kotlin.android' plugin in project ':jni' is no longer required for Kotlin support since AGP 9.0.
+[32m[1mSolution:[0m[0m
+[32m[3mRemove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.[0m[0m
+[36mSee [0m[34mhttps://kotl.in/gradle/agp-built-in-kotlin[0m[36m for more details.[0m
+
+
+> Configure project :jni_flutter
+w: [33m[1mDeprecated 'org.jetbrains.kotlin.android' plugin usage[0m[0m
+The 'org.jetbrains.kotlin.android' plugin in project ':jni_flutter' is no longer required for Kotlin support since AGP 9.0.
+[32m[1mSolution:[0m[0m
+[32m[3mRemove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.[0m[0m
+[36mSee [0m[34mhttps://kotl.in/gradle/agp-built-in-kotlin[0m[36m for more details.[0m
+
+
+> Configure project :permission_handler_android
+w: [33m[1mDeprecated 'org.jetbrains.kotlin.android' plugin usage[0m[0m
+The 'org.jetbrains.kotlin.android' plugin in project ':permission_handler_android' is no longer required for Kotlin support since AGP 9.0.
+[32m[1mSolution:[0m[0m
+[32m[3mRemove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.[0m[0m
+[36mSee [0m[34mhttps://kotl.in/gradle/agp-built-in-kotlin[0m[36m for more details.[0m
+
+
+> Configure project :purchases_flutter
+w: [33m[1mDeprecated 'org.jetbrains.kotlin.android' plugin usage[0m[0m
+The 'org.jetbrains.kotlin.android' plugin in project ':purchases_flutter' is no longer required for Kotlin support since AGP 9.0.
+[32m[1mSolution:[0m[0m
+[32m[3mRemove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.[0m[0m
+[36mSee [0m[34mhttps://kotl.in/gradle/agp-built-in-kotlin[0m[36m for more details.[0m
+
+
+> Configure project :share_plus
+w: [33m[1mDeprecated 'org.jetbrains.kotlin.android' plugin usage[0m[0m
+The 'org.jetbrains.kotlin.android' plugin in project ':share_plus' is no longer required for Kotlin support since AGP 9.0.
+[32m[1mSolution:[0m[0m
+[32m[3mRemove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.[0m[0m
+[36mSee [0m[34mhttps://kotl.in/gradle/agp-built-in-kotlin[0m[36m for more details.[0m
+
+
+> Configure project :shared_preferences_android
+w: file:///C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/shared_preferences_android-2.4.26/android/build.gradle.kts:40:1: 'fun Project.android(configure: Action<LibraryExtension>): Unit' is deprecated. Replaced by com.android.build.api.dsl.LibraryExtension.
+This class is not used for the public extensions in AGP when android.newDsl=true, which is the default in AGP 9.0, and will be removed in AGP 10.0.
+w: [33m[1mDeprecated 'org.jetbrains.kotlin.android' plugin usage[0m[0m
+The 'org.jetbrains.kotlin.android' plugin in project ':shared_preferences_android' is no longer required for Kotlin support since AGP 9.0.
+[32m[1mSolution:[0m[0m
+[32m[3mRemove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.[0m[0m
+[36mSee [0m[34mhttps://kotl.in/gradle/agp-built-in-kotlin[0m[36m for more details.[0m
+
+
+> Configure project :tflite_flutter
+w: [33m[1mDeprecated 'org.jetbrains.kotlin.android' plugin usage[0m[0m
+The 'org.jetbrains.kotlin.android' plugin in project ':tflite_flutter' is no longer required for Kotlin support since AGP 9.0.
+[32m[1mSolution:[0m[0m
+[32m[3mRemove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.[0m[0m
+[36mSee [0m[34mhttps://kotl.in/gradle/agp-built-in-kotlin[0m[36m for more details.[0m
+
+
+> Configure project :vibration
+w: [33m[1mDeprecated 'org.jetbrains.kotlin.android' plugin usage[0m[0m
+The 'org.jetbrains.kotlin.android' plugin in project ':vibration' is no longer required for Kotlin support since AGP 9.0.
+[32m[1mSolution:[0m[0m
+[32m[3mRemove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.[0m[0m
+[36mSee [0m[34mhttps://kotl.in/gradle/agp-built-in-kotlin[0m[36m for more details.[0m
+
+.\gradlew : WARNING: 
+Your app uses the 
+following plugins that 
+apply Kotlin Gradle 
+Plugin (KGP): 
+device_info_plus, 
+purchases_flutter, 
+share_plus
+At line:1 char:1
++ .\gradlew 
+bundleRelease 
+--no-daemon 2>&1 | 
+Out-File 
+"..\gradle3.txt"  ...
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (WARNING: Your   
+  a...ter, share_pl    
+us:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+Future versions of 
+Flutter will fail to 
+build if your app uses 
+plugins that apply KGP.
+
+Please check the 
+changelogs of these 
+plugins and upgrade to 
+a version that 
+supports Built-in 
+Kotlin.
+If no such version 
+exists, report the 
+issue to the plugin. 
+If necessary, here is 
+a guide on filing 
+an issue against a 
+plugin: https://docs.fl
+utter.dev/release/break
+ing-changes/migrate-to-
+built-in-kotlin/for-app
+-developers#report-inco
+mpatible-kotlin-gradle-
+plugin-usage-to-plugin-
+authors
+
+If you are a plugin 
+author, please migrate 
+your plugin to 
+Built-in Kotlin using 
+this guide: https://doc
+s.flutter.dev/release/b
+reaking-changes/migrate
+-to-built-in-kotlin/for
+-plugin-authors
+
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :app:extractReleaseVersionControlInfo UP-TO-DATE
+> Task :app:cleanMergeReleaseAssets
+> Task :app:generateReleaseAssets UP-TO-DATE
+> Task :camera_android:generateReleaseAssets UP-TO-DATE
+> Task :camera_android:preBuild UP-TO-DATE
+> Task :camera_android:preReleaseBuild UP-TO-DATE
+> Task :camera_android:mergeReleaseAssets UP-TO-DATE
+> Task :device_info_plus:generateReleaseAssets UP-TO-DATE
+> Task :device_info_plus:preBuild UP-TO-DATE
+> Task :device_info_plus:preReleaseBuild UP-TO-DATE
+> Task :device_info_plus:mergeReleaseAssets UP-TO-DATE
+> Task :flutter_plugin_android_lifecycle:generateReleaseAssets UP-TO-DATE
+> Task :flutter_plugin_android_lifecycle:preBuild UP-TO-DATE
+> Task :flutter_plugin_android_lifecycle:preReleaseBuild UP-TO-DATE
+> Task :flutter_plugin_android_lifecycle:mergeReleaseAssets UP-TO-DATE
+> Task :gal:generateReleaseAssets UP-TO-DATE
+> Task :gal:preBuild UP-TO-DATE
+> Task :gal:preReleaseBuild UP-TO-DATE
+> Task :gal:mergeReleaseAssets UP-TO-DATE
+> Task :google_mlkit_commons:generateReleaseAssets UP-TO-DATE
+> Task :google_mlkit_commons:preBuild UP-TO-DATE
+> Task :google_mlkit_commons:preReleaseBuild UP-TO-DATE
+> Task :google_mlkit_commons:mergeReleaseAssets UP-TO-DATE
+> Task :google_mlkit_face_detection:generateReleaseAssets UP-TO-DATE
+> Task :google_mlkit_face_detection:preBuild UP-TO-DATE
+> Task :google_mlkit_face_detection:preReleaseBuild UP-TO-DATE
+> Task :google_mlkit_face_detection:mergeReleaseAssets UP-TO-DATE
+> Task :google_mlkit_selfie_segmentation:generateReleaseAssets UP-TO-DATE
+> Task :google_mlkit_selfie_segmentation:preBuild UP-TO-DATE
+> Task :google_mlkit_selfie_segmentation:preReleaseBuild UP-TO-DATE
+> Task :google_mlkit_selfie_segmentation:mergeReleaseAssets UP-TO-DATE
+> Task :image_picker_android:generateReleaseAssets UP-TO-DATE
+> Task :image_picker_android:preBuild UP-TO-DATE
+> Task :image_picker_android:preReleaseBuild UP-TO-DATE
+> Task :image_picker_android:mergeReleaseAssets UP-TO-DATE
+> Task :isar_flutter_libs:generateReleaseAssets UP-TO-DATE
+> Task :isar_flutter_libs:preBuild UP-TO-DATE
+> Task :isar_flutter_libs:preReleaseBuild UP-TO-DATE
+> Task :isar_flutter_libs:mergeReleaseAssets UP-TO-DATE
+> Task :jni:generateReleaseAssets UP-TO-DATE
+> Task :jni:preBuild UP-TO-DATE
+> Task :jni:preReleaseBuild UP-TO-DATE
+> Task :jni:mergeReleaseAssets UP-TO-DATE
+> Task :jni_flutter:generateReleaseAssets UP-TO-DATE
+> Task :jni_flutter:preBuild UP-TO-DATE
+> Task :jni_flutter:preReleaseBuild UP-TO-DATE
+> Task :jni_flutter:mergeReleaseAssets UP-TO-DATE
+> Task :permission_handler_android:generateReleaseAssets UP-TO-DATE
+> Task :permission_handler_android:preBuild UP-TO-DATE
+> Task :permission_handler_android:preReleaseBuild UP-TO-DATE
+> Task :permission_handler_android:mergeReleaseAssets UP-TO-DATE
+> Task :purchases_flutter:generateReleaseAssets UP-TO-DATE
+> Task :purchases_flutter:preBuild UP-TO-DATE
+> Task :purchases_flutter:preReleaseBuild UP-TO-DATE
+> Task :purchases_flutter:mergeReleaseAssets UP-TO-DATE
+> Task :share_plus:generateReleaseAssets UP-TO-DATE
+> Task :share_plus:preBuild UP-TO-DATE
+> Task :share_plus:preReleaseBuild UP-TO-DATE
+> Task :share_plus:mergeReleaseAssets UP-TO-DATE
+> Task :shared_preferences_android:generateReleaseAssets UP-TO-DATE
+> Task :shared_preferences_android:preBuild UP-TO-DATE
+> Task :shared_preferences_android:preReleaseBuild UP-TO-DATE
+> Task :shared_preferences_android:mergeReleaseAssets UP-TO-DATE
+> Task :tflite_flutter:generateReleaseAssets UP-TO-DATE
+> Task :tflite_flutter:preBuild UP-TO-DATE
+> Task :tflite_flutter:preReleaseBuild UP-TO-DATE
+> Task :tflite_flutter:mergeReleaseAssets UP-TO-DATE
+> Task :vibration:generateReleaseAssets UP-TO-DATE
+> Task :vibration:preBuild UP-TO-DATE
+> Task :vibration:preReleaseBuild UP-TO-DATE
+> Task :vibration:mergeReleaseAssets UP-TO-DATE
+> Task :app:mergeReleaseAssets
+> Task :camera_android:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :camera_android:generateReleaseBuildConfig UP-TO-DATE
+> Task :camera_android:generateReleaseResources UP-TO-DATE
+> Task :camera_android:packageReleaseResources UP-TO-DATE
+> Task :camera_android:processReleaseNavigationResources UP-TO-DATE
+> Task :camera_android:parseReleaseLocalResources UP-TO-DATE
+> Task :camera_android:generateReleaseRFile UP-TO-DATE
+> Task :flutter_plugin_android_lifecycle:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :flutter_plugin_android_lifecycle:generateReleaseResources UP-TO-DATE
+> Task :flutter_plugin_android_lifecycle:packageReleaseResources UP-TO-DATE
+> Task :flutter_plugin_android_lifecycle:processReleaseNavigationResources UP-TO-DATE
+> Task :flutter_plugin_android_lifecycle:parseReleaseLocalResources UP-TO-DATE
+> Task :flutter_plugin_android_lifecycle:generateReleaseRFile UP-TO-DATE
+> Task :flutter_plugin_android_lifecycle:compileReleaseKotlin NO-SOURCE
+> Task :flutter_plugin_android_lifecycle:javaPreCompileRelease UP-TO-DATE
+> Task :flutter_plugin_android_lifecycle:compileReleaseJavaWithJavac
+> Task :flutter_plugin_android_lifecycle:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :camera_android:compileReleaseKotlin NO-SOURCE
+> Task :camera_android:javaPreCompileRelease UP-TO-DATE
+> Task :camera_android:compileReleaseJavaWithJavac
+> Task :camera_android:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :camera_android:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :device_info_plus:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :device_info_plus:generateReleaseResources UP-TO-DATE
+> Task :device_info_plus:packageReleaseResources UP-TO-DATE
+> Task :device_info_plus:processReleaseNavigationResources UP-TO-DATE
+> Task :device_info_plus:parseReleaseLocalResources UP-TO-DATE
+> Task :device_info_plus:generateReleaseRFile UP-TO-DATE
+> Task :device_info_plus:javaPreCompileRelease UP-TO-DATE
+> Task :image_picker_android:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :image_picker_android:generateReleaseResources UP-TO-DATE
+> Task :image_picker_android:packageReleaseResources UP-TO-DATE
+> Task :image_picker_android:processReleaseNavigationResources UP-TO-DATE
+> Task :image_picker_android:parseReleaseLocalResources UP-TO-DATE
+> Task :image_picker_android:generateReleaseRFile UP-TO-DATE
+> Task :image_picker_android:javaPreCompileRelease UP-TO-DATE
+> Task :flutter_plugin_android_lifecycle:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :flutter_plugin_android_lifecycle:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :gal:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gal:generateReleaseResources UP-TO-DATE
+> Task :gal:packageReleaseResources UP-TO-DATE
+> Task :gal:processReleaseNavigationResources UP-TO-DATE
+> Task :gal:parseReleaseLocalResources UP-TO-DATE
+> Task :gal:generateReleaseRFile UP-TO-DATE
+> Task :gal:compileReleaseKotlin NO-SOURCE
+> Task :gal:javaPreCompileRelease UP-TO-DATE
+> Task :gal:compileReleaseJavaWithJavac
+> Task :gal:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :gal:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :google_mlkit_commons:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :google_mlkit_commons:generateReleaseResources UP-TO-DATE
+> Task :google_mlkit_commons:packageReleaseResources UP-TO-DATE
+> Task :google_mlkit_commons:processReleaseNavigationResources UP-TO-DATE
+> Task :google_mlkit_commons:parseReleaseLocalResources UP-TO-DATE
+> Task :google_mlkit_commons:generateReleaseRFile UP-TO-DATE
+> Task :google_mlkit_commons:compileReleaseKotlin NO-SOURCE
+> Task :google_mlkit_commons:javaPreCompileRelease UP-TO-DATE
+> Task :google_mlkit_commons:compileReleaseJavaWithJavac
+> Task :google_mlkit_face_detection:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :google_mlkit_face_detection:generateReleaseResources UP-TO-DATE
+> Task :google_mlkit_face_detection:packageReleaseResources UP-TO-DATE
+> Task :google_mlkit_face_detection:processReleaseNavigationResources UP-TO-DATE
+> Task :google_mlkit_face_detection:parseReleaseLocalResources UP-TO-DATE
+> Task :google_mlkit_face_detection:generateReleaseRFile UP-TO-DATE
+> Task :google_mlkit_face_detection:javaPreCompileRelease UP-TO-DATE
+> Task :google_mlkit_selfie_segmentation:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :google_mlkit_selfie_segmentation:generateReleaseResources UP-TO-DATE
+> Task :google_mlkit_selfie_segmentation:packageReleaseResources UP-TO-DATE
+> Task :google_mlkit_selfie_segmentation:processReleaseNavigationResources UP-TO-DATE
+> Task :google_mlkit_selfie_segmentation:parseReleaseLocalResources UP-TO-DATE
+> Task :google_mlkit_selfie_segmentation:generateReleaseRFile UP-TO-DATE
+> Task :google_mlkit_selfie_segmentation:javaPreCompileRelease UP-TO-DATE
+> Task :google_mlkit_commons:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :google_mlkit_commons:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :isar_flutter_libs:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :isar_flutter_libs:generateReleaseResources UP-TO-DATE
+> Task :google_mlkit_commons:bundleLibCompileToJarRelease
+> Task :isar_flutter_libs:packageReleaseResources UP-TO-DATE
+> Task :google_mlkit_face_detection:compileReleaseKotlin NO-SOURCE
+
+> Task :google_mlkit_face_detection:compileReleaseJavaWithJavac
+Note: C:\Users\Admin\Ap
+pData\Local\Pub\Cache\h
+osted\pub.dev\google_ml
+kit_face_detection-0.11
+.1\android\src\main\jav
+a\com\google_mlkit_face
+_detection\FaceDetector
+.java uses unchecked 
+or unsafe operations.
+Note: Recompile with 
+-Xlint:unchecked for 
+details.
+
+> Task :google_mlkit_face_detection:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :google_mlkit_face_detection:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :google_mlkit_selfie_segmentation:compileReleaseKotlin NO-SOURCE
+
+> Task :google_mlkit_selfie_segmentation:compileReleaseJavaWithJavac
+Note: C:\Users\Admin\Ap
+pData\Local\Pub\Cache\h
+osted\pub.dev\google_ml
+kit_selfie_segmentation
+-0.8.1\android\src\main
+\java\com\google_mlkit_
+selfie_segmentation\Sel
+fieSegmenter.java uses 
+unchecked or unsafe 
+operations.
+Note: Recompile with 
+-Xlint:unchecked for 
+details.
+
+> Task :google_mlkit_selfie_segmentation:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :google_mlkit_selfie_segmentation:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :isar_flutter_libs:processReleaseNavigationResources UP-TO-DATE
+> Task :isar_flutter_libs:parseReleaseLocalResources UP-TO-DATE
+> Task :isar_flutter_libs:generateReleaseRFile UP-TO-DATE
+> Task :isar_flutter_libs:compileReleaseKotlin NO-SOURCE
+> Task :isar_flutter_libs:javaPreCompileRelease UP-TO-DATE
+> Task :device_info_plus:compileReleaseKotlin
+> Task :isar_flutter_libs:compileReleaseJavaWithJavac
+> Task :device_info_plus:compileReleaseJavaWithJavac NO-SOURCE
+> Task :device_info_plus:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :device_info_plus:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :isar_flutter_libs:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :isar_flutter_libs:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :jni:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :jni:generateReleaseResources UP-TO-DATE
+> Task :jni:packageReleaseResources UP-TO-DATE
+> Task :jni:processReleaseNavigationResources UP-TO-DATE
+> Task :jni:parseReleaseLocalResources UP-TO-DATE
+> Task :jni:generateReleaseRFile UP-TO-DATE
+> Task :jni:compileReleaseKotlin NO-SOURCE
+> Task :jni:javaPreCompileRelease UP-TO-DATE
+> Task :image_picker_android:compileReleaseKotlin
+> Task :jni:compileReleaseJavaWithJavac
+> Task :image_picker_android:compileReleaseJavaWithJavac
+> Task :image_picker_android:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :image_picker_android:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :jni_flutter:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :jni_flutter:generateReleaseResources UP-TO-DATE
+> Task :jni_flutter:packageReleaseResources UP-TO-DATE
+> Task :jni:bundleLibCompileToJarRelease
+> Task :jni_flutter:processReleaseNavigationResources UP-TO-DATE
+> Task :jni_flutter:parseReleaseLocalResources UP-TO-DATE
+> Task :jni_flutter:generateReleaseRFile UP-TO-DATE
+> Task :jni_flutter:compileReleaseKotlin NO-SOURCE
+> Task :jni_flutter:javaPreCompileRelease UP-TO-DATE
+> Task :jni_flutter:compileReleaseJavaWithJavac
+> Task :jni_flutter:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :jni_flutter:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :jni:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :jni:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :permission_handler_android:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :permission_handler_android:generateReleaseResources UP-TO-DATE
+> Task :permission_handler_android:packageReleaseResources UP-TO-DATE
+> Task :permission_handler_android:processReleaseNavigationResources UP-TO-DATE
+> Task :permission_handler_android:parseReleaseLocalResources UP-TO-DATE
+> Task :permission_handler_android:generateReleaseRFile UP-TO-DATE
+> Task :permission_handler_android:compileReleaseKotlin NO-SOURCE
+> Task :permission_handler_android:javaPreCompileRelease UP-TO-DATE
+> Task :permission_handler_android:compileReleaseJavaWithJavac
+> Task :permission_handler_android:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :permission_handler_android:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :purchases_flutter:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :purchases_flutter:generateReleaseResources UP-TO-DATE
+> Task :purchases_flutter:packageReleaseResources UP-TO-DATE
+> Task :purchases_flutter:processReleaseNavigationResources UP-TO-DATE
+> Task :purchases_flutter:parseReleaseLocalResources UP-TO-DATE
+> Task :purchases_flutter:generateReleaseRFile UP-TO-DATE
+> Task :purchases_flutter:compileReleaseKotlin NO-SOURCE
+> Task :purchases_flutter:javaPreCompileRelease UP-TO-DATE
+> Task :purchases_flutter:compileReleaseJavaWithJavac
+> Task :purchases_flutter:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :purchases_flutter:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :share_plus:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :share_plus:generateReleaseResources UP-TO-DATE
+> Task :share_plus:packageReleaseResources UP-TO-DATE
+> Task :share_plus:processReleaseNavigationResources UP-TO-DATE
+> Task :share_plus:parseReleaseLocalResources UP-TO-DATE
+> Task :share_plus:generateReleaseRFile UP-TO-DATE
+> Task :share_plus:javaPreCompileRelease UP-TO-DATE
+> Task :shared_preferences_android:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :shared_preferences_android:generateReleaseResources UP-TO-DATE
+> Task :shared_preferences_android:packageReleaseResources UP-TO-DATE
+> Task :shared_preferences_android:processReleaseNavigationResources UP-TO-DATE
+> Task :shared_preferences_android:parseReleaseLocalResources UP-TO-DATE
+> Task :shared_preferences_android:generateReleaseRFile UP-TO-DATE
+> Task :shared_preferences_android:javaPreCompileRelease UP-TO-DATE
+> Task :tflite_flutter:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tflite_flutter:generateReleaseResources UP-TO-DATE
+> Task :tflite_flutter:packageReleaseResources UP-TO-DATE
+> Task :tflite_flutter:processReleaseNavigationResources UP-TO-DATE
+> Task :tflite_flutter:parseReleaseLocalResources UP-TO-DATE
+> Task :tflite_flutter:generateReleaseRFile UP-TO-DATE
+> Task :tflite_flutter:compileReleaseKotlin FAILED
+> Task :share_plus:compileReleaseKotlin
+
+> Task :shared_preferences_android:compileReleaseKotlin
+w: file:///C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/shared_preferences_android-2.4.26/android/src/main/kotlin/io/flutter/plugins/sharedpreferences/SharedPreferencesPlugin.kt:451:52 Unnecessary non-null assertion (!!) on a non-null receiver of type 'String'.
+
+[Incubating] Problems report is available at: file:///C:/Users/Admin/Pictures/XingCam/build/reports/problems/problems-report.html
+
+FAILURE: Build failed 
+with an exception.
+
+* What went wrong:
+Execution failed for 
+task ':tflite_flutter:c
+ompileReleaseKotlin'.
+> Inconsistent JVM 
+Target Compatibility 
+Between Java and 
+Kotlin Tasks
+    Inconsistent JVM 
+Target Compatibility 
+Between Java and 
+Kotlin Tasks
+      Inconsistent 
+JVM-target 
+compatibility detected 
+for tasks 'compileRelea
+seJavaWithJavac' (11) 
+and 
+'compileReleaseKotlin' 
+(17).
+
+* Try:
+> Consider using JVM 
+Toolchain: https://kotl
+.in/gradle/jvm/toolchai
+n
+> Run with --scan to 
+generate a Build Scan 
+(Powered by 
+Develocity).
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.1.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 1m 24s
+166 actionable tasks: 24 executed, 142 up-to-date

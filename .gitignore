@@ -1,0 +1,50 @@
+# .gitignore for Flutter project
+# See https://dart.dev/guides/libraries/useful-libraries#miscellaneous
+
+# Build outputs
+/build/
+/android/.gradle
+/android/app/google-services.json
+/android/key.properties
+/ios/Flutter/App.framework
+/ios/Flutter/Flutter.framework
+/ios/Flutter/Flutter.podspec
+/ios/Flutter/Generated.xcconfig
+/ios/Flutter/app.flx
+/ios/Flutter/app.zip
+/ios/Flutter/flutter_assets/
+/ios/Flutter/flutter_export_environment.sh
+/ios/ServiceDefinitions.json
+/ios/Runner/GeneratedPluginRegistrant.*
+
+# Pub
+.dart_tool/
+.pub/
+.pub-cache/
+pubspec.lock
+
+# Misc
+*.class
+*.lock
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# VSCode
+.vscode/
+
+# Sensitive keys — NEVER commit these
+**/secrets.dart
+**/.env

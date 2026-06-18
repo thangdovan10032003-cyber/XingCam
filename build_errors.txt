@@ -1,0 +1,406 @@
+﻿[INFO] Generating build script...
+[INFO] Generating build script completed, took 297ms
+
+[INFO] Initializing inputs
+[INFO] Reading cached asset graph...
+[INFO] Reading cached asset graph completed, took 145ms
+
+[INFO] Checking for updates since last build...
+[INFO] Checking for updates since last build completed, took 891ms
+
+[INFO] Running build...
+[WARNING] isar_generator on lib/core/services/biometric_consent_service.dart:
+Your current `analyzer` version may not fully support your current SDK version.
+
+Analyzer language version: 3.1.0
+SDK language version: 3.12.0
+
+Please update to the latest `analyzer` version (13.3.0) by running
+`flutter packages upgrade`.
+
+If you are not getting the latest version by running the above command, you
+can try adding a constraint like the following to your pubspec to start
+diagnosing why you can't get the latest version:
+
+dev_dependencies:
+  analyzer: ^13.3.0
+
+[INFO] 1.7s elapsed, 5/28 actions completed.
+[INFO] 2.8s elapsed, 18/92 actions completed.
+[INFO] 10.7s elapsed, 60/179 actions completed.
+[INFO] 11.7s elapsed, 353/389 actions completed.
+[INFO] 12.7s elapsed, 467/519 actions completed.
+[INFO] 13.9s elapsed, 622/631 actions completed.
+[INFO] 15.0s elapsed, 661/692 actions completed.
+[INFO] 16.0s elapsed, 735/746 actions completed.
+[INFO] 17.1s elapsed, 775/786 actions completed.
+[INFO] 18.1s elapsed, 815/828 actions completed.
+[INFO] 19.2s elapsed, 905/915 actions completed.
+[INFO] 20.3s elapsed, 960/970 actions completed.
+[INFO] 21.4s elapsed, 1016/1026 actions completed.
+[INFO] 22.5s elapsed, 1072/1087 actions completed.
+[INFO] 23.6s elapsed, 1104/1117 actions completed.
+[INFO] 29.3s elapsed, 1145/1151 actions completed.
+[INFO] 32.4s elapsed, 1146/1151 actions completed.
+[INFO] 33.4s elapsed, 1146/1151 actions completed.
+[WARNING] injectable_generator:injectable_config_builder on lib/core/injection/injection.dart:
+Missing dependencies in xingcam/core/injection/injection.dart
+
+[GalleryCubit] depends on unregistered type [RetroCameraRepository] from package:xingcam/features/retro_camera/domain/repositories/retro_camera_repository.dart
+[RecipeRepositoryImpl] depends on unregistered type [Isar] from package:isar/isar.dart
+[RecipeRepositoryImpl] depends on unregistered type [RetroCameraRepository] from package:xingcam/features/retro_camera/domain/repositories/retro_camera_repository.dart
+[CapturePhotoUseCase] depends on unregistered type [RetroCameraRepository] from package:xingcam/features/retro_camera/domain/repositories/retro_camera_repository.dart
+[GetFilterPresetsUseCase] depends on unregistered type [RetroCameraRepository] from package:xingcam/features/retro_camera/domain/repositories/retro_camera_repository.dart
+[RetroCameraCubit] depends on unregistered type [GetFilterPresetsUseCase] from package:xingcam/features/retro_camera/domain/usecases/get_filter_presets_usecase.dart
+[RetroCameraCubit] depends on unregistered type [CapturePhotoUseCase] from package:xingcam/features/retro_camera/domain/usecases/capture_photo_usecase.dart
+[RetroCameraCubit] depends on unregistered type [RecipeRepository] from package:xingcam/features/retro_camera/domain/repositories/recipe_repository.dart
+
+Did you forget to annotate the above class(s) or their implementation with @injectable? 
+or add the right environment keys?
+------------------------------------------------------------------------ 
+
+[INFO] Running build completed, took 33.9s
+
+[INFO] Caching finalized dependency graph...
+[INFO] Caching finalized dependency graph completed, took 199ms
+
+[SEVERE] isar_generator on lib/features/gallery/presentation/screens/gallery_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/features/gallery/presentation/screens/gallery_screen.dart (or an existing part) contains the following errors.
+gallery_screen.dart:124:15: Expected a class member.
+gallery_screen.dart:125:23: Named parameters must be enclosed in curly braces ('{' and '}').
+gallery_screen.dart:126:32: Named parameters must be enclosed in curly braces ('{' and '}').
+And 27 more...
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] isar_generator on lib/features/retro_camera/data/repositories/retro_camera_repository_impl.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/features/retro_camera/data/repositories/retro_camera_repository_impl.dart (or an existing part) contains the following errors.
+retro_camera_repository_impl.dart:184:1: 'class' can't be used as an identifier because it's a keyword.
+retro_camera_repository_impl.dart:184:1: Expected to find ';'.
+retro_camera_repository_impl.dart:184:1: Expected a statement.
+And 8 more...
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] isar_generator on lib/core/services/remote_config_service.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/core/services/remote_config_service.dart (or an existing part) contains the following errors.
+remote_config_service.dart:1:45: Expected a method, getter, setter or operator declaration.
+remote_config_service.dart:1:46: Variables must be declared using the keywords 'const', 'final', 'var' or a type name.
+remote_config_service.dart:1:46: Expected to find ';'.
+And 8 more...
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] isar_generator on lib/presentation/screens/onboarding_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/presentation/screens/onboarding_screen.dart (or an existing part) contains the following errors.
+onboarding_screen.dart:199:11: Expected an identifier.
+onboarding_screen.dart:199:11: Expected to find ']'.
+onboarding_screen.dart:255:1: Expected a class member.
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] isar_generator on lib/features/retro_camera/presentation/screens/camera_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/features/retro_camera/presentation/screens/camera_screen.dart (or an existing part) contains the following errors.
+camera_screen.dart:456:1: Classes can't be declared inside other classes.
+camera_screen.dart:456:29: Expected a class member.
+camera_screen.dart:456:37: Methods must have an explicit list of parameters.
+And 22 more...
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] isar_generator on lib/features/retro_camera/presentation/screens/video_recorder_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/features/retro_camera/presentation/screens/video_recorder_screen.dart (or an existing part) contains the following errors.
+video_recorder_screen.dart:237:3: Expected to find ';'.
+video_recorder_screen.dart:240:1: Classes can't be declared inside other classes.
+video_recorder_screen.dart:240:24: Expected a class member.
+And 12 more...
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] isar_generator on lib/presentation/screens/settings_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/presentation/screens/settings_screen.dart (or an existing part) contains the following errors.
+settings_screen.dart:94:7: Expected to find ';'.
+settings_screen.dart:94:8: Expected an identifier.
+settings_screen.dart:94:8: Unexpected text ';'.
+And 3 more...
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] isar_generator on lib/features/ai_tools/presentation/screens/gobo_lighting_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/features/ai_tools/presentation/screens/gobo_lighting_screen.dart (or an existing part) contains the following errors.
+gobo_lighting_screen.dart:219:1: Expected to find '}'.
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] injectable_generator:injectable_builder on lib/core/services/remote_config_service.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/core/services/remote_config_service.dart (or an existing part) contains the following errors.
+remote_config_service.dart:1:45: Expected a method, getter, setter or operator declaration.
+remote_config_service.dart:1:46: Variables must be declared using the keywords 'const', 'final', 'var' or a type name.
+remote_config_service.dart:1:46: Expected to find ';'.
+And 8 more...
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] injectable_generator:injectable_builder on lib/features/gallery/presentation/screens/gallery_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/features/gallery/presentation/screens/gallery_screen.dart (or an existing part) contains the following errors.
+gallery_screen.dart:124:15: Expected a class member.
+gallery_screen.dart:125:23: Named parameters must be enclosed in curly braces ('{' and '}').
+gallery_screen.dart:126:32: Named parameters must be enclosed in curly braces ('{' and '}').
+And 27 more...
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] isar_generator on lib/presentation/screens/home_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/presentation/screens/home_screen.dart (or an existing part) contains the following errors.
+home_screen.dart:206:6: Expected to find ')'.
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] injectable_generator:injectable_builder on lib/presentation/screens/settings_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/presentation/screens/settings_screen.dart (or an existing part) contains the following errors.
+settings_screen.dart:94:7: Expected to find ';'.
+settings_screen.dart:94:8: Expected an identifier.
+settings_screen.dart:94:8: Unexpected text ';'.
+And 3 more...
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] injectable_generator:injectable_builder on lib/presentation/screens/home_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/presentation/screens/home_screen.dart (or an existing part) contains the following errors.
+home_screen.dart:206:6: Expected to find ')'.
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] injectable_generator:injectable_config_builder on lib/core/services/remote_config_service.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/core/services/remote_config_service.dart (or an existing part) contains the following errors.
+remote_config_service.dart:1:45: Expected a method, getter, setter or operator declaration.
+remote_config_service.dart:1:46: Variables must be declared using the keywords 'const', 'final', 'var' or a type name.
+remote_config_service.dart:1:46: Expected to find ';'.
+And 8 more...
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] injectable_generator:injectable_builder on lib/features/retro_camera/presentation/screens/video_recorder_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/features/retro_camera/presentation/screens/video_recorder_screen.dart (or an existing part) contains the following errors.
+video_recorder_screen.dart:237:3: Expected to find ';'.
+video_recorder_screen.dart:240:1: Classes can't be declared inside other classes.
+video_recorder_screen.dart:240:24: Expected a class member.
+And 12 more...
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] injectable_generator:injectable_config_builder on lib/features/monetization/presentation/modals/ai_credit_store.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/features/monetization/presentation/modals/ai_credit_store.dart (or an existing part) contains the following errors.
+ai_credit_store.dart:11:1: Classes can't be declared inside other classes.
+ai_credit_store.dart:11:21: Expected a class member.
+ai_credit_store.dart:11:29: Methods must have an explicit list of parameters.
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] injectable_generator:injectable_builder on lib/features/monetization/presentation/modals/ai_credit_store.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/features/monetization/presentation/modals/ai_credit_store.dart (or an existing part) contains the following errors.
+ai_credit_store.dart:11:1: Classes can't be declared inside other classes.
+ai_credit_store.dart:11:21: Expected a class member.
+ai_credit_store.dart:11:29: Methods must have an explicit list of parameters.
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] injectable_generator:injectable_builder on lib/features/ai_tools/presentation/screens/gobo_lighting_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/features/ai_tools/presentation/screens/gobo_lighting_screen.dart (or an existing part) contains the following errors.
+gobo_lighting_screen.dart:219:1: Expected to find '}'.
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] injectable_generator:injectable_builder on lib/presentation/screens/onboarding_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/presentation/screens/onboarding_screen.dart (or an existing part) contains the following errors.
+onboarding_screen.dart:199:11: Expected an identifier.
+onboarding_screen.dart:199:11: Expected to find ']'.
+onboarding_screen.dart:255:1: Expected a class member.
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] injectable_generator:injectable_builder on lib/features/retro_camera/presentation/screens/camera_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/features/retro_camera/presentation/screens/camera_screen.dart (or an existing part) contains the following errors.
+camera_screen.dart:456:1: Classes can't be declared inside other classes.
+camera_screen.dart:456:29: Expected a class member.
+camera_screen.dart:456:37: Methods must have an explicit list of parameters.
+And 22 more...
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] isar_generator on lib/features/retro_camera/presentation/screens/preview_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/features/retro_camera/presentation/screens/preview_screen.dart (or an existing part) contains the following errors.
+preview_screen.dart:29:5: Expected a class member.
+preview_screen.dart:30:22: Named parameters must be enclosed in curly braces ('{' and '}').
+preview_screen.dart:31:11: Named parameters must be enclosed in curly braces ('{' and '}').
+And 1 more...
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] isar_generator on lib/features/monetization/presentation/modals/ai_credit_store.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/features/monetization/presentation/modals/ai_credit_store.dart (or an existing part) contains the following errors.
+ai_credit_store.dart:11:1: Classes can't be declared inside other classes.
+ai_credit_store.dart:11:21: Expected a class member.
+ai_credit_store.dart:11:29: Methods must have an explicit list of parameters.
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] injectable_generator:injectable_config_builder on lib/features/gallery/presentation/screens/gallery_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/features/gallery/presentation/screens/gallery_screen.dart (or an existing part) contains the following errors.
+gallery_screen.dart:124:15: Expected a class member.
+gallery_screen.dart:125:23: Named parameters must be enclosed in curly braces ('{' and '}').
+gallery_screen.dart:126:32: Named parameters must be enclosed in curly braces ('{' and '}').
+And 27 more...
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] injectable_generator:injectable_config_builder on lib/features/retro_camera/presentation/screens/preview_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/features/retro_camera/presentation/screens/preview_screen.dart (or an existing part) contains the following errors.
+preview_screen.dart:29:5: Expected a class member.
+preview_screen.dart:30:22: Named parameters must be enclosed in curly braces ('{' and '}').
+preview_screen.dart:31:11: Named parameters must be enclosed in curly braces ('{' and '}').
+And 1 more...
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] injectable_generator:injectable_config_builder on lib/features/ai_tools/presentation/screens/gobo_lighting_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/features/ai_tools/presentation/screens/gobo_lighting_screen.dart (or an existing part) contains the following errors.
+gobo_lighting_screen.dart:219:1: Expected to find '}'.
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] injectable_generator:injectable_config_builder on lib/features/retro_camera/data/repositories/retro_camera_repository_impl.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/features/retro_camera/data/repositories/retro_camera_repository_impl.dart (or an existing part) contains the following errors.
+retro_camera_repository_impl.dart:184:1: 'class' can't be used as an identifier because it's a keyword.
+retro_camera_repository_impl.dart:184:1: Expected to find ';'.
+retro_camera_repository_impl.dart:184:1: Expected a statement.
+And 8 more...
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] injectable_generator:injectable_config_builder on lib/presentation/screens/home_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/presentation/screens/home_screen.dart (or an existing part) contains the following errors.
+home_screen.dart:206:6: Expected to find ')'.
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] injectable_generator:injectable_config_builder on lib/features/retro_camera/presentation/screens/video_recorder_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/features/retro_camera/presentation/screens/video_recorder_screen.dart (or an existing part) contains the following errors.
+video_recorder_screen.dart:237:3: Expected to find ';'.
+video_recorder_screen.dart:240:1: Classes can't be declared inside other classes.
+video_recorder_screen.dart:240:24: Expected a class member.
+And 12 more...
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] injectable_generator:injectable_builder on lib/features/retro_camera/data/repositories/retro_camera_repository_impl.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/features/retro_camera/data/repositories/retro_camera_repository_impl.dart (or an existing part) contains the following errors.
+retro_camera_repository_impl.dart:184:1: 'class' can't be used as an identifier because it's a keyword.
+retro_camera_repository_impl.dart:184:1: Expected to find ';'.
+retro_camera_repository_impl.dart:184:1: Expected a statement.
+And 8 more...
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] injectable_generator:injectable_config_builder on lib/features/retro_camera/presentation/screens/camera_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/features/retro_camera/presentation/screens/camera_screen.dart (or an existing part) contains the following errors.
+camera_screen.dart:456:1: Classes can't be declared inside other classes.
+camera_screen.dart:456:29: Expected a class member.
+camera_screen.dart:456:37: Methods must have an explicit list of parameters.
+And 22 more...
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] injectable_generator:injectable_builder on lib/features/retro_camera/presentation/screens/preview_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/features/retro_camera/presentation/screens/preview_screen.dart (or an existing part) contains the following errors.
+preview_screen.dart:29:5: Expected a class member.
+preview_screen.dart:30:22: Named parameters must be enclosed in curly braces ('{' and '}').
+preview_screen.dart:31:11: Named parameters must be enclosed in curly braces ('{' and '}').
+And 1 more...
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] injectable_generator:injectable_config_builder on lib/presentation/screens/onboarding_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/presentation/screens/onboarding_screen.dart (or an existing part) contains the following errors.
+onboarding_screen.dart:199:11: Expected an identifier.
+onboarding_screen.dart:199:11: Expected to find ']'.
+onboarding_screen.dart:255:1: Expected a class member.
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] injectable_generator:injectable_config_builder on lib/presentation/screens/settings_screen.dart (cached):
+
+This builder requires Dart inputs without syntax errors.
+However, package:xingcam/presentation/screens/settings_screen.dart (or an existing part) contains the following errors.
+settings_screen.dart:94:7: Expected to find ';'.
+settings_screen.dart:94:8: Expected an identifier.
+settings_screen.dart:94:8: Unexpected text ';'.
+And 3 more...
+
+Try fixing the errors and re-running the build.
+
+[SEVERE] Failed after 34.1s

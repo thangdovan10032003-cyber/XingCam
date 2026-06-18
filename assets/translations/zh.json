@@ -1,0 +1,33 @@
+{
+  "ai_home": {
+    "title": "AI 工作室",
+    "search_hint": "搜索工具 (例如：瘦脸, 消除笔)",
+    "categories": {
+      "all": "全部",
+      "portrait": "人像",
+      "ai_magic": "AI 魔法",
+      "art": "艺术",
+      "utility": "工具"
+    },
+    "tools": {
+      "remover": {
+        "title": "AI 消除笔",
+        "subtitle": "无缝擦除不需要的物体或人物"
+      },
+      "beautifier": {
+        "title": "AI 美颜",
+        "subtitle": "细腻磨皮并提升人像光泽"
+      },
+      "sky": {
+        "title": "AI 换天",
+        "subtitle": "用 AI 魔法改变天空"
+      }
+    }
+  },
+  "common": {
+    "save": "保存",
+    "cancel": "取消",
+    "processing": "处理中...",
+    "done": "完成"
+  }
+}

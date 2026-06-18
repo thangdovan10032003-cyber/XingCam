@@ -1,0 +1,23 @@
+{
+  "ai_home": {
+    "title": "Studio AI",
+    "search_hint": "Cerca strumenti (es. viso, gomma)",
+    "categories": {
+      "all": "Tutti",
+      "portrait": "Ritratto",
+      "ai_magic": "Magia AI",
+      "art": "Arte",
+      "utility": "Utility"
+    },
+    "tools": {
+      "remover": {
+        "title": "Rimozione Oggetti AI",
+        "subtitle": "Cancella oggetti o persone indesiderate"
+      },
+      "beautifier": {
+        "title": "Bellezza Pelle AI",
+        "subtitle": "Pelle liscia e brillantezza ritratto"
+      }
+    }
+  }
+}

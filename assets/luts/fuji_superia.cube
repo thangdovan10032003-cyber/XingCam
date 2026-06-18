@@ -1,0 +1,10 @@
+# Fuji Superia 400 LUT Placeholder
+# Replace this file with a real 33x33x33 .cube LUT file generated from
+# tools like HaldCLUT, Resolve, Lightroom, or download from film-lut.com
+
+LUT_3D_SIZE 33
+DOMAIN_MIN 0.0 0.0 0.0
+DOMAIN_MAX 1.0 1.0 1.0
+
+# This is NOT a valid LUT — it is a placeholder.
+# The app will fall back to the ColorFilter.matrix approximation at runtime.

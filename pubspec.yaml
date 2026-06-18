@@ -1,0 +1,148 @@
+name: xingcam
+description: A global-quality Flutter app named XingCam with Retro Camera and AI Photo Tools.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management & Router
+  flutter_bloc: ^8.1.3
+  provider: ^6.1.2
+  go_router: ^14.0.0
+  bloc_concurrency: ^0.2.5
+  easy_localization: ^3.0.7
+
+  # Clean Architecture utilities
+  equatable: ^2.0.5
+  dartz: ^0.10.1
+  uuid: ^4.3.3
+
+  # Image & Camera
+  camera: ^0.10.5+9
+  image: ^4.1.3
+  path_provider: ^2.1.5
+  image_picker: ^1.0.7
+
+  # On-Device AI (ML Kit)
+  google_mlkit_face_detection: ^0.11.0
+  google_mlkit_selfie_segmentation: ^0.8.0
+  
+  # Sovereign Edge Gen-AI 
+  tflite_flutter: ^0.12.1
+
+  # Monetization (RevenueCat)
+  purchases_flutter: ^8.1.0
+
+  # Dependency Injection
+  get_it: ^7.7.0
+  injectable: ^2.4.1
+
+  # Local Database
+  isar: ^3.1.0+1
+  isar_flutter_libs: ^3.1.0+1
+
+  # Saving to Camera Roll
+  gal: ^2.1.0
+
+  cupertino_icons: ^1.0.6
+
+  # Sharing & Permissions
+  share_plus: ^10.0.0
+  permission_handler: ^11.3.1
+
+  # Haptic Feedback
+  vibration: ^2.0.0
+
+  # Splash
+  flutter_native_splash: ^2.4.1
+
+  # Cryptographic Signing (C2PA Production)
+  crypto: ^3.0.3
+
+  # Local Feature Cache
+  shared_preferences: ^2.3.2
+
+  # Background AI Notifications (Phase 4)
+  flutter_local_notifications: ^17.2.3
+
+  # Device Hardware Detection (Phase 2)
+  device_info_plus: ^11.5.0
+
+  # Metadata & EXIF (Phase 2 Stealth)
+  native_exif: ^0.6.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_driver:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  mockito: ^5.4.4
+  build_runner: ^2.4.8
+  injectable_generator: ^2.4.1
+  isar_generator: ^3.1.0+1
+  flutter_launcher_icons: ^0.14.1
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/luts/
+    - assets/overlays/
+    - assets/sky/sunset.png
+    - assets/sky/starry_night.png
+    - assets/luts/identity.png
+    - assets/translations/en.json
+    - assets/translations/vi.json
+    - assets/fonts/Outfit-Regular.ttf
+    - assets/fonts/Outfit-Bold.ttf
+    - assets/fonts/VT323-Regular.ttf
+    - assets/fonts/PlayfairDisplay-Regular.ttf
+    - assets/fonts/PlayfairDisplay-BoldItalic.ttf
+
+  fonts:
+    - family: Outfit
+      fonts:
+        - asset: assets/fonts/Outfit-Regular.ttf
+        - asset: assets/fonts/Outfit-Bold.ttf
+          weight: 700
+    - family: VT323
+      fonts:
+        - asset: assets/fonts/VT323-Regular.ttf
+    - family: PlayfairDisplay
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay-Regular.ttf
+        - asset: assets/fonts/PlayfairDisplay-BoldItalic.ttf
+          style: italic
+          weight: 700
+    
+  shaders:
+    - assets/shaders/lut_engine.frag
+    - assets/shaders/lut_filter.frag
+    - assets/shaders/relighting_engine.frag
+    - assets/shaders/depth_bokeh_engine.frag
+    - assets/shaders/ultra_hdr_shader.frag
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: 'assets/icons/app_icon.png'
+  adaptive_icon_background: '#1A1A2E'
+  adaptive_icon_foreground: 'assets/icons/app_icon_foreground.png'
+  min_sdk_android: 21
+  web:
+    generate: false
+
+flutter_native_splash:
+  color: '#1A1A2E'
+  image: assets/icons/splash_logo.png
+  color_dark: '#1A1A2E'
+  image_dark: assets/icons/splash_logo.png
+  android_12:
+    color: '#1A1A2E'
+    icon_background_color: '#1A1A2E'

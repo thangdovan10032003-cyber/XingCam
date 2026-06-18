@@ -1,0 +1,28 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    - always_declare_return_types
+    - avoid_dynamic_calls
+    - avoid_empty_else
+    - avoid_print
+    - avoid_relative_lib_imports
+    - avoid_unnecessary_containers
+    - cancel_subscriptions
+    - close_sinks
+    - prefer_const_constructors
+    - prefer_const_declarations
+    - prefer_final_fields
+    - prefer_single_quotes
+    - sized_box_for_whitespace
+    - sort_child_properties_last
+    - use_key_in_widget_constructors
+
+analyzer:
+  errors:
+    # Allow sealed class pattern matching without default
+    non_exhaustive_switch_expression: warning
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "test_driver/**"

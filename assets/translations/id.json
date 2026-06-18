@@ -1,0 +1,13 @@
+{
+  "ai_home": {
+    "title": "Studio AI",
+    "search_hint": "Cari alat (misal: hapus objek, mulus)",
+    "categories": {
+      "all": "Semua",
+      "portrait": "Potret",
+      "ai_magic": "Sihir AI",
+      "art": "Seni",
+      "utility": "Utilitas"
+    }
+  }
+}

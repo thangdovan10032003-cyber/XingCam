@@ -1,0 +1,17 @@
+{
+  "home": "XingCam",
+  "ai_tools": "Công cụ AI",
+  "camera": "Máy ảnh",
+  "gallery": "Thư viện",
+  "settings": "Cài đặt",
+  "onboarding_skip": "Bỏ qua",
+  "onboarding_next": "Tiếp theo",
+  "onboarding_start": "Bắt đầu",
+  "remove_object": "Xóa vật thể",
+  "compare_result": "So sánh kết quả",
+  "edit_again": "Sửa lại",
+  "save_to_gallery": "Lưu vào thư viện",
+  "object_removed": "Đã xóa vật thể!",
+  "no_photos": "Chưa có ảnh nào",
+  "open_camera": "Mở máy ảnh"
+}

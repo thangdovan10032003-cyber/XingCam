@@ -1,0 +1,108 @@
+﻿
+> Configure project :gradle
+WARNING: Unsupported Kotlin plugin version.
+The `embedded-kotlin` and `kotlin-dsl` plugins rely on features of Kotlin `2.2.0` that might work differently than in the requested version `2.2.20`.
+
+> Task :gradle:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle:compileKotlin UP-TO-DATE
+> Task :gradle:compileJava NO-SOURCE
+> Task :gradle:compileGroovy NO-SOURCE
+> Task :gradle:pluginDescriptors UP-TO-DATE
+> Task :gradle:processResources UP-TO-DATE
+> Task :gradle:classes UP-TO-DATE
+> Task :gradle:jar UP-TO-DATE
+
+> Configure project :
+.\gradlew : e: file:///
+C:/Users/Admin/Pictures
+/XingCam/android/build.
+gradle.kts:26:13: 'fun 
+kotlinOptions(fn: 
+KotlinJvmOptions.() -> 
+Unit): Unit' is 
+deprecated. Please 
+migrate to the 
+compilerOptions DSL. 
+More details are here: 
+https://kotl.in/u1r8ln.
+At line:1 char:1
++ .\gradlew 
+bundleRelease 2>&1 | 
+Out-File -FilePath 
+"..\gradle_full.txt ...
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (e: file:///C:   
+ /U...kotl.in/u1r8l    
+n.:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+e: file:///C:/Users/Adm
+in/Pictures/XingCam/and
+roid/build.gradle.kts:2
+7:17: 'var jvmTarget: 
+String' is deprecated. 
+Please migrate to the 
+compilerOptions DSL. 
+More details are here: 
+https://kotl.in/u1r8ln.
+
+FAILURE: Build failed 
+with an exception.
+
+* Where:
+Build file 'C:\Users\Ad
+min\Pictures\XingCam\an
+droid\build.gradle.kts'
+ line: 26
+
+* What went wrong:
+Script compilation 
+errors:
+
+  Line 26:             
+kotlinOptions {
+                       
+^ 'fun 
+kotlinOptions(fn: 
+KotlinJvmOptions.() -> 
+Unit): Unit' is 
+deprecated. Please 
+migrate to the 
+compilerOptions DSL. 
+More details are here: 
+https://kotl.in/u1r8ln.
+
+  Line 27:             
+    jvmTarget = "11"
+                       
+    ^ 'var jvmTarget: 
+String' is deprecated. 
+Please migrate to the 
+compilerOptions DSL. 
+More details are here: 
+https://kotl.in/u1r8ln.
+
+2 errors
+
+* Try:
+> Run with 
+--stacktrace option to 
+get the stack trace.
+> Run with --info or 
+--debug option to get 
+more log output.
+> Run with --scan to 
+generate a Build Scan 
+(Powered by 
+Develocity).
+> Get more help at http
+s://help.gradle.org.
+
+BUILD FAILED in 2s
+4 actionable tasks: 4 up-to-date

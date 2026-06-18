@@ -1,0 +1,33 @@
+{
+  "ai_home": {
+    "title": "Studio IA",
+    "search_hint": "Outils de recherche (ex: visage, gomme)",
+    "categories": {
+      "all": "Tout",
+      "portrait": "Portrait",
+      "ai_magic": "Magie IA",
+      "art": "Art",
+      "utility": "Utilitaire"
+    },
+    "tools": {
+      "remover": {
+        "title": "Gomme Magique IA",
+        "subtitle": "Effacez les objets ou personnes"
+      },
+      "beautifier": {
+        "title": "Sublimation Peau IA",
+        "subtitle": "Peau lisse et éclat du portrait"
+      },
+      "sky": {
+        "title": "Remplacement Ciel IA",
+        "subtitle": "Transformez le ciel avec la magie IA"
+      }
+    }
+  },
+  "common": {
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "processing": "Traitement...",
+    "done": "Terminé"
+  }
+}

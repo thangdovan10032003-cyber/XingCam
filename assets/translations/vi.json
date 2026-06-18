@@ -1,0 +1,568 @@
+{
+  "ai_home": {
+    "title": "AI Studio",
+    "search_hint": "Tìm kiếm công cụ (ví dụ: bóp eo, xóa mụn)",
+    "categories": {
+      "all": "Tất cả",
+      "portrait": "Chân dung",
+      "ai_magic": "AI Ma thuật",
+      "art": "Nghệ thuật",
+      "utility": "Tiện ích"
+    },
+    "tools": {
+      "remover": {
+        "title": "Xóa vật thể AI",
+        "subtitle": "Xóa bỏ vật thể hoặc người không mong muốn"
+      },
+      "beautifier": {
+        "title": "Làm đẹp da AI",
+        "subtitle": "Làm mịn da và tăng độ rạng rỡ chân dung"
+      },
+      "sky": {
+        "title": "Thay bầu trời AI",
+        "subtitle": "Biến đổi bầu trời với phép màu AI"
+      },
+      "relighter": {
+        "title": "Ánh sáng chân dung AI",
+        "subtitle": "Hiệu ứng ánh sáng studio chuyên nghiệp"
+      },
+      "eyewear": {
+        "title": "Thử kính mắt",
+        "subtitle": "Thử nghiệm kính sang trọng ảo",
+        "tutorial_title": "Kính mắt tùy chỉnh v4",
+        "tutorial_desc": "Mới: Tải lên BẤT KỲ chiếc kính nào từ ảnh! AI của chúng tôi sẽ tự động tách gọng để bạn có thể thử ngay lập tức.",
+        "extracting": "ĐANG TÁCH GỌNG TÙY CHỈNH...",
+        "optimizing": "ĐANG TỐI ƯU VỊ TRÍ...",
+        "collection": "BỘ SƯU TẬP KÍNH",
+        "scale": "TỶ LỆ",
+        "shadow": "ĐỔ BÓNG",
+        "frames": {
+          "aviator": "Phi công Vàng",
+          "modern": "Hiện đại Đen",
+          "cateye": "Mắt mèo Pro",
+          "wayfarer": "Wayfarer",
+          "titanium": "Titanium"
+        },
+        "materials": {
+          "metal": "Kim loại",
+          "acetate": "Acetate",
+          "tortoise": "Mai rùa",
+          "gloss": "Bóng loáng",
+          "silver": "Bạc"
+        }
+      },
+      "eye_bag": {
+        "title": "Xóa bọng mắt",
+        "subtitle": "Làm mịn vùng dưới mắt và nếp nhăn",
+        "tutorial_title": "Xóa bọng mắt & Nếp nhăn",
+        "tutorial_desc": "Giảm bọng mắt dưới và làm mờ các nếp nhăn nhỏ để có vẻ ngoài tươi trẻ, rạng rỡ. Điều chỉnh từng thông số để có kết quả tự nhiên.",
+        "removal": "XÓA BỌNG MẮT",
+        "smooth": "LÀM MỊN NẾP NHĂN",
+        "brighten": "LÀM SÁNG MẮT"
+      },
+      "gobo": {
+        "title": "Ánh sáng Gobo AI",
+        "subtitle": "Chiếu bóng đổ và họa tiết nghệ thuật"
+      },
+      "sculptor": {
+        "title": "Điêu khắc chân dung",
+        "subtitle": "Tinh chỉnh đường nét khuôn mặt",
+        "tutorial_title": "Điêu khắc lưới chuyên nghiệp",
+        "tutorial_desc": "Công cụ Mesh Liquify mới! Điều chỉnh tỷ lệ với biến dạng đỉnh cục bộ để có cái nhìn tự nhiên hơn mà không làm méo toàn bộ hậu cảnh.",
+        "slim_waist": "Eo thon",
+        "long_legs": "Chân dài"
+      }
+    }
+  },
+  "common": {
+    "save": "Lưu",
+    "done": "Xong",
+    "cancel": "Hủy",
+    "saved": "Đã lưu thành công",
+    "error": "Lỗi: {}",
+    "show_original": "Xem ảnh gốc",
+    "powered_by": "Vận hành bởi Flutter & AI",
+    "processing": "Đang xử lý...",
+    "view": "Xem",
+    "beauty": "Làm đẹp",
+    "transition": "Chuyển cảnh",
+    "back": "Quay lại"
+  },
+  "preview": {
+    "image_not_found": "Không tìm thấy ảnh",
+    "saved_to_gallery": "Đã lưu vào thư viện!",
+    "error_saving": "Lỗi khi lưu",
+    "photo_captured": "Đã chụp ảnh"
+  },
+  "ai_assistant": {
+    "hint": "Nói với AI cách chỉnh sửa...",
+    "listening": "Đang nghe...",
+    "applied_notification": "AI: Đã áp dụng {} chỉnh sửa theo ý định của bạn."
+  },
+  "video_recorder": {
+    "play": "PLAY ►",
+    "sp": "SP",
+    "transition": "HIỆU ỨNG CHUYỂN CẢNH",
+    "recording": "ĐANG QUAY"
+  },
+  "recipe": {
+    "my_recipes": "Công thức của tôi",
+    "library": "Thư viện công thức",
+    "save_as": "Lưu thành công thức",
+    "no_recipes": "Không tìm thấy công thức",
+    "save_as_title": "Lưu thành công thức",
+    "name_hint": "Nhập tên công thức...",
+    "save_success": "Đã lưu công thức vào thư viện!",
+    "share_title": "Chia sẻ công thức",
+    "shortcode_label": "Mã chia sẻ: {}",
+    "share_desc": "Bất kỳ ai có mã này đều có thể áp dụng phong cách của bạn."
+  },
+  "home": {
+    "subtitle": "ĐỘNG CƠ ANALOG ĐỘC LẬP",
+    "tools": {
+      "camera": {
+        "title": "Máy ảnh Retro",
+        "subtitle": "Trải nghiệm Analog",
+        "desc": "Chụp với giả lập phim thời gian thực."
+      },
+      "ai": {
+        "title": "AI Studio",
+        "subtitle": "Trí tuệ Cục bộ",
+        "desc": "Nâng tầm chân dung với AI trên thiết bị."
+      }
+    },
+    "badges": {
+      "offline": "OFFLINE",
+      "ai": "ĐANG CHẠY"
+    },
+    "gallery": {
+      "title": "Lưu trữ hình ảnh",
+      "subtitle": "Quản lý các bức ảnh của bạn",
+      "empty_subtitle": "Hãy chụp ảnh để bắt đầu lưu trữ của bạn.",
+      "evaluate_tooltip": "Tìm ảnh đẹp nhất",
+      "evaluate_success": "AI đã tìm thấy {} bức ảnh xuất sắc!",
+      "no_photos": "Chưa có ảnh nào",
+      "open_camera": "Mở Máy Ảnh",
+      "cta_desc": "Mở Máy ảnh Retro và chụp bức hình đầu tiên của bạn!",
+      "selected": "Đã chọn {}"
+    }
+  },
+  "onboarding": {
+    "skip": "Bỏ qua",
+    "start": "Bắt đầu",
+    "next": "Tiếp theo",
+    "slides": {
+      "retro": {
+        "title": "Chụp phong cách Retro",
+        "subtitle": "Ghi lại khoảnh khắc với bộ lọc phim thời gian thực lấy cảm hứng từ Fuji và Kodak."
+      },
+      "filters": {
+        "title": "Áp dụng lớp phủ Phim",
+        "subtitle": "Thêm hạt film, lọt sáng và hiệu ứng cháy phim để biến ảnh thành kỷ niệm analog."
+      },
+      "ai": {
+        "title": "Xóa vật thể AI",
+        "subtitle": "Tô lên bất cứ thứ gì bạn muốn xóa. Công cụ AI Inpainting của chúng tôi sẽ xóa sạch nó."
+      }
+    }
+  },
+  "settings": {
+    "title": "Cài đặt",
+    "version": "Phiên bản",
+    "sections": {
+      "general": "Chung",
+      "legal": "Pháp lý",
+      "data": "Dữ liệu"
+    },
+    "export_quality": {
+      "title": "Chất lượng xuất ảnh",
+      "high": "Cao (Tối đa 4K)",
+      "medium": "Trung bình (2K)",
+      "standard": "Tiêu chuẩn (1080p)"
+    },
+    "privacy": "Chính sách quyền riêng tư",
+    "privacy_desc": "Xem chính sách sử dụng dữ liệu",
+    "terms": "Điều khoản dịch vụ",
+    "terms_desc": "Đọc điều khoản sử dụng",
+    "clear": {
+      "title": "Xóa tất cả ảnh",
+      "subtitle": "Xóa toàn bộ ảnh đã lưu khỏi bộ nhớ cục bộ",
+      "confirm": "Hành động này sẽ xóa vĩnh viễn tất cả ảnh trong ứng dụng. Không thể hoàn tác.",
+      "action": "Xóa hết"
+    }
+  },
+  "camera": {
+    "timer": "Đếm ngược: {}",
+    "flip": "Lật Camera",
+    "permission_denied": "Truy cập camera bị từ chối. Vui lòng bật trong Cài đặt.",
+    "init_error": "Khởi tạo camera thất bại: {}"
+  },
+  "monetization": {
+    "store_title": "Điểm AI",
+    "watch_ad": "Xem quảng cáo",
+    "free_credit": "Nhận 1 điểm miễn phí",
+    "pro_title": "XingCam Pro",
+    "pro_price": "239.000đ/tháng",
+    "remaining_credits": "{} Điểm AI"
+  },
+  "gallery": {
+    "batch_title": "Trình sửa ảnh hàng loạt AI",
+    "processing_batch": "Đang xử lý {} ảnh...",
+    "select_recipe": "Chọn công thức để áp dụng",
+    "process_btn": "Xử lý ảnh",
+    "selected": {
+      "one": "Đã chọn 1 ảnh",
+      "other": "Đã chọn {} ảnh"
+    },
+    "empty_title": "Thư viện của bạn đang trống",
+    "empty_subtitle": "Hãy ghi lại những khoảnh khắc retro bằng camera!",
+    "projector_title": "MÁY CHIẾU CỔ ĐIỂN"
+  },
+  "zine": {
+    "title": "Trình tạo Zine",
+    "render": "Xuất bản",
+    "symphony": "BẢN GIAO HƯỞNG",
+    "soul": "TÂM HỒN RETRO",
+    "toolbar": {
+      "add_media": "Thêm tệp",
+      "add_text": "Thêm chữ",
+      "auto_layout": "Bố cục tự động",
+      "themes": "Chủ đề"
+    }
+  },
+  "tools": {
+    "collection": {
+      "title": "Hòa hợp bộ sưu tập",
+      "tutorial_title": "Hòa hợp bộ sưu tập",
+      "tutorial_desc": "Đảm bảo tính nhất quán về thẩm mỹ trong loạt ảnh của bạn. Chọn một ảnh \"Gốc\" để đồng bộ độ sáng, nhiệt độ màu và sắc thái cho cả bộ.",
+      "master": "GỐC",
+      "exposure": "ĐỘ SÁNG",
+      "temp": "NHIỆT ĐỘ",
+      "harmonizing": "ĐANG HÒA HỢP...",
+      "sync_all": "ĐỒNG BỘ CẢ BỘ"
+    },
+    "outfit": {
+      "title": "Studio Trang phục AI",
+      "tutorial_title": "Hoàn thiện trang phục AI",
+      "tutorial_desc": "Tái hiện phong cách của bạn với AI. Thay đổi trang phục để phù hợp với bất kỳ bối cảnh hay thẩm mỹ nào một cách tự động trong khi vẫn giữ nguyên danh tính của bạn.",
+      "fitting": "ĐANG THỬ ĐỒ...",
+      "style_theme": "CHỦ ĐỀ PHONG CÁCH",
+      "styles": {
+        "business": "Công sở",
+        "streetwear": "Đường phố",
+        "vintage": "Cổ điển",
+        "summer": "Mùa hè",
+        "cyberpunk": "Cyberpunk"
+      }
+    },
+    "text": {
+      "title": "Xưởng Chữ Nghệ thuật",
+      "tutorial_title": "Xưởng Chữ & Phông nền",
+      "tutorial_desc": "Thêm văn bản nghệ thuật vào ảnh của bạn. Chọn từ các phông chữ cao cấp, điều chỉnh kích thước và màu sắc, và kéo văn bản đến bất kỳ đâu trên ảnh.",
+      "hint": "Nhập văn bản của bạn...",
+      "default_text": "Câu chuyện của bạn."
+    },
+    "wardrobe": {
+      "title": "Đồng bộ tủ đồ",
+      "tutorial_title": "Đồng bộ tủ đồ",
+      "tutorial_desc": "Đồng bộ hóa trang phục của bạn với thẩm mỹ phim. Chọn một màu sắc hài hòa bên dưới để đổi màu trang phục cho sự thống nhất sắc thái hoàn hảo.",
+      "harmonic": "BẢNG MÀU HÀI HÒA",
+      "intensity": "Cường độ"
+    },
+    "teeth": {
+      "title": "Làm trắng răng",
+      "tutorial_title": "Làm trắng răng",
+      "tutorial_desc": "Đạt được nụ cười trắng sáng và tự tin. Điều chỉnh mức độ làm trắng và độ tự nhiên để có kết quả thực tế, sẵn sắc trước ống kính.",
+      "level": "MỨC ĐỘ LÀM TRẮNG",
+      "badges": {
+        "natural": "Tự nhiên",
+        "light_polish": "Đánh bóng nhẹ",
+        "bright_smile": "Nụ cười rạng rỡ",
+        "hollywood": "Trắng Hollywood"
+      }
+    },
+    "mimic": {
+      "title": "Mô phỏng phong cách AI",
+      "tutorial_title": "Mô phỏng phong cách",
+      "tutorial_desc": "Tải lên bất kỳ bức ảnh nào truyền cảm hứng cho bạn. AI sẽ phân tích sự phân loại màu sắc và đề xuất một Công thức XingCam phù hợp.",
+      "upload": "Tải ảnh tham chiếu",
+      "analyzing": "Đang phân tích phong cách...",
+      "matched": "ĐÃ KHỚP PHONG CÁCH",
+      "suggested": "Gợi ý: {}",
+      "generate": "Tạo công thức"
+    },
+    "art": {
+      "title": "Nghệ thuật AI",
+      "tutorial_title": "Nghệ thuật AI",
+      "tutorial_desc": "Biến đổi bức ảnh của bạn thành tác phẩm nghệ thuật tuyệt đẹp. Chọn từ Anime, Sơn dầu, Ghibli và nhiều kiểu khác. Điều chỉnh cường độ để hòa trộn phong cách tự nhiên.",
+      "blend": "HÒA TRỘN",
+      "styles": {
+        "anime": "Anime",
+        "oil_paint": "Sơn dầu",
+        "watercolor": "Màu nước",
+        "ghibli": "Ghibli",
+        "sketch": "Phác thảo",
+        "neon": "Neon"
+      }
+    },
+    "story": {
+      "title": "Mẫu tin Story",
+      "tutorial_title": "Mẫu tin Story",
+      "tutorial_desc": "Tạo nội dung Story và TikTok thu hút chỉ trong vài giây. Chọn mẫu, thêm chú thích và chia sẻ trực tiếp lên nền tảng yêu thích của bạn.",
+      "caption": "Thêm chú thích",
+      "default_caption": "Viết câu chuyện của bạn...",
+      "templates": {
+        "ig_classic": "Bản sắc Instagram",
+        "tt_bold": "TikTok Cá tính",
+        "split_duo": "Cặp đôi ngăn cách",
+        "cinematic": "Điện ảnh",
+        "minimal": "Tối giản"
+      }
+    },
+    "spot": {
+      "title": "Xóa mụn AI",
+      "tutorial_title": "Xóa mụn AI",
+      "tutorial_desc": "Chạm vào các vết thâm, mụn hoặc tàn nhang để xóa chúng ngay lập tức. Điều chỉnh độ mịn để hòa trộn mượt mà với vùng da xung quanh.",
+      "erase_mode": "Chế độ Xóa",
+      "pan_mode": "Chế độ Di chuyển",
+      "smoothness": "ĐỘ MỊN",
+      "brush_size": "KÍCH THƯỚC CỌ"
+    },
+    "smart_crop": {
+      "title": "Cắt thông minh",
+      "export": "Xuất file",
+      "tutorial_title": "Cắt & Đổi kích thước AI",
+      "tutorial_desc": "Cắt tỉ lệ hoàn hảo cho mọi nền tảng. Chọn Instagram, TikTok, YouTube hoặc kích thước tùy chỉnh chỉ với một chạm.",
+      "ai_uncrop": "AI UNCROP sang {}",
+      "ratios": {
+        "free": "Tự do",
+        "custom": "Tùy chỉnh",
+        "1_1": "1:1",
+        "insta_post": "Bài đăng Instagram",
+        "4_5": "4:5",
+        "portrait_ig": "Chân dung IG",
+        "9_16": "9:16",
+        "story_tiktok": "Story / TikTok",
+        "16_9": "16:9",
+        "youtube": "YouTube",
+        "4_3": "4:3",
+        "classic": "Cổ điển",
+        "3_2": "3:2",
+        "dslr": "Máy ảnh DSLR"
+      }
+    },
+    "sky": {
+      "title": "Thay bầu trời AI",
+      "select": "Chọn bầu trời mới",
+      "sunset": "Hoàng hôn",
+      "starry": "Đêm đầy sao"
+    },
+    "skin_tone": {
+      "title": "Tông màu da",
+      "tutorial_title": "Điều chỉnh tông da",
+      "tutorial_desc": "Tinh chỉnh tông màu da để có thẩm mỹ hoàn hảo. Điều chỉnh độ sáng, độ ấm và độ hồng trong khi AI giữ nguyên kết cấu da.",
+      "brightness": "ĐỘ SÁNG",
+      "warmth": "ĐỘ ẤM",
+      "rosiness": "ĐỘ HỒNG",
+      "apply": "Áp dụng",
+      "presets": {
+        "porcelain": "Sứ",
+        "dewy": "Sương mai",
+        "bronze": "Đồng",
+        "golden": "Vàng óng",
+        "matte": "Lì"
+      }
+    },
+    "skin_beautifier": {
+      "title": "Làm đẹp da AI",
+      "intensity": "Mức độ làm đẹp",
+      "desc": "AI đang làm mịn da và tăng độ rạng rỡ trong khi vẫn giữ nguyên kết cấu da."
+    },
+    "relighting": {
+      "title": "Chiếu sáng lại AI",
+      "intensity": "CƯỜNG ĐỘ ÁNH SÁNG",
+      "next": "Áp dụng",
+      "modes": {
+        "side": "Ánh sáng bên",
+        "rim": "Ánh sáng viền",
+        "golden": "Giờ vàng",
+        "double": "Phơi sáng kép"
+      }
+    },
+    "sculptor": {
+      "title": "Điêu khắc AI",
+      "slenderize": "Làm thon gọn",
+      "height": "Kéo dài chân",
+      "elite_skin": "Da Elite",
+      "dream_glow": "Dream Glow",
+      "tutorial_title": "Điêu khắc chân dung",
+      "tutorial_desc": "Đạt đến sự hoàn hảo. Sử dụng Làm thon gọn để bóp mặt/dáng và Dream Glow để thêm lớp hoàn thiện da chuyên nghiệp."
+    },
+    "mosaic": {
+      "title": "Làm mờ mảnh ghép",
+      "subtitle": "Làm mờ pixel nghệ thuật",
+      "tutorial_title": "Bút vẽ Mảnh ghép & Làm mờ",
+      "tutorial_desc": "Dễ dàng ẩn thông tin nhạy cảm hoặc tạo chiều sâu thẩm mỹ bằng cách vẽ các hiệu ứng mảnh ghép hoặc làm mờ trực tiếp lên ảnh của bạn.",
+      "intensity": "MẬT ĐỘ PIXEL",
+      "size": "Kích thước cọ",
+      "modes": {
+        "mosaic": "Mảnh ghép",
+        "blur": "Làm mờ",
+        "dot": "Điểm"
+      }
+    },
+    "bg_replace": {
+      "title": "Thay nền",
+      "subtitle": "Thay đổi phông nền bằng AI",
+      "tutorial_title": "Thay nền AI",
+      "tutorial_desc": "AI tự động tách chủ thể và thay thế phông nền. Chọn một mẫu có sẵn hoặc làm mờ nền để có hiệu ứng xóa phông chuyên nghiệp.",
+      "choose_bg": "CHỌN PHÔNG NỀN",
+      "blur": "LÀM MỜ NỀN",
+      "presets": {
+        "blur": "Nền mờ",
+        "beach": "Bờ biển",
+        "city": "Thành phố đêm",
+        "forest": "Rừng rậm",
+        "studio": "Phòng Studio",
+        "paris": "Paris"
+      }
+    },
+    "collage": {
+      "title": "Tạo ảnh ghép",
+      "subtitle": "Kết hợp ảnh vào khung lưới",
+      "tutorial_title": "Biên tập ảnh ghép",
+      "tutorial_desc": "Tạo lưới ảnh đẹp mắt. Chọn bố cục, thêm ảnh của bạn và điều chỉnh khoảng cách cũng như độ bo góc để có một khung hình mạng xã hội hoàn hảo.",
+      "layout": "BỐ CỤC",
+      "spacing": "KHOẢNG CÁCH",
+      "radius": "BO GÓC",
+      "photo_label": "Ảnh"
+    },
+    "memory": {
+      "title": "Hồi sinh ký ức AI",
+      "tutorial_title": "Hồi sinh ký ức AI",
+      "tutorial_desc": "Thổi bùng sức sống vào những ký ức cũ. Sử dụng AI để nâng cấp, làm sắc nét và khôi phục màu sắc rực rỡ cho những bức ảnh cổ điển của bạn.",
+      "revive": "HỒI SINH KÝ ỨC",
+      "settings": {
+        "sharpening": "Làm nét siêu độ phân giải",
+        "denoise": "Khử nhiễu AI",
+        "color_pop": "Màu sắc sống động"
+      }
+    },
+    "makeup": {
+      "title": "Studio trang điểm",
+      "tutorial_title": "Trang điểm AI",
+      "tutorial_desc": "Nâng tầm phong cách với trang điểm kỹ thuật số. Thoa son và đánh má hồng với độ chính xác AI và cường độ có thể tùy chỉnh.",
+      "lipstick": "Màu son",
+      "lipstick_intensity": "CƯỜNG ĐỘ SON",
+      "blush_intensity": "CƯỜNG ĐỘ MÁ HỒNG"
+    },
+    "magic_eraser": {
+      "title": "Tẩy ma thuật",
+      "remove": "Xóa",
+      "removing": "AI ĐANG XÓA VẬT THỂ...",
+      "paint_hint": "Bôi lên vật thể bạn muốn xóa trước.",
+      "success": "Sovereign AI: Đã xóa vật thể ngay trên thiết bị.",
+      "compare": "So sánh",
+      "edit_again": "Sửa lại",
+      "tutorial_title": "Tẩy ma thuật AI",
+      "tutorial_desc": "Xóa vật thể không mong muốn hoặc người lạ chỉ với một lần lướt. Bôi lên những gì bạn muốn biến mất và để AI lo phần còn lại.",
+      "brush_size": "KÍCH THƯỚC CỌ",
+      "load_error": "Không thể tải kích thước ảnh.",
+      "accessibility": {
+        "protanopia": "Mù màu đỏ (Protanopia)",
+        "deuteranopia": "Mù màu xanh lá (Deuteranopia)",
+        "tritanopia": "Mù màu xanh dương (Tritanopia)"
+      }
+    },
+    "magic_brush": {
+      "title": "Cọ ma thuật",
+      "add": "Thêm",
+      "brush_style": "KIỂU CỌ",
+      "tutorial_title": "Studio cọ ma thuật",
+      "tutorial_desc": "Vẽ những nét vẽ ma thuật lên ảnh của bạn. Chọn kiểu cọ và vẽ trực tiếp lên canvas để thêm các thành phần nghệ thuật.",
+      "size": "KÍCH THƯỚC",
+      "brushes": {
+        "sparkle": "Lấp lánh",
+        "neon": "Neon",
+        "hearts": "Trái tim",
+        "stars": "Ngôi sao",
+        "gold": "Vàng kim"
+      }
+    },
+    "hair": {
+      "title": "Nhuộm tóc AI",
+      "tutorial_title": "Nhuộm tóc AI",
+      "tutorial_desc": "Thử bất kỳ màu tóc nào một cách ảo. Từ các tông màu tự nhiên đến các màu sắc kỳ ảo táo bạo. Điều chỉnh cường độ cho các điểm nhấn tinh tế hoặc thay đổi ngoạn mục.",
+      "hair_color": "MÀU TÓC",
+      "intensity": "CƯỜNG ĐỘ",
+      "colors": {
+        "jet_black": "Đen huyền",
+        "espresso": "Espresso",
+        "chestnut": "Hạt dẻ",
+        "honey": "Mật ong",
+        "ash_blonde": "Vàng khói",
+        "rose_gold": "Vàng hồng",
+        "platinum": "Bạch kim",
+        "violet": "Tím",
+        "teal": "Xanh mòng két",
+        "fire_red": "Đỏ rực"
+      }
+    },
+    "gobo": {
+      "title": "Ánh sáng Gobo AI"
+    },
+    "face_swap": {
+      "title": "Thay mặt AI",
+      "tutorial_title": "Thay thế khuôn mặt AI",
+      "tutorial_desc": "Thay đổi khuôn mặt mượt mà với công cụ AI nội bộ. Chọn một khuôn mặt trong ảnh và chọn mặt mục tiêu để thay thế.",
+      "select_target": "CHỌN MẶT MỤC TIÊU",
+      "upload_custom": "Tải lên mặt tùy chỉnh",
+      "swapping": "ĐANG THAY MẶT...",
+      "targets": {
+        "celebrity_a": "Người nổi tiếng A",
+        "anime_boy": "Chàng trai Anime",
+        "vintage_star": "Sao cổ điển",
+        "cosplay_girl": "Cô gái Cosplay",
+        "sketch_mode": "Chế độ phác thảo"
+      }
+    },
+    "ar_stickers": {
+      "title": "Nhãn dán AR",
+      "tutorial_title": "Nhãn dán AR 3D",
+      "tutorial_desc": "Kéo và thả nhãn dán 3D vào cảnh của bạn. Chúng tự động điều chỉnh theo ánh sáng và góc nhìn của ảnh.",
+      "apply": "Áp dụng"
+    },
+    "borders": {
+      "title": "Khung ảnh nghệ thuật",
+      "tutorial_title": "Khung ảnh nghệ thuật",
+      "tutorial_desc": "Tạo điểm nhấn chuyên nghiệp với khung Polaroid, viền tối giản hoặc cạnh phim mờ ảo.",
+      "save": "Lưu",
+      "frame_style": "KIỂU KHUNG",
+      "width": "ĐỘ RỘNG",
+      "names": {
+        "none": "Không",
+        "polaroid": "Polaroid",
+        "minimal": "Tối giản",
+        "darkness": "Bóng tối",
+        "hacker": "Hacker",
+        "dreamy": "Mơ mộng"
+      }
+    }
+  },
+  "accessibility": {
+    "skin_tone": {
+      "balanced": "Tông da: Cân bằng",
+      "too_red": "Tông da: Quá đỏ",
+      "too_yellow": "Tông da: Quá vàng"
+    }
+  },
+  "legal": {
+    "on_device_secure": "XỬ LÝ TRÊN MÁY",
+    "consent": {
+      "title": "Bảo mật & Quyền riêng tư",
+      "desc": "Để kích hoạt các tính năng Chân dung AI, chúng tôi phân tích các điểm mốc trên khuôn mặt một cách tạm thời. \n\n• Quá trình xử lý diễn ra 100% trên thiết bị.\n• Không có dữ liệu sinh trắc học nào được lưu trữ hoặc gửi tới máy chủ.\n• Dữ liệu sẽ được xóa ngay lập tức khi đóng công cụ.",
+      "agree": "Đồng ý & Tiếp tục",
+      "compliance": "XingCam tuân thủ các tiêu chuẩn GDPR & BIPA."
+    }
+  }
+}

@@ -1,0 +1,8 @@
+# Template for Google Play Store Upload Configuration
+# Do NOT commit the real key.properties to version control.
+# Extract your production keystore and place it relative to the app module.
+# 
+# storePassword=your_store_password
+# keyPassword=your_key_password
+# keyAlias=upload
+# storeFile=../upload-keystore.jks

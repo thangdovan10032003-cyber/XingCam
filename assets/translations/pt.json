@@ -1,0 +1,33 @@
+{
+  "ai_home": {
+    "title": "Estúdio AI",
+    "search_hint": "Buscar ferramentas (ex: emagrecer, apagar)",
+    "categories": {
+      "all": "Tudo",
+      "portrait": "Retrato",
+      "ai_magic": "Magia AI",
+      "art": "Arte",
+      "utility": "Utilidade"
+    },
+    "tools": {
+      "remover": {
+        "title": "Removedor AI",
+        "subtitle": "Apague objetos hoặc pessoas indesejadas"
+      },
+      "beautifier": {
+        "title": "Embelezar Pele AI",
+        "subtitle": "Pele lisa và brilho de retrato"
+      },
+      "sky": {
+        "title": "Troca de Céu AI",
+        "subtitle": "Transforme o céu com magia AI"
+      }
+    }
+  },
+  "common": {
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "processing": "Processando...",
+    "done": "Pronto"
+  }
+}

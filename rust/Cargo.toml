@@ -1,0 +1,15 @@
+[package]
+name = "xingcam_rust_core"
+version = "1.0.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "staticlib"]
+
+[dependencies]
+# Standard FRB link
+flutter_rust_bridge = "2.0.0"
+
+# Sovereign Cryptography and Pixel Math
+image = "0.24.7"
+sha2 = "0.10.8"

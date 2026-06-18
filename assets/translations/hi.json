@@ -1,0 +1,13 @@
+{
+  "ai_home": {
+    "title": "AI स्टूडियो",
+    "search_hint": "खोजें (जैसे चेहरा, इरेज़र)",
+    "categories": {
+      "all": "सभी",
+      "portrait": "पोर्ट्रेट",
+      "ai_magic": "AI मैजिक",
+      "art": "कला",
+      "utility": "उपयोगिता"
+    }
+  }
+}

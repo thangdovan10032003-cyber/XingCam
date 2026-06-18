@@ -1,0 +1,597 @@
+{
+  "ai_home": {
+    "title": "AI Studio",
+    "search_hint": "Search tools (e.g., slim body, remove acne)",
+    "categories": {
+      "all": "All",
+      "portrait": "Portrait",
+      "ai_magic": "AI Magic",
+      "art": "Art",
+      "utility": "Utility"
+    },
+    "tools": {
+      "remover": {
+        "title": "AI Object Remover",
+        "subtitle": "Remove unwanted objects or people"
+      },
+      "beautifier": {
+        "title": "AI Skin Beautifier",
+        "subtitle": "Smooth skin and enhance portrait radiance"
+      },
+      "sky": {
+        "title": "AI Sky Replacement",
+        "subtitle": "Transform the sky with AI magic"
+      },
+      "relighter": {
+        "title": "AI Portrait Lighting",
+        "subtitle": "Professional studio lighting effects"
+      },
+      "eye_bag": {
+        "title": "Eye Bag Remover",
+        "subtitle": "Smooth under-eye area and wrinkles",
+        "tutorial_title": "Eye Bag & Wrinkle Remover",
+        "tutorial_desc": "Reduce under-eye bags and smooth fine lines for a refreshed, youthful look. Adjust each parameter for a natural result.",
+        "removal": "EYE BAG REMOVAL",
+        "smooth": "WRINKLE SMOOTH",
+        "brighten": "EYE BRIGHTEN"
+      },
+      "gobo": {
+        "title": "AI Gobo Lighting",
+        "subtitle": "Project artistic shadows and patterns"
+      },
+      "sculptor": {
+        "title": "Portrait Sculptor",
+        "subtitle": "Fine-tune facial and body contours",
+        "tutorial_title": "Pro Mesh Sculptor",
+        "tutorial_desc": "New Mesh Liquify engine! Adjust proportions with local vertex deformation for a more natural look without distorting the entire background.",
+        "slim_waist": "Slim Waist",
+        "long_legs": "Longer Legs"
+      }
+    }
+  },
+  "common": {
+    "save": "Save",
+    "done": "Done",
+    "cancel": "Cancel",
+    "saved": "Saved successfully",
+    "error": "Error: {}",
+    "show_original": "Show Original",
+    "powered_by": "Powered by Flutter & AI",
+    "processing": "Processing...",
+    "view": "View",
+    "beauty": "Beauty",
+    "transition": "Transition",
+    "back": "Back"
+  },
+  "preview": {
+    "image_not_found": "Image not found",
+    "saved_to_gallery": "Saved to gallery!",
+    "error_saving": "Error saving",
+    "photo_captured": "Photo captured"
+  },
+  "ai_assistant": {
+    "hint": "Tell AI how to edit...",
+    "listening": "Listening...",
+    "applied_notification": "AI: Applied {} edits as per your intent."
+  },
+  "video_recorder": {
+    "play": "PLAY ►",
+    "sp": "SP",
+    "transition": "TRANSITION EFFECT",
+    "recording": "RECORDING"
+  },
+  "recipe": {
+    "my_recipes": "My Recipes",
+    "library": "Recipe Library",
+    "save_as": "Save as Recipe",
+    "no_recipes": "No recipes found",
+    "save_as_title": "Save as Recipe",
+    "name_hint": "Enter recipe name...",
+    "save_success": "Recipe saved to library!",
+    "share_title": "Share Recipe",
+    "shortcode_label": "Share Code: {}",
+    "share_desc": "Anyone with this code can apply your style."
+  },
+  "home": {
+    "subtitle": "INDEPENDENT ANALOG ENGINE",
+    "tools": {
+      "camera": {
+        "title": "Retro Camera",
+        "subtitle": "Analog Experience",
+        "desc": "Shoot with real-time film emulation."
+      },
+      "ai": {
+        "title": "AI Studio",
+        "subtitle": "Local Intelligence",
+        "desc": "Elevate portraits with on-device AI."
+      }
+    },
+    "badges": {
+      "offline": "OFFLINE",
+      "ai": "RUNNING"
+    },
+    "gallery": {
+      "title": "Image Archival",
+      "subtitle": "Manage your creative captures",
+      "empty_subtitle": "Take some photos to start your archive.",
+      "evaluate_tooltip": "Find the best shots",
+      "evaluate_success": "AI found {} exceptional photos!",
+      "no_photos": "No photos yet",
+      "open_camera": "Open Camera",
+      "cta_desc": "Open the Retro Camera and take your first shot!",
+      "selected": "Selected {}"
+    }
+  },
+  "onboarding": {
+    "skip": "Skip",
+    "start": "Start",
+    "next": "Next",
+    "slides": {
+      "retro": {
+        "title": "Shoot Retro Style",
+        "subtitle": "Capture moments with real-time film filters inspired by Fuji and Kodak."
+      },
+      "filters": {
+        "title": "Apply Film Overlays",
+        "subtitle": "Add film grain, light leaks, and burns to turn photos into analog memories."
+      },
+      "ai": {
+        "title": "AI Object Removal",
+        "subtitle": "Paint over anything you want gone. Our AI Inpainting engine will wipe it clean."
+      }
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "version": "Version",
+    "sections": {
+      "general": "General",
+      "legal": "Legal",
+      "data": "Data"
+    },
+    "export_quality": {
+      "title": "Export Quality",
+      "high": "High (Up to 4K)",
+      "medium": "Medium (2K)",
+      "standard": "Standard (1080p)"
+    },
+    "privacy": "Privacy Policy",
+    "privacy_desc": "View our data usage policy",
+    "terms": "Terms of Service",
+    "terms_desc": "Read our terms of use",
+    "eyewear": {
+      "title": "Eyewear Try-on",
+      "subtitle": "Virtually trial luxury frames",
+      "tutorial_title": "Custom Eyewear v4",
+      "tutorial_desc": "New: Upload ANY glasses from a photo! Our AI will extract the frame automatically so you can try it on instantly.",
+      "extracting": "EXTRACTING CUSTOM FRAME...",
+      "optimizing": "OPTIMIZING POSITION...",
+      "collection": "EYEWEAR COLLECTION",
+      "scale": "SCALE",
+      "shadow": "SHADOW",
+      "frames": {
+        "aviator": "Aviator Gold",
+        "modern": "Modern Black",
+        "cateye": "Cateye Pro",
+        "wayfarer": "Wayfarer",
+        "titanium": "Titanium"
+      },
+      "materials": {
+        "metal": "Metal",
+        "acetate": "Acetate",
+        "tortoise": "Tortoiseshell",
+        "gloss": "Gloss Finish",
+        "silver": "Silver"
+      }
+    },
+    "clear": {
+      "title": "Wipe All Photos",
+      "subtitle": "Delete all captured photos from local storage",
+      "confirm": "This will permanently delete all photos in the app. This action cannot be undone.",
+      "action": "Wipe Everything"
+    }
+  },
+  "privacy": {
+    "last_updated": "Last Updated",
+    "sections": {
+      "design": {
+        "title": "1. Sovereign Design Principle",
+        "body": "XingCam is built on a 100% Zero-Telemetry, offline-first foundation. We do not track you, we do not require accounts, and we do not sell your data."
+      },
+      "storage": {
+        "title": "2. Local Storage & Processing",
+        "body": "All your photos are stored and processed strictly on your local device. We never upload your media to any external servers or clouds."
+      },
+      "ai": {
+        "title": "3. On-Device AI & Biometrics",
+        "body": "Our AI runs entirely on your phone's processor. Features like Face Swap and Skin Beautifier analyze facial geometry temporarily to apply professional edits. This biometric data is explicitly NOT saved, stored, or transmitted. It is immediately destroyed from memory the moment you close the edit tool."
+      },
+      "permissions": {
+        "title": "4. App Permissions",
+        "body": "We request Camera and Storage access solely to capture and save your beautiful edits. We do not access internet-based tracking APIs or background location."
+      },
+      "analytics": {
+        "title": "5. Diagnostic Analytics",
+        "body": "Any crash logs or diagnostics are stored locally on your device. We use a sovereign Crashlytics service that never automatically sends crash data over the network."
+      },
+      "contact": {
+        "title": "6. Contact & Legal",
+        "body": "For GDPR, CCPA, or BIPA data inquiries, note that since we hold zero user data on servers, you maintain 100% control of your data on your physical device. Contact xingcam-legal@example.com for more info."
+      }
+    }
+  },
+  "camera": {
+    "timer": "Timer: {}",
+    "flip": "Flip Camera",
+    "permission_denied": "Camera access denied. Please enable in Settings.",
+    "init_error": "Camera init failed: {}"
+  },
+  "monetization": {
+    "store_title": "AI Credits",
+    "watch_ad": "Watch Ad",
+    "free_credit": "Get 1 Free Credit",
+    "pro_title": "XingCam Pro",
+    "pro_price": "$9.99/month",
+    "remaining_credits": "{} Credits"
+  },
+  "gallery": {
+    "batch_title": "AI Batch Processor",
+    "processing_batch": "Processing {} photos...",
+    "select_recipe": "Select recipe to apply",
+    "process_btn": "Process Photos",
+    "selected": {
+      "one": "1 photo selected",
+      "other": "{} photos selected"
+    },
+    "empty_title": "Your gallery is empty",
+    "empty_subtitle": "Start capturing retro moments with the camera!",
+    "projector_title": "VINTAGE PROJECTOR"
+  },
+  "zine": {
+    "title": "Zine Maker",
+    "render": "Publish",
+    "symphony": "SYMPHONY",
+    "soul": "RETRO SOUL",
+    "toolbar": {
+      "add_media": "Add Media",
+      "add_text": "Add Text",
+      "auto_layout": "Auto-Layout",
+      "themes": "Themes"
+    }
+  },
+  "tools": {
+    "collection": {
+      "title": "Collection Harmonizer",
+      "tutorial_title": "Collection Harmonizer",
+      "tutorial_desc": "Ensure aesthetic consistency across your photo series. Select a \"Master\" photo to sync exposure, temperature, and tint across the entire batch.",
+      "master": "MASTER",
+      "exposure": "EXPOSURE",
+      "temp": "TEMP",
+      "harmonizing": "HARMONIZING...",
+      "sync_all": "SYNC ALL TO MASTER"
+    },
+    "outfit": {
+      "title": "AI Outfit Studio",
+      "tutorial_title": "AI Outfit Completion",
+      "tutorial_desc": "Reimagine your style with AI. Change your outfit to match any vibe or aesthetic automatically while preserving your identity.",
+      "fitting": "FITTING OUTFIT...",
+      "style_theme": "STYLE THEME",
+      "styles": {
+        "business": "Business",
+        "streetwear": "Streetwear",
+        "vintage": "Vintage",
+        "summer": "Summer",
+        "cyberpunk": "Cyberpunk"
+      }
+    },
+    "text": {
+      "title": "Artistic Text Studio",
+      "tutorial_title": "Text & Font Studio",
+      "tutorial_desc": "Add artistic text to your photos. Choose from premium fonts, adjust size and color, and drag the text anywhere on your image.",
+      "hint": "Type your text...",
+      "default_text": "Your Story."
+    },
+    "wardrobe": {
+      "title": "Wardrobe Sync",
+      "tutorial_title": "Wardrobe Sync",
+      "tutorial_desc": "Synchronize your clothing with the film aesthetic. Select a harmonic color below to recolor your outfit for perfect chromatic unity.",
+      "harmonic": "HARMONIC PALETTE",
+      "intensity": "Intensity"
+    },
+    "teeth": {
+      "title": "Teeth Whitening",
+      "tutorial_title": "Teeth Whitening",
+      "tutorial_desc": "Achieve a bright, confident smile. Adjust the whitening level and naturalness blend for a realistic, camera-ready result.",
+      "level": "WHITENING LEVEL",
+      "badges": {
+        "natural": "Natural",
+        "light_polish": "Light Polish",
+        "bright_smile": "Bright Smile",
+        "hollywood": "Hollywood White"
+      }
+    },
+    "mimic": {
+      "title": "AI Style Mimic",
+      "tutorial_title": "Style Mimic",
+      "tutorial_desc": "Upload any photo you find inspiring. AI will analyze its color grading and suggest a XingCam Recipe to match the look.",
+      "upload": "Upload Reference",
+      "analyzing": "Analyzing style...",
+      "matched": "STYLE MATCHED",
+      "suggested": "Suggested: {}",
+      "generate": "Generate Recipe"
+    },
+    "art": {
+      "title": "AI Style Art",
+      "tutorial_title": "AI Style Art",
+      "tutorial_desc": "Transform your photos into stunning artwork. Choose from Anime, Oil Painting, Ghibli, and more. Adjust intensity to blend styles naturally.",
+      "blend": "BLEND STYLE",
+      "styles": {
+        "anime": "Anime",
+        "oil_paint": "Oil Paint",
+        "watercolor": "Watercolor",
+        "ghibli": "Ghibli",
+        "sketch": "Sketch",
+        "neon": "Neon"
+      }
+    },
+    "story": {
+      "title": "Story Templates",
+      "tutorial_title": "Story Templates",
+      "tutorial_desc": "Create scroll-stopping Stories and TikTok content in seconds. Pick a template, add your caption, and share directly to your favorite platform.",
+      "caption": "Add Caption",
+      "default_caption": "Add your story...",
+      "templates": {
+        "ig_classic": "Instagram Classic",
+        "tt_bold": "TikTok Bold",
+        "split_duo": "Split Duo",
+        "cinematic": "Cinematic",
+        "minimal": "Minimal"
+      }
+    },
+    "spot": {
+      "title": "AI Spot Remover",
+      "tutorial_title": "AI Spot Remover",
+      "tutorial_desc": "Tap on blemishes, acne, or freckles to remove them instantly. Adjust smoothness for seamless blending with surrounding skin.",
+      "erase_mode": "Erase Mode",
+      "pan_mode": "Pan Mode",
+      "smoothness": "SMOOTHNESS",
+      "brush_size": "BRUSH SIZE"
+    },
+    "smart_crop": {
+      "title": "Smart Crop",
+      "export": "Export",
+      "tutorial_title": "Smart Crop & Resize",
+      "tutorial_desc": "Crop to the perfect ratio for every platform. Choose Instagram, TikTok, YouTube, or custom dimensions with one tap.",
+      "ai_uncrop": "AI UNCROP to {}",
+      "ratios": {
+        "free": "Free",
+        "custom": "Custom",
+        "1_1": "1:1",
+        "insta_post": "Instagram Post",
+        "4_5": "4:5",
+        "portrait_ig": "Portrait IG",
+        "9_16": "9:16",
+        "story_tiktok": "Story / TikTok",
+        "16_9": "16:9",
+        "youtube": "YouTube",
+        "4_3": "4:3",
+        "classic": "Classic",
+        "3_2": "3:2",
+        "dslr": "DSLR"
+      }
+    },
+    "sky": {
+      "title": "AI Sky Replacement",
+      "select": "Select New Sky",
+      "sunset": "Sunset",
+      "starry": "Starry Night"
+    },
+    "skin_tone": {
+      "title": "Skin Tone",
+      "tutorial_title": "Skin Tone Adjust",
+      "tutorial_desc": "Fine-tune your skin tone for the perfect aesthetic. Adjust brightness, warmth, and rosiness while AI preserves skin texture.",
+      "brightness": "BRIGHTNESS",
+      "warmth": "WARMTH",
+      "rosiness": "ROSINESS",
+      "apply": "Apply",
+      "presets": {
+        "porcelain": "Porcelain",
+        "dewy": "Dewy",
+        "bronze": "Bronze",
+        "golden": "Golden",
+        "matte": "Matte"
+      }
+    },
+    "skin_beautifier": {
+      "title": "Skin Beautify",
+      "intensity": "Beauty Intensity",
+      "desc": "AI is smoothing skin and enhancing radiance while preserving natural texture."
+    },
+    "relighting": {
+      "title": "AI Relighting",
+      "intensity": "LIGHT INTENSITY",
+      "next": "Apply",
+      "modes": {
+        "side": "Side Light",
+        "rim": "Rim Light",
+        "golden": "Golden Hour",
+        "double": "Double Exposure"
+      }
+    },
+    "sculptor": {
+      "title": "AI Sculptor",
+      "slenderize": "Slenderize",
+      "height": "Add Height",
+      "elite_skin": "Elite Skin",
+      "dream_glow": "Dream Glow",
+      "tutorial_title": "Portrait Sculpting",
+      "tutorial_desc": "Reach perfection. Use Slenderize for face/body shaping and Dream Glow to add professional skin finishing."
+    },
+    "mosaic": {
+      "title": "Mosaic Blur",
+      "subtitle": "Artistic pixelated privacy blur",
+      "tutorial_title": "Mosaic & Blur Pen",
+      "tutorial_desc": "Easily hide sensitive information or create aesthetic depth by drawing mosaic or blur effects directly onto your photo.",
+      "intensity": "PIXEL DENSITY",
+      "size": "Brush Size",
+      "modes": {
+        "mosaic": "Mosaic",
+        "blur": "Blur",
+        "dot": "Dot"
+      }
+    },
+    "bg_replace": {
+      "title": "Background Replace",
+      "subtitle": "Change backdrops with AI",
+      "tutorial_title": "AI Background Replace",
+      "tutorial_desc": "AI automatically segments your subject and replaces the background. Choose a preset or blur your background for a professional depth-of-field effect.",
+      "choose_bg": "CHOOSE BACKGROUND",
+      "blur": "BG BLUR",
+      "presets": {
+        "blur": "Blur BG",
+        "beach": "Beach",
+        "city": "City Night",
+        "forest": "Forest",
+        "studio": "Studio",
+        "paris": "Paris"
+      }
+    },
+    "collage": {
+      "title": "Collage Maker",
+      "subtitle": "Combine photos into grids",
+      "tutorial_title": "Collage Editor",
+      "tutorial_desc": "Create beautiful photo grids. Choose a layout, add your photos, and adjust spacing and corner radius for a polished social media grid.",
+      "layout": "LAYOUT",
+      "spacing": "SPACING",
+      "radius": "RADIUS",
+      "photo_label": "Photo"
+    },
+    "memory": {
+      "title": "AI Memory Revive",
+      "tutorial_title": "AI Memory Revive",
+      "tutorial_desc": "Breathe life into old memories. Use AI to upscale, sharpen, and restore the vibrant colors of your vintage photos.",
+      "revive": "REVIVE MEMORY",
+      "settings": {
+        "sharpening": "Super-Res Sharpening",
+        "denoise": "AI Denoise",
+        "color_pop": "Memory Color Pop"
+      }
+    },
+    "makeup": {
+      "title": "Makeup Studio",
+      "tutorial_title": "AI Makeup Studio",
+      "tutorial_desc": "Enhance your look with digital makeup. Apply lipstick and blush with AI precision and adjustable intensity.",
+      "lipstick": "Lipstick Color",
+      "lipstick_intensity": "LIPSTICK INTENSITY",
+      "blush_intensity": "BLUSH INTENSITY"
+    },
+    "magic_eraser": {
+      "title": "Magic Eraser",
+      "remove": "Remove",
+      "removing": "AI REMOVING OBJECT...",
+      "paint_hint": "Paint over the object you want to remove first.",
+      "success": "Sovereign AI: Object removed locally on device.",
+      "compare": "Compare",
+      "edit_again": "Edit Again",
+      "tutorial_title": "Magic AI Eraser",
+      "tutorial_desc": "Remove unwanted objects or photobombers with one swipe. Paint over what you want gone and let AI do the rest.",
+      "brush_size": "BRUSH SIZE",
+      "load_error": "Failed to load image size.",
+      "accessibility": {
+        "protanopia": "Protanopia (Red)",
+        "deuteranopia": "Deuteranopia (Green)",
+        "tritanopia": "Tritanopia (Blue)"
+      }
+    },
+    "magic_brush": {
+      "title": "Magic Brush",
+      "add": "Add",
+      "brush_style": "BRUSH STYLE",
+      "tutorial_title": "Magic Brush Studio",
+      "tutorial_desc": "Draw magical strokes onto your photos. Select a brush style and paint directly on the canvas to add artistic elements.",
+      "size": "SIZE",
+      "brushes": {
+        "sparkle": "Sparkle",
+        "neon": "Neon",
+        "hearts": "Hearts",
+        "stars": "Stars",
+        "gold": "Gold"
+      }
+    },
+    "hair": {
+      "title": "AI Hair Colorist",
+      "tutorial_title": "AI Hair Colorist",
+      "tutorial_desc": "Try any hair color virtually. From natural shades to bold fantasy colors. Adjust intensity for a subtle highlight or dramatic transformation.",
+      "hair_color": "HAIR COLOR",
+      "intensity": "INTENSITY",
+      "colors": {
+        "jet_black": "Jet Black",
+        "espresso": "Espresso",
+        "chestnut": "Chestnut",
+        "honey": "Honey",
+        "ash_blonde": "Ash Blonde",
+        "rose_gold": "Rose Gold",
+        "platinum": "Platinum",
+        "violet": "Violet",
+        "teal": "Teal",
+        "fire_red": "Fire Red"
+      }
+    },
+    "gobo": {
+      "title": "AI Gobo Lighting"
+    },
+    "face_swap": {
+      "title": "AI Face Swap",
+      "tutorial_title": "AI Face Swap",
+      "tutorial_desc": "Swap faces seamlessly with our localized AI engine. Select a face in your photo and choose a target face to swap with.",
+      "select_target": "SELECT TARGET FACE",
+      "upload_custom": "Upload Custom Face",
+      "swapping": "SWAPPING FACES...",
+      "targets": {
+        "celebrity_a": "Celebrity A",
+        "anime_boy": "Anime Boy",
+        "vintage_star": "Vintage Star",
+        "cosplay_girl": "Cosplay Girl",
+        "sketch_mode": "Sketch Mode"
+      }
+    },
+    "ar_stickers": {
+      "title": "AR Stickers",
+      "tutorial_title": "AR Stickers 3D",
+      "tutorial_desc": "Drag and drop 3D-aware stickers onto your scene. They automatically adjust to the lighting and perspective of your photo.",
+      "apply": "Apply"
+    },
+    "borders": {
+      "title": "Artistic Borders",
+      "tutorial_title": "Artistic Borders",
+      "tutorial_desc": "Give your photos a professional finish with Polaroid frames, minimal borders, or dreamy film edges.",
+      "save": "Save",
+      "frame_style": "FRAME STYLE",
+      "width": "WIDTH",
+      "names": {
+        "none": "None",
+        "polaroid": "Polaroid",
+        "minimal": "Minimal",
+        "darkness": "Darkness",
+        "hacker": "Hacker",
+        "dreamy": "Dreamy"
+      }
+    }
+  },
+  "accessibility": {
+    "skin_tone": {
+      "balanced": "Skin Tone: Balanced",
+      "too_red": "Skin Tone: Too Red",
+      "too_yellow": "Skin Tone: Too Yellow"
+    }
+  },
+  "legal": {
+    "on_device_secure": "ON-DEVICE SECURE",
+    "consent": {
+      "title": "Privacy & Protection",
+      "desc": "To enable AI Portrait features, we analyze face landmarks temporarily. \n\n• Processing is 100% on-device.\n• No biometric data is stored or sent to servers.\n• Data is deleted immediately when closing the tool.",
+      "agree": "Agree & Continue",
+      "compliance": "XingCam complies with GDPR & BIPA standards."
+    }
+  }
+}

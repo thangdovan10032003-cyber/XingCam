@@ -1,0 +1,33 @@
+{
+  "ai_home": {
+    "title": "KI Studio",
+    "search_hint": "Suche (z.B. Filter, Radierer)",
+    "categories": {
+      "all": "Alle",
+      "portrait": "Porträt",
+      "ai_magic": "KI Magie",
+      "art": "Kunst",
+      "utility": "Nützliches"
+    },
+    "tools": {
+      "remover": {
+        "title": "KI-Radierer",
+        "subtitle": "Objekte oder Personen entfernen"
+      },
+      "beautifier": {
+        "title": "KI-Hautglättung",
+        "subtitle": "Glatte Haut und Porträtglanz"
+      },
+      "sky": {
+        "title": "KI-Himmelswechsel",
+        "subtitle": "Den Himmel mit KI-Magie verwandeln"
+      }
+    }
+  },
+  "common": {
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "processing": "Verarbeitung...",
+    "done": "Fertig"
+  }
+}

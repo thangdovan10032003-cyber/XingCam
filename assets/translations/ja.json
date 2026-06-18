@@ -1,0 +1,33 @@
+{
+  "ai_home": {
+    "title": "AIスタジオ",
+    "search_hint": "ツールを検索 (例: 小顔, 消しゴム)",
+    "categories": {
+      "all": "すべて",
+      "portrait": "ポートレート",
+      "ai_magic": "AIマジック",
+      "art": "アート",
+      "utility": "ユーティリティ"
+    },
+    "tools": {
+      "remover": {
+        "title": "AIオブジェクト除去",
+        "subtitle": "不要な物や人をシームレスに消去"
+      },
+      "beautifier": {
+        "title": "AI美肌補正",
+        "subtitle": "肌を滑らかにし、ポートレートの輝きを強調"
+      },
+      "sky": {
+        "title": "AI空の入れ替え",
+        "subtitle": "AIの魔法で空を劇的に変える"
+      }
+    }
+  },
+  "common": {
+    "save": "保存",
+    "cancel": "キャンセル",
+    "processing": "処理中...",
+    "done": "完了"
+  }
+}

@@ -1,0 +1,6 @@
+# Kodak Portra 400 LUT Placeholder
+# Replace with a real .cube LUT for production use.
+LUT_3D_SIZE 33
+DOMAIN_MIN 0.0 0.0 0.0
+DOMAIN_MAX 1.0 1.0 1.0
+# Placeholder — app uses ColorFilter.matrix approximation at runtime.

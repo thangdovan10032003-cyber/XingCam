@@ -1,0 +1,10 @@
+﻿Doctor summary (to see all details, run flutter doctor -v):
+[ΓêÜ] Flutter (Channel stable, 3.44.0, on Microsoft Windows [Version 10.0.26200.8037], locale en-GB)
+[ΓêÜ] Windows Version (11 Pro 64-bit, 25H2, 2009)
+[ΓêÜ] Android toolchain - develop for Android devices (Android SDK version 36.1.0)
+[ΓêÜ] Chrome - develop for the web
+[ΓêÜ] Visual Studio - develop Windows apps (Visual Studio Professional 2022 17.14.14)
+[ΓêÜ] Connected device (3 available)
+[ΓêÜ] Network resources
+
+ΓÇó No issues found!

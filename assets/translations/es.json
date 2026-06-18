@@ -1,0 +1,48 @@
+{
+  "ai_home": {
+    "title": "Estudio AI",
+    "search_hint": "Buscar herramientas (ej. adelgazar, borrar)",
+    "categories": {
+      "all": "Todo",
+      "portrait": "Retrato",
+      "ai_magic": "Magia AI",
+      "art": "Arte",
+      "utility": "Utilidad"
+    },
+    "tools": {
+      "remover": {
+        "title": "Eliminador AI",
+        "subtitle": "Borra objetos hoặc personas no deseadas"
+      },
+      "beautifier": {
+        "title": "Embellecer Piel AI",
+        "subtitle": "Piel suave và brillo de retrato"
+      },
+      "sky": {
+        "title": "Câmbio de Cielo AI",
+        "subtitle": "Transforma el cielo con magia AI"
+      },
+      "relighter": {
+        "title": "Iluminación Retrato AI",
+        "subtitle": "Efectos de luz de estudio profesional"
+      },
+      "gobo": {
+        "title": "Luz Gobo AI",
+        "subtitle": "Sombras artísticas và proyección de textura"
+      },
+      "sculptor": {
+        "title": "Escultor de Retratos",
+        "subtitle": "Ajuste fino de rasgos faciales"
+      }
+    }
+  },
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "processing": "Procesando...",
+    "done": "Listo",
+    "view": "Ver",
+    "beauty": "Belleza",
+    "transition": "Transición"
+  }
+}

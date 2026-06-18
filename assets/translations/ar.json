@@ -1,0 +1,13 @@
+{
+  "ai_home": {
+    "title": "استوديو AI",
+    "search_hint": "بحث (مثال: تنعيم، مسح)",
+    "categories": {
+      "all": "الكل",
+      "portrait": "بورتريه",
+      "ai_magic": "سحر AI",
+      "art": "فن",
+      "utility": "أدوات"
+    }
+  }
+}
