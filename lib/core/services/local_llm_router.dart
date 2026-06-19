@@ -14,9 +14,9 @@ class LocalLlmRouterService {
       // Simulate allocating memory for a 1.5GB local LLM
       await Future.delayed(const Duration(seconds: 1));
       _isModelLoaded = true;
-      debugPrint("Sovereign LLM: On-device NLP engine online.");
+      debugPrint('Sovereign LLM: On-device NLP engine online.');
     } catch (e) {
-      debugPrint("Failed to load generic LLM: \$e");
+      debugPrint('Failed to load generic LLM: \$e');
     }
   }
 

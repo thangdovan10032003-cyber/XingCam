@@ -172,8 +172,8 @@ class _StyleArtScreenState extends State<StyleArtScreen> {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          (style['color'] as Color).withOpacity(0.8),
-                          (style['color'] as Color).withOpacity(0.3),
+                          (style['color'] as Color).withValues(alpha: 0.8),
+                          (style['color'] as Color).withValues(alpha: 0.3),
                         ],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,

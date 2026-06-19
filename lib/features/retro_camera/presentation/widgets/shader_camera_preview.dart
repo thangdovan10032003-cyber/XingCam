@@ -1,7 +1,6 @@
 import 'dart:ui' as ui;
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
 
 /// ShaderCameraPreview: High-performance live-filtered viewfinder.
 /// Uses a CustomPainter to apply FragmentShaders (LUTs) to the camera buffer.

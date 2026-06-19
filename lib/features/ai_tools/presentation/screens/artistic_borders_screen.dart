@@ -1,4 +1,4 @@
-﻿import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
 import 'dart:io';
 import 'package:flutter/material.dart';
@@ -24,7 +24,7 @@ class _ArtisticBordersScreenState extends State<ArtisticBordersScreen> {
     {'name': 'tools.borders.names.minimal', 'color': AppColors.textPrimary, 'type': 'uniform'},
     {'name': 'tools.borders.names.darkness', 'color': AppColors.background, 'type': 'uniform'},
     {'name': 'tools.borders.names.hacker', 'color': AppColors.mint, 'type': 'uniform'},
-    {'name': 'tools.borders.names.dreamy', 'color': AppColors.primary.withOpacity(0.2), 'type': 'blur'},
+    {'name': 'tools.borders.names.dreamy', 'color': AppColors.primary.withValues(alpha: 0.2), 'type': 'blur'},
   ];
 
   @override
@@ -68,7 +68,7 @@ class _ArtisticBordersScreenState extends State<ArtisticBordersScreen> {
                 decoration: BoxDecoration(
                   color: border['type'] == 'blur' ? AppColors.transparent : border['color'] as Color,
                   boxShadow: [
-                    if (border['type'] == 'blur') BoxShadow(color: AppColors.primary.withOpacity(0.3), blurRadius: 40, spreadRadius: 20),
+                    if (border['type'] == 'blur') BoxShadow(color: AppColors.primary.withValues(alpha: 0.3), blurRadius: 40, spreadRadius: 20),
                   ],
                 ),
                 child: Image.file(File(widget.imagePath), fit: BoxFit.contain),
@@ -92,7 +92,7 @@ class _ArtisticBordersScreenState extends State<ArtisticBordersScreen> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(context.tr('tools.borders.frame_style'), style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withOpacity(0.24), fontSize: 11, letterSpacing: 1.5)),
+          Text(context.tr('tools.borders.frame_style'), style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withValues(alpha: 0.24), fontSize: 11, letterSpacing: 1.5)),
           const SizedBox(height: 16),
           SizedBox(
             height: 70,
@@ -111,9 +111,9 @@ class _ArtisticBordersScreenState extends State<ArtisticBordersScreen> {
                     margin: const EdgeInsets.only(right: 12),
                     width: 70,
                     decoration: BoxDecoration(
-                      color: isSelected ? AppColors.textPrimary.withOpacity(0.12) : AppColors.textPrimary.withOpacity(0.05),
+                      color: isSelected ? AppColors.textPrimary.withValues(alpha: 0.12) : AppColors.textPrimary.withValues(alpha: 0.05),
                       borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: isSelected ? AppColors.textPrimary.withOpacity(0.7) : AppColors.transparent, width: 2),
+                      border: Border.all(color: isSelected ? AppColors.textPrimary.withValues(alpha: 0.7) : AppColors.transparent, width: 2),
                     ),
                     child: Center(
                       child: Text(context.tr(_borders[i]['name'] as String), style: const TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary, fontSize: 10)),
@@ -126,7 +126,7 @@ class _ArtisticBordersScreenState extends State<ArtisticBordersScreen> {
           const SizedBox(height: 20),
           Row(
             children: [
-              Text(context.tr('tools.borders.width'), style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withOpacity(0.24), fontSize: 11)),
+              Text(context.tr('tools.borders.width'), style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withValues(alpha: 0.24), fontSize: 11)),
               Expanded(
                 child: Slider(
                   value: _borderWidth,

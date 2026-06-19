@@ -1,7 +1,5 @@
 import 'package:xingcam/core/utils/haptics_utility.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:xingcam/core/services/ai_credit_service.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
 
 /// AiCreditStore: A premium monetization interface for purchasing AI credits.
@@ -12,7 +10,7 @@ class AiCreditStore extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: AppColors.background,
         borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
       ),
@@ -30,7 +28,7 @@ class AiCreditStore extends StatelessWidget {
           const SizedBox(height: 16),
           _buildPack(context, 'Sovereign Infinity', 'âˆž Credits (1yr)', '\$99.99', AppColors.gold),
           const SizedBox(height: 32),
-          Text('All transactions secured by device sovereignty.', style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary, fontSize: 10)),
+          const Text('All transactions secured by device sovereignty.', style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary, fontSize: 10)),
           const SizedBox(height: 16),
         ],
       ),
@@ -50,13 +48,13 @@ class AiCreditStore extends StatelessWidget {
           color: AppColors.surface,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(color: isBestValue ? AppColors.gold : AppColors.border, width: isBestValue ? 2 : 1),
-          boxShadow: isBestValue ? [BoxShadow(color: AppColors.gold.withOpacity(0.1), blurRadius: 20)] : null,
+          boxShadow: isBestValue ? [BoxShadow(color: AppColors.gold.withValues(alpha: 0.1), blurRadius: 20)] : null,
         ),
         child: Row(
           children: [
             Container(
               padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(color: color.withOpacity(0.1), shape: BoxShape.circle),
+              decoration: BoxDecoration(color: color.withValues(alpha: 0.1), shape: BoxShape.circle),
               child: Icon(AppIcons.ai, color: color, size: 20),
             ),
             const SizedBox(width: 16),

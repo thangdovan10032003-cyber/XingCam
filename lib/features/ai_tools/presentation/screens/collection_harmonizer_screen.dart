@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
 import 'package:xingcam/core/widgets/app_header.dart';
@@ -85,10 +85,10 @@ class _CollectionHarmonizerScreenState extends State<CollectionHarmonizerScreen>
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(
-                   color: isMaster ? AppColors.textPrimary.withOpacity(0.1) : AppColors.textPrimary.withOpacity(0.05),
+                   color: isMaster ? AppColors.textPrimary.withValues(alpha: 0.1) : AppColors.textPrimary.withValues(alpha: 0.05),
                     width: isMaster ? 3 : 1,
                   ),
-                  boxShadow: isMaster ? [BoxShadow(color: AppColors.accent.withOpacity(0.3), blurRadius: 15)] : null,
+                  boxShadow: isMaster ? [BoxShadow(color: AppColors.accent.withValues(alpha: 0.3), blurRadius: 15)] : null,
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(13),
@@ -110,7 +110,7 @@ class _CollectionHarmonizerScreenState extends State<CollectionHarmonizerScreen>
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
                               colors: [
-                                isMaster ? AppColors.accent.withOpacity(0.2) : AppColors.surfaceLow,
+                                isMaster ? AppColors.accent.withValues(alpha: 0.2) : AppColors.surfaceLow,
                                 //_getTemperatureColor(_temperature),
                               ],
                             ),
@@ -142,7 +142,7 @@ class _CollectionHarmonizerScreenState extends State<CollectionHarmonizerScreen>
   Widget _buildHarmonizationControls() {
     return Container(
       padding: const EdgeInsets.fromLTRB(24, 32, 24, 48),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: AppColors.surfaceLow,
         borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
       ),
@@ -215,13 +215,13 @@ class _ManualSlider extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withOpacity(0.38), fontSize: 10, letterSpacing: 1.5)),
+        Text(label, style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withValues(alpha: 0.38), fontSize: 10, letterSpacing: 1.5)),
         Slider(
           value: value,
           min: min,
           max: max,
           activeColor: AppColors.accent,
-          inactiveColor: AppColors.textPrimary.withOpacity(0.1),
+          inactiveColor: AppColors.textPrimary.withValues(alpha: 0.1),
           onChanged: (v) {
             onChanged(v);
             HapticsUtility.lightFeedback();

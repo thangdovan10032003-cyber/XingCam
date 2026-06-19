@@ -15,3 +15,13 @@
 # Google Play Core / Deferred Components Exceptions (fixes R8 crash)
 -dontwarn com.google.android.play.core.**
 -keep class com.google.android.play.core.** { *; }
+
+# Keep flutter_rust_bridge classes and auto-generated FFI bindings
+-keep class com.bridge_definitions.** { *; }
+-keep class com.example.xingcam.rust.** { *; }
+-keep class * extends com.sun.jna.** { *; }
+
+# Keep native methods and their classes
+-keepclasseswithmembernames class * {
+    native <methods>;
+}

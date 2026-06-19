@@ -3,7 +3,6 @@ import 'package:xingcam/core/services/editor_compiler_service.dart';
 import 'package:xingcam/core/services/pipeline_context.dart';
 import 'package:xingcam/core/utils/haptics_utility.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 /// AiEditInput: A multi-modal intent-driven editing interface.
 /// Features a glowing mic button for voice commands and a text input
@@ -42,20 +41,20 @@ class _AiEditInputState extends State<AiEditInput> {
               const SizedBox(width: 12),
               Expanded(
                 child: Text(
-                  'Applied ${commands.length} sovereign edits: ${commands.map((c) => c?.type.name.toUpperCase()).join(", ")}',
+                  'Applied ${commands.length} sovereign edits: ${commands.map((c) => c.type.name.toUpperCase()).join(", ")}',
                   style: const TextStyle(fontFamily: 'Outfit', color: AppColors.textPrimary, fontSize: 13),
                 ),
               ),
             ],
           ),
-          backgroundColor: AppColors.surface.withOpacity(0.9),
+          backgroundColor: AppColors.surface.withValues(alpha: 0.9),
           behavior: SnackBarBehavior.floating,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         ),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('AI Error: Could not understand intent.')),
+        const SnackBar(content: Text('AI Error: Could not understand intent.')),
       );
     } finally {
       setState(() => _isProcessing = false);
@@ -108,9 +107,9 @@ class _AiEditInputState extends State<AiEditInput> {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               decoration: BoxDecoration(
-                color: AppColors.accent.withOpacity(0.1),
+                color: AppColors.accent.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: AppColors.accent.withOpacity(0.3)),
+                border: Border.all(color: AppColors.accent.withValues(alpha: 0.3)),
               ),
               child: Center(
                 child: Text(tag, 
@@ -127,13 +126,13 @@ class _AiEditInputState extends State<AiEditInput> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        color: AppColors.backgroundDark.withOpacity(0.8),
+        color: AppColors.backgroundDark.withValues(alpha: 0.8),
         borderRadius: BorderRadius.circular(30),
-        border: Border.all(color: AppColors.accent.withOpacity(0.3)),
+        border: Border.all(color: AppColors.accent.withValues(alpha: 0.3)),
         boxShadow: [
           if (_isListening || _isProcessing)
             BoxShadow(
-              color: AppColors.accent.withOpacity(0.2),
+              color: AppColors.accent.withValues(alpha: 0.2),
               blurRadius: 20,
               spreadRadius: 2,
             ),
@@ -148,7 +147,7 @@ class _AiEditInputState extends State<AiEditInput> {
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: _isListening ? AppColors.secondary : AppColors.accent.withOpacity(0.1),
+                color: _isListening ? AppColors.secondary : AppColors.accent.withValues(alpha: 0.1),
               ),
               child: Icon(
                 _isListening ? AppIcons.micOff : AppIcons.mic,

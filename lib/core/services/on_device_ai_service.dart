@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:google_mlkit_face_detection/google_mlkit_face_detection.dart';
 import 'package:google_mlkit_selfie_segmentation/google_mlkit_selfie_segmentation.dart';
 import 'package:injectable/injectable.dart';

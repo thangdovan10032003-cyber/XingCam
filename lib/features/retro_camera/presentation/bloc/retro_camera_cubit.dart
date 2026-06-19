@@ -1,24 +1,22 @@
-﻿import 'dart:math' as math;
+import 'dart:math' as math;
 import 'package:xingcam/core/utils/haptics_utility.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:camera/camera.dart';
 import 'package:gal/gal.dart';
-import 'package:xingcam/features/retro_camera/data/repositories/retro_camera_repository_impl.dart';
 import 'package:xingcam/features/retro_camera/domain/entities/filter_preset.dart';
 import 'package:xingcam/features/retro_camera/domain/entities/grain_settings.dart';
 import 'package:xingcam/features/retro_camera/domain/entities/light_leak_settings.dart';
 import 'dart:ui' as ui;
 import 'package:flutter/services.dart';
 import 'package:xingcam/features/retro_camera/presentation/widgets/film_border_overlay.dart';
-import 'package:xingcam/core/utils/shader_lut_converter.dart';
 import 'package:xingcam/features/retro_camera/domain/repositories/recipe_repository.dart';
 import 'package:xingcam/features/retro_camera/domain/entities/film_recipe.dart';
 import 'package:xingcam/features/retro_camera/domain/usecases/capture_photo_usecase.dart';
 import 'package:xingcam/features/retro_camera/domain/usecases/get_filter_presets_usecase.dart';
 import 'package:xingcam/core/usecases/usecase.dart';
 import 'package:injectable/injectable.dart';
-import 'package:xingcam/core/injection/injection.dart';
-import 'package:xingcam/features/retro_camera/domain/repositories/retro_camera_repository.dart';
+import 'package:get_it/get_it.dart';
+import 'package:xingcam/core/engine/rust_core_engine.dart';
 import 'retro_camera_state.dart';
 
 @injectable
@@ -38,7 +36,7 @@ class RetroCameraCubit extends Cubit<RetroCameraState> {
     this._recipeRepository,
   ) : super(const RetroCameraInitial());
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬ Initialization Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  // ── Initialization ───────────────────────────────────────────────────────────────────
 
   Future<void> init() async {
     try {
@@ -56,41 +54,62 @@ class RetroCameraCubit extends Cubit<RetroCameraState> {
 
       await _cameraController!.initialize();
 
-      // Load Professional 3D LUT Shader (Phase 92)
+      // Load Professional 3D LUT & Beauty Shaders (Phase 92 & 10)
       _shaderProgram ??= await ui.FragmentProgram.fromAsset('assets/shaders/lut_engine.frag');
+      final beautyProgram = await ui.FragmentProgram.fromAsset('assets/shaders/beauty_engine.frag');
 
       // Load presets
       final presetsResult = await _getFilterPresetsUseCase!(const NoParams());
-      final recipesRes = await _recipeRepository!.getAllRecipes();
       
       presetsResult.fold(
         (failure) => emit(RetroCameraError(failure.message)),
         (presets) async {
-          // Pre-generate LUT textures for current presets
+          // RESTORATION: Load real LUT images from assets (Phase 92 Fix)
+          // We prefer pre-rendered 2D images of the 3D LUT for stability on some devices
+          // RESTORATION: Load real LUT images using High-Performance Rust Core (Phase 92 & Rust Optimization)
+          final rustEngine = GetIt.I<RustCoreEngine>();
+          
           for (final p in presets) {
             if (p.lutAssetPath.isNotEmpty && !_lutImages.containsKey(p.id)) {
               try {
-                final content = await rootBundle.loadString(p.lutAssetPath);
-                final lut = null /* Lut3D.fromCubeFile(content) */;
-                final img = await ShaderLutConverter.createLutImage(lut);
-                _lutImages[p.id] = img;
+                if (p.lutAssetPath.endsWith('.cube')) {
+                  final cubeContent = await rootBundle.loadString(p.lutAssetPath);
+                  final pixels = Uint8List.fromList(await rustEngine.decodeLut(cubeContent));
+                  
+                  if (pixels.isNotEmpty) {
+                    final codec = await ui.instantiateImageCodec(pixels); // Instantiating from RGBA bytes
+                    final frame = await codec.getNextFrame();
+                    _lutImages[p.id] = frame.image;
+                    continue;
+                  }
+                }
+                
+                // Fallback: Try asset PNG if Rust decoding fails or file is PNG
+                final data = await rootBundle.load('assets/luts/${p.id}.png');
+                final codec = await ui.instantiateImageCodec(data.buffer.asUint8List());
+                final frame = await codec.getNextFrame();
+                _lutImages[p.id] = frame.image;
               } catch (_) {}
             }
           }
 
-          // Load Identity LUT as fallback (Phase 92)
+          // Load Identity LUT as fallback
           if (!_lutImages.containsKey('identity')) {
-            final data = await rootBundle.load('assets/luts/identity.png');
-            final codec = await ui.instantiateImageCodec(data.buffer.asUint8List());
-            final frame = await codec.getNextFrame();
-            _lutImages['identity'] = frame.image;
+            try {
+              final data = await rootBundle.load('assets/luts/identity.png');
+              final codec = await ui.instantiateImageCodec(data.buffer.asUint8List());
+              final frame = await codec.getNextFrame();
+              _lutImages['identity'] = frame.image;
+            } catch (_) {}
           }
 
           emit(RetroCameraReady(
             presets: presets,
             selectedPreset: presets.first,
+            controller: _cameraController!, // FIX 1: Pass initial controller
             grainSettings: const GrainSettings(),
             shader: _shaderProgram?.fragmentShader(),
+            beautyShader: beautyProgram.fragmentShader(),
             lutImage: _lutImages[presets.first.id] ?? _lutImages['identity'],
           ));
         },
@@ -104,7 +123,7 @@ class RetroCameraCubit extends Cubit<RetroCameraState> {
       }
   }
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬ Filter selection Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  // ── Filter selection ───────────────────────────────────────────────────────────────────
 
   void selectFilter(FilterPreset preset) {
     if (state is RetroCameraReady) {
@@ -116,15 +135,6 @@ class RetroCameraCubit extends Cubit<RetroCameraState> {
     }
   }
 
-  void selectSecondaryFilter(FilterPreset preset) {
-    if (state is RetroCameraReady) {
-      final ready = state as RetroCameraReady;
-      emit(ready.copyWith(
-        //lutBImage: _lutImages[preset.id],
-      ));
-    }
-  }
-
   void updateInterpolation(double value) {
     if (state is RetroCameraReady) {
       final ready = state as RetroCameraReady;
@@ -132,12 +142,20 @@ class RetroCameraCubit extends Cubit<RetroCameraState> {
     }
   }
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬ AI Smart Preset (Phase 25) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  void updateBeautyParams({double? smoothness, double? brightening}) {
+    if (state is RetroCameraReady) {
+      final ready = state as RetroCameraReady;
+      emit(ready.copyWith(
+        beautySmoothness: smoothness,
+        beautyBrightening: brightening,
+      ));
+    }
+  }
+
+  // ── AI Smart Preset (Phase 25) ───────────────────────────────────────────────────────────────────
 
   void toggleAutoMode() {
     if (state is RetroCameraReady) {
-      final ready = state as RetroCameraReady;
-      // In a real app, this would start a periodic analysis of frames
       _performSmartAnalysis();
     }
   }
@@ -146,19 +164,14 @@ class RetroCameraCubit extends Cubit<RetroCameraState> {
     if (state is! RetroCameraReady) return;
     final ready = state as RetroCameraReady;
     
-    // Simulating AI analysis of the current frame
-    // In production, we would sample the CameraImage pixels
-    final brightness = math.Random().nextDouble(); // Placeholder for actual luminance check
+    final brightness = math.Random().nextDouble(); 
     
     FilterPreset suggested;
     if (brightness > 0.7) {
-      // Sunny/Bright -> Vivid
       suggested = ready.presets.firstWhere((p) => p.id == 'vibrant_chrome', orElse: () => ready.presets.first);
     } else if (brightness < 0.3) {
-      // Dim/Night -> Moody
       suggested = ready.presets.firstWhere((p) => p.id == 'cool_fade', orElse: () => ready.presets.first);
     } else {
-      // Natural
       suggested = ready.presets.firstWhere((p) => p.id == 'classic_film', orElse: () => ready.presets.first);
     }
     
@@ -168,9 +181,7 @@ class RetroCameraCubit extends Cubit<RetroCameraState> {
     }
   }
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬ Aspect Ratio & Borders Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
-
-  // Ã¢â€â‚¬Ã¢â€â‚¬ Grain settings Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  // ── Aspect Ratio & Borders ───────────────────────────────────────────────────────────────────
 
   void updateGrain(GrainSettings settings) {
     final current = state;
@@ -178,8 +189,6 @@ class RetroCameraCubit extends Cubit<RetroCameraState> {
       emit(current.copyWith(grainSettings: settings));
     }
   }
-
-  // Ã¢â€â‚¬Ã¢â€â‚¬ Light leak Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
 
   void toggleLightLeak(String? assetPath) {
     final current = state;
@@ -193,7 +202,7 @@ class RetroCameraCubit extends Cubit<RetroCameraState> {
     }
   }
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬ Camera Zoom & Aspect Ratio Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  // ── Camera Zoom & Aspect Ratio ───────────────────────────────────────────────────────────────────
 
   Future<void> setZoom(double zoom) async {
     final current = state;
@@ -212,7 +221,7 @@ class RetroCameraCubit extends Cubit<RetroCameraState> {
       await _cameraController!.setZoomLevel(clampedZoom);
       emit(current.copyWith(zoomLevel: clampedZoom));
     } catch (e) {
-      // Ignore zoom errors in preview
+      // Ignore zoom errors
     }
   }
 
@@ -228,7 +237,7 @@ class RetroCameraCubit extends Cubit<RetroCameraState> {
     }
   }
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬ Recipe Actions Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  // ── Recipe Actions ───────────────────────────────────────────────────────────────────
 
   Future<void> loadRecipes() async {
     if (state is RetroCameraReady) {
@@ -244,7 +253,7 @@ class RetroCameraCubit extends Cubit<RetroCameraState> {
     if (state is RetroCameraReady) {
       final ready = state as RetroCameraReady;
       final recipe = FilmRecipe(
-        id: '', // Will be set by Isar
+        id: '', 
         name: name,
         filter: ready.selectedPreset,
         grainIntensity: ready.grainSettings.intensity,
@@ -254,17 +263,7 @@ class RetroCameraCubit extends Cubit<RetroCameraState> {
       final res = await _recipeRepository!.saveRecipe(recipe);
       res.fold(
         (l) => null,
-        (r) => loadRecipes(), // Reload
-      );
-    }
-  }
-
-  Future<void> updateRecipe(FilmRecipe recipe) async {
-    if (state is RetroCameraReady) {
-      final res = await _recipeRepository!.saveRecipe(recipe);
-      res.fold(
-        (l) => null,
-        (r) => loadRecipes(), // Reload and emit new state
+        (r) => loadRecipes(), 
       );
     }
   }
@@ -277,12 +276,11 @@ class RetroCameraCubit extends Cubit<RetroCameraState> {
         selectedBorder: recipe.borderType,
         grainSettings: GrainSettings(intensity: recipe.grainIntensity),
       ));
-      // Re-load LUT for the new preset
       selectFilter(recipe.filter);
     }
   }
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬ Capture Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  // ── Capture ───────────────────────────────────────────────────────────────────
 
   Future<void> capturePhoto() async {
     final current = state;
@@ -308,12 +306,9 @@ class RetroCameraCubit extends Cubit<RetroCameraState> {
           emit(RetroCameraError(failure.message));
         },
         (photo) async {
-          // Save to Camera Roll using gal
           try {
             await Gal.putImage(photo.path, album: 'XingCam');
-          } catch (e) {
-            // Log but don't fail the whole capture if gallery save fails
-          }
+          } catch (_) {}
           emit(RetroCameraCaptured(photo));
         },
       );
@@ -323,11 +318,10 @@ class RetroCameraCubit extends Cubit<RetroCameraState> {
     }
   }
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬ Camera lifecycle Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  // ── Camera lifecycle ───────────────────────────────────────────────────────────────────
   
   void pauseCamera() {
     _cameraController?.pausePreview();
-    // Also stop image stream if active
     try {
       _cameraController?.stopImageStream();
     } catch (_) {}
@@ -335,7 +329,6 @@ class RetroCameraCubit extends Cubit<RetroCameraState> {
 
   void resumeCamera() {
     _cameraController?.resumePreview();
-    // Restart image stream if in ready state
   }
 
   Future<void> flipCamera() async {
@@ -359,7 +352,8 @@ class RetroCameraCubit extends Cubit<RetroCameraState> {
 
     try {
       await _cameraController!.initialize();
-      emit(current.copyWith()); // Trigger UI refresh
+      // FIX 1 & 2: Emit state with DIFFERENT controller to trigger Equatable refresh
+      emit(current.copyWith(controller: _cameraController)); 
       HapticsUtility.heavyImpact();
     } catch (e) {
       emit(RetroCameraError('Flip failed: $e'));
@@ -374,6 +368,3 @@ class RetroCameraCubit extends Cubit<RetroCameraState> {
     super.close();
   }
 }
-
-
-

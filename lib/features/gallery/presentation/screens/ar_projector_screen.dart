@@ -80,7 +80,7 @@ class _ArProjectorScreenState extends State<ArProjectorScreen> with SingleTicker
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: _ambientColor.withOpacity(0.9), // Sovereign Ambient Bleed
+      backgroundColor: _ambientColor.withValues(alpha: 0.9), // Sovereign Ambient Bleed
       body: Stack(
         fit: StackFit.expand,
         children: [
@@ -104,7 +104,7 @@ class _ArProjectorScreenState extends State<ArProjectorScreen> with SingleTicker
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.textPrimary.withOpacity(0.1),
+                        color: AppColors.textPrimary.withValues(alpha: 0.1),
                         blurRadius: 100,
                         spreadRadius: 20,
                       )
@@ -122,7 +122,7 @@ class _ArProjectorScreenState extends State<ArProjectorScreen> with SingleTicker
                         child: Image.file(File(widget.imagePaths[index]), fit: BoxFit.contain),
                       ),
                       // Projector "Overlay" Effects
-                      Container(color: AppColors.textPrimary.withOpacity(_flickerOpacity)), // Flicker
+                      Container(color: AppColors.textPrimary.withValues(alpha: _flickerOpacity)), // Flicker
                       _buildProjectorDustOverlay(),
                     ],
                   ),
@@ -136,8 +136,8 @@ class _ArProjectorScreenState extends State<ArProjectorScreen> with SingleTicker
             child: Container(
               decoration: BoxDecoration(
                 gradient: RadialGradient(
-                  colors: [AppColors.transparent, AppColors.background.withOpacity(0.9)],
-                  stops: [0.4, 1.0],
+                  colors: [AppColors.transparent, AppColors.background.withValues(alpha: 0.9)],
+                  stops: const [0.4, 1.0],
                 ),
               ),
             ),
@@ -225,7 +225,7 @@ class _ProjectorBtn extends StatelessWidget {
         width: size,
         height: size,
         decoration: BoxDecoration(
-          color: color?.withOpacity(0.2) ?? AppColors.surface,
+          color: color?.withValues(alpha: 0.2) ?? AppColors.surface,
           shape: BoxShape.circle,
           border: Border.all(color: color ?? AppColors.border, width: 2),
         ),

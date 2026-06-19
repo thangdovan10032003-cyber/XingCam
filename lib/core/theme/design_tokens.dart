@@ -167,20 +167,20 @@ class ConversationalIcons {
 class AppShadows {
   // Sharp, tight cast for floating tools
   static List<BoxShadow> tight = [
-    BoxShadow(
-      color: const Color(0x66000000),
+    const BoxShadow(
+      color: Color(0x66000000),
       blurRadius: 10,
-      offset: const Offset(0, 4),
+      offset: Offset(0, 4),
     ),
   ];
 
   // Wide ambient glow for premium modal elevations
   static List<BoxShadow> ambient = [
-    BoxShadow(
-      color: const Color(0x44000000),
+    const BoxShadow(
+      color: Color(0x44000000),
       blurRadius: 24,
       spreadRadius: 2,
-      offset: const Offset(0, 12),
+      offset: Offset(0, 12),
     ),
   ];
 }

@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
 import 'package:flutter/services.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -43,7 +43,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
         decoration: BoxDecoration(
           color: AppColors.surface,
           border: Border(
-            top: BorderSide(color: AppColors.border.withOpacity(0.5), width: 0.5),
+            top: BorderSide(color: AppColors.border.withValues(alpha: 0.5), width: 0.5),
           ),
         ),
         child: BottomNavigationBar(
@@ -53,13 +53,13 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           elevation: 0,
           type: BottomNavigationBarType.fixed,
           selectedItemColor: AppColors.primary,
-          unselectedItemColor: AppColors.textSecondary.withOpacity(0.5),
+          unselectedItemColor: AppColors.textSecondary.withValues(alpha: 0.5),
           selectedLabelStyle: const TextStyle(fontFamily: 'Outfit', fontSize: 10, fontWeight: FontWeight.w600),
           unselectedLabelStyle: const TextStyle(fontFamily: 'Outfit', fontSize: 10),
           items: [
             BottomNavigationBarItem(
-              icon: Icon(AppIcons.home),
-              activeIcon: Icon(AppIcons.home),
+              icon: const Icon(AppIcons.home),
+              activeIcon: const Icon(AppIcons.home),
               label: 'home'.tr(),
             ),
             BottomNavigationBarItem(

@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
 
@@ -12,9 +12,9 @@ class PrivacySecureChip extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
-        color: AppColors.mint.withOpacity(0.05),
+        color: AppColors.mint.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColors.mint.withOpacity(0.3)),
+        border: Border.all(color: AppColors.mint.withValues(alpha: 0.3)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -23,7 +23,7 @@ class PrivacySecureChip extends StatelessWidget {
           const SizedBox(width: 4),
           Text(
             context.tr('legal.on_device_secure'),
-            style: TextStyle(fontFamily: 'Outfit', 
+            style: const TextStyle(fontFamily: 'Outfit', 
               color: AppColors.mint,
               fontSize: 8,
               fontWeight: FontWeight.w900,

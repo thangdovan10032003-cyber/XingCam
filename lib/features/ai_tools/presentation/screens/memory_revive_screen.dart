@@ -5,7 +5,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
 import 'package:xingcam/core/widgets/tutorial_overlay.dart';
 import 'package:xingcam/core/widgets/app_header.dart';
-import 'package:xingcam/core/widgets/app_slider.dart';
 import 'package:xingcam/core/utils/haptics_utility.dart';
 
 class MemoryReviveScreen extends StatefulWidget {
@@ -153,7 +152,7 @@ class _MemoryReviveScreenState extends State<MemoryReviveScreen> {
         Slider(
           value: value,
           activeColor: AppColors.accent,
-          inactiveColor: AppColors.surfaceLight.withOpacity(0.1),
+          inactiveColor: AppColors.surfaceLight.withValues(alpha: 0.1),
           onChanged: (v) {
             onChanged(v);
             HapticsUtility.lightFeedback();

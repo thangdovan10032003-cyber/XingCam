@@ -18,6 +18,12 @@ jobs:
       - name: Install Dependencies
         run: flutter pub get
 
+      - name: Generate Code Bindings (build_runner)
+        run: flutter pub run build_runner build --delete-conflicting-outputs
+
+      - name: Run Automated Unit Tests
+        run: flutter test
+
       - name: Run Performance Profiling (Firebase Test Lab)
         # In production: Uses gcloud cli to run test_driver/performance_integration_test.dart
         # on physical devices in Firebase Test Lab.

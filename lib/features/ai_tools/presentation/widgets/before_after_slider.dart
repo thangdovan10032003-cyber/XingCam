@@ -64,7 +64,7 @@ class _BeforeAfterSliderState extends State<BeforeAfterSlider> {
                       color: AppColors.textPrimary,
                       boxShadow: [
                         BoxShadow(
-                          color: AppColors.background.withOpacity(0.5),
+                          color: AppColors.background.withValues(alpha: 0.5),
                           blurRadius: 4,
                         ),
                       ],
@@ -85,7 +85,7 @@ class _BeforeAfterSliderState extends State<BeforeAfterSlider> {
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.background.withOpacity(0.3),
+                        color: AppColors.background.withValues(alpha: 0.3),
                         blurRadius: 8,
                       ),
                     ],

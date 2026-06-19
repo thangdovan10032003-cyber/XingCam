@@ -39,7 +39,7 @@ class RecipeRepositoryImpl implements RecipeRepository {
         },
       );
     } catch (e) {
-      return Left(DatabaseFailure());
+      return const Left(DatabaseFailure());
     }
   }
 
@@ -60,7 +60,7 @@ class RecipeRepositoryImpl implements RecipeRepository {
       });
       return const Right(unit);
     } catch (e) {
-      return Left(DatabaseFailure());
+      return const Left(DatabaseFailure());
     }
   }
 
@@ -68,14 +68,14 @@ class RecipeRepositoryImpl implements RecipeRepository {
   Future<Either<Failure, Unit>> deleteRecipe(String id) async {
     try {
       final intId = int.tryParse(id);
-      if (intId == null) return Left(DatabaseFailure());
+      if (intId == null) return const Left(DatabaseFailure());
       
       await _isar.writeTxn(() async {
         await _isar.recipeIsarModels.delete(intId);
       });
       return const Right(unit);
     } catch (e) {
-      return Left(DatabaseFailure());
+      return const Left(DatabaseFailure());
     }
   }
 }

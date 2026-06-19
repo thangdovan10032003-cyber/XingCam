@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:isolate';
 import 'dart:convert';
 import 'dart:math' as math;
 import 'package:image/image.dart' as img;

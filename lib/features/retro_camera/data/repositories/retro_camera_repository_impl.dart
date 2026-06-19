@@ -5,14 +5,11 @@ import 'package:camera/camera.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:flutter/services.dart';
 import 'package:image/image.dart' as img;
 import 'package:flutter/foundation.dart';
-import 'dart:isolate';
 import 'package:isar/isar.dart';
 import 'package:xingcam/core/database/isar_service.dart';
 import 'package:xingcam/core/error/failures.dart';
-import 'package:xingcam/core/utils/lut_parser.dart';
 import 'package:xingcam/features/retro_camera/data/models/captured_photo_model.dart';
 import 'package:xingcam/features/retro_camera/domain/entities/captured_photo.dart';
 import 'package:xingcam/features/retro_camera/domain/entities/filter_preset.dart';
@@ -113,7 +110,7 @@ class RetroCameraRepositoryImpl implements RetroCameraRepository {
   Future<Either<Failure, List<FilterPreset>>> getFilterPresets() async {
     // Offline-first: Return bundled local presets directly.
     // Server-Driven UI is gated for a future premium release.
-    return Right(_presets);
+    return const Right(_presets);
   }
 
   @override

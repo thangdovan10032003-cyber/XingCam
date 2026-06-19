@@ -1,5 +1,4 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
@@ -138,13 +137,13 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                             gradient: LinearGradient(
                               colors: isPaywall 
                                   ? [AppColors.gold, const Color(0xFFD4AF37)]
-                                  : [AppColors.primary, AppColors.primary.withOpacity(0.75)],
+                                  : [AppColors.primary, AppColors.primary.withValues(alpha: 0.75)],
                               begin: Alignment.centerLeft,
                               end: Alignment.centerRight,
                             ),
                             boxShadow: [
                               BoxShadow(
-                                color: (isPaywall ? AppColors.gold : AppColors.primary).withOpacity(0.45),
+                                color: (isPaywall ? AppColors.gold : AppColors.primary).withValues(alpha: 0.45),
                                 blurRadius: 18,
                                 offset: const Offset(0, 6),
                               ),
@@ -241,7 +240,7 @@ class _OnboardPage extends StatelessWidget {
           end: Alignment.bottomCenter,
           colors: [
             slide.gradientColors[0],
-            slide.gradientColors[0].withOpacity(0.18),
+            slide.gradientColors[0].withValues(alpha: 0.18),
             AppColors.background,
           ],
           stops: const [0.0, 0.38, 0.72],
@@ -262,15 +261,15 @@ class _OnboardPage extends StatelessWidget {
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
                   colors: [
-                    slide.gradientColors[0].withOpacity(0.55),
-                    slide.gradientColors[0].withOpacity(0.18),
-                    slide.gradientColors[0].withOpacity(0.0),
+                    slide.gradientColors[0].withValues(alpha: 0.55),
+                    slide.gradientColors[0].withValues(alpha: 0.18),
+                    slide.gradientColors[0].withValues(alpha: 0.0),
                   ],
                   stops: const [0.0, 0.5, 1.0],
                 ),
               ),
               child: slide.title == 'onboarding.slides.retro.title'
-                  ? _SovereignDeclaration()
+                  ? const _SovereignDeclaration()
                   : Icon(
                       slide.icon,
                       size: 72,
@@ -332,7 +331,7 @@ class _SovereignDeclarationState extends State<_SovereignDeclaration> with Singl
   void initState() {
     super.initState();
     _ctrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 500))..repeat();
-    _ctrl.addListener(() => if (mounted) setState(() => _blink = _ctrl.value > 0.5));
+    _ctrl.addListener(() { if (mounted) setState(() => _blink = _ctrl.value > 0.5); });
   }
 
   @override

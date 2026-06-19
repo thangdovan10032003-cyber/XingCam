@@ -30,7 +30,7 @@ class AppSlider extends StatelessWidget {
             children: [
               Text(
                 label.toUpperCase(),
-                style: TextStyle(fontFamily: 'Outfit', 
+                style: const TextStyle(fontFamily: 'Outfit', 
                   color: AppColors.textSecondary,
                   fontSize: 10,
                   fontWeight: FontWeight.bold,
@@ -50,9 +50,9 @@ class AppSlider extends StatelessWidget {
           SliderTheme(
             data: SliderThemeData(
               activeTrackColor: activeColor,
-              inactiveTrackColor: activeColor.withOpacity(0.1),
+              inactiveTrackColor: activeColor.withValues(alpha: 0.1),
               thumbColor: AppColors.textPrimary,
-              overlayColor: activeColor.withOpacity(0.2),
+              overlayColor: activeColor.withValues(alpha: 0.2),
               trackHeight: 4,
               trackShape: const RoundedRectSliderTrackShape(),
               thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 6),

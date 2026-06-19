@@ -1,4 +1,4 @@
-﻿import 'package:xingcam/core/utils/haptics_utility.dart';
+import 'package:xingcam/core/utils/haptics_utility.dart';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -6,7 +6,6 @@ import 'package:xingcam/features/ai_tools/presentation/widgets/gobo_painter.dart
 import 'package:xingcam/core/widgets/tutorial_overlay.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
 import 'package:xingcam/core/widgets/app_header.dart';
-import 'package:xingcam/core/widgets/app_slider.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class GoboLightingScreen extends StatefulWidget {
@@ -114,7 +113,7 @@ class _GoboLightingScreenState extends State<GoboLightingScreen> {
                           margin: const EdgeInsets.only(right: 10),
                           padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
                           decoration: BoxDecoration(
-                            color: isActive ? AppColors.gold.withOpacity(0.2) : AppColors.background,
+                            color: isActive ? AppColors.gold.withValues(alpha: 0.2) : AppColors.background,
                             borderRadius: BorderRadius.circular(20),
                             border: Border.all(color: isActive ? AppColors.gold : AppColors.border, width: 1.5),
                           ),
@@ -141,7 +140,7 @@ class _GoboLightingScreenState extends State<GoboLightingScreen> {
                           onSelected: (val) {
                             if (val) setState(() => _selectedType = type);
                           },
-                          selectedColor: AppColors.gold.withOpacity(0.3),
+                          selectedColor: AppColors.gold.withValues(alpha: 0.3),
                           labelStyle: TextStyle(fontFamily: 'Outfit', color: isSelected ? AppColors.surfaceDeep : AppColors.textSecondary, fontSize: 12),
                         ),
                       );
@@ -173,7 +172,7 @@ class _GoboLightingScreenState extends State<GoboLightingScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(label, style: const TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary, fontSize: 12)),
-            Text(value.toStringAsFixed(2), style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withOpacity(0.8), fontSize: 12)),
+            Text(value.toStringAsFixed(2), style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withValues(alpha: 0.8), fontSize: 12)),
           ],
         ),
         Slider(

@@ -35,7 +35,7 @@ class AtmosphericMoodService {
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
               colors: [
-                Colors.white.withOpacity(isBackground ? 0.3 * intensity : 0.1 * intensity),
+                Colors.white.withValues(alpha: isBackground ? 0.3 * intensity : 0.1 * intensity),
                 Colors.transparent,
               ],
             ),
@@ -63,7 +63,7 @@ class _LightBeamsOverlay extends StatelessWidget {
           center: const Alignment(-0.5, -0.8),
           radius: 1.5,
           colors: [
-            Colors.white.withOpacity(0.2 * intensity),
+            Colors.white.withValues(alpha: 0.2 * intensity),
             Colors.transparent,
           ],
           stops: const [0.0, 0.6],
@@ -80,7 +80,7 @@ class _RainOverlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blueGrey.withOpacity(0.05 * intensity), // Subtle tint
+      color: Colors.blueGrey.withValues(alpha: 0.05 * intensity), // Subtle tint
       // In a real impl, this would use a noise shader for rain streaks
     );
   }

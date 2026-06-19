@@ -23,7 +23,7 @@ class EdgeAiService {
       // _faceSwapInterpreter = await Interpreter.fromAsset('assets/models/face_swap.tflite');
       await Future.delayed(const Duration(milliseconds: 1200)); 
     } catch (e) {
-      debugPrint("Edge AI Init Failed: \$e");
+      debugPrint('Edge AI Init Failed: \$e');
     }
   }
 

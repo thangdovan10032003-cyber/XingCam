@@ -7,13 +7,10 @@ import 'package:xingcam/core/services/memory_armor_service.dart';
 import 'package:xingcam/core/utils/haptics_utility.dart';
 import 'package:xingcam/core/widgets/app_header.dart';
 import 'package:xingcam/core/widgets/app_slider.dart';
-import 'package:xingcam/core/widgets/app_slider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:xingcam/core/injection/injection.dart';
 import 'package:xingcam/core/services/on_device_ai_service.dart';
 import 'package:xingcam/core/services/biometric_consent_service.dart';
-import 'package:xingcam/core/injection/injection.dart';
-import 'package:xingcam/core/services/on_device_ai_service.dart';
 
 class SkinBeautifierScreen extends StatefulWidget {
   final String imagePath;
@@ -154,13 +151,13 @@ class _SkinBeautifierScreenState extends State<SkinBeautifierScreen> {
               borderRadius: const BorderRadius.vertical(top: Radius.circular(28)),
               border: Border(
                 top: BorderSide(
-                  color: AppColors.primary.withOpacity(0.12),
+                  color: AppColors.primary.withValues(alpha: 0.12),
                   width: 1,
                 ),
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.6),
+                  color: Colors.black.withValues(alpha: 0.6),
                   blurRadius: 24,
                   offset: const Offset(0, -6),
                 ),
@@ -187,7 +184,7 @@ class _SkinBeautifierScreenState extends State<SkinBeautifierScreen> {
                               BoxShadow(
                                 color: (_intensity > 0.7
                                     ? AppColors.gold
-                                    : AppColors.primary).withOpacity(0.7),
+                                    : AppColors.primary).withValues(alpha: 0.7),
                                 blurRadius: 6,
                               ),
                             ],
@@ -211,7 +208,7 @@ class _SkinBeautifierScreenState extends State<SkinBeautifierScreen> {
                     ),
                     Text(
                       '${(_intensity * 100).toInt()}%',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontFamily: 'Outfit',
                         color: AppColors.textSecondary,
                         fontSize: 13,

@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
 
 /// CrashlyticsService: Centralized anomaly monitoring and local diagnostic logging.

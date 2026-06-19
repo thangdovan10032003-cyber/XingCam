@@ -1,4 +1,4 @@
-﻿import 'dart:ui';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
 
@@ -19,7 +19,7 @@ class TutorialOverlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: AppColors.background.withOpacity(0.54),
+      color: AppColors.background.withValues(alpha: 0.54),
       child: InkWell(
         onTap: onDismiss,
         child: Center(
@@ -32,9 +32,9 @@ class TutorialOverlay extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(24),
                   decoration: BoxDecoration(
-                    color: AppColors.textPrimary.withOpacity(0.1),
+                    color: AppColors.textPrimary.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(24),
-                    border: Border.all(color: AppColors.textPrimary.withOpacity(0.2)),
+                    border: Border.all(color: AppColors.textPrimary.withValues(alpha: 0.2)),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -42,7 +42,7 @@ class TutorialOverlay extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                          color: AppColors.primary.withOpacity(0.2),
+                          color: AppColors.primary.withValues(alpha: 0.2),
                           shape: BoxShape.circle,
                         ),
                         child: Icon(icon, color: AppColors.primary, size: 40),
@@ -50,7 +50,7 @@ class TutorialOverlay extends StatelessWidget {
                       const SizedBox(height: 20),
                       Text(
                         title,
-                        style: TextStyle(fontFamily: 'Outfit', 
+                        style: const TextStyle(fontFamily: 'Outfit', 
                           color: AppColors.textPrimary,
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
@@ -60,7 +60,7 @@ class TutorialOverlay extends StatelessWidget {
                       const SizedBox(height: 12),
                       Text(
                         description,
-                        style: TextStyle(fontFamily: 'Outfit', 
+                        style: const TextStyle(fontFamily: 'Outfit', 
                           color: AppColors.textSecondary,
                           fontSize: 14,
                         ),
@@ -78,16 +78,16 @@ class TutorialOverlay extends StatelessWidget {
                               borderRadius: BorderRadius.circular(14),
                             ),
                           ),
-                          child: Text(
+                          child: const Text(
                             'Got it!',
-                            style: const TextStyle(fontFamily: 'Outfit', fontWeight: FontWeight.bold),
+                            style: TextStyle(fontFamily: 'Outfit', fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
                       const SizedBox(height: 12),
                       Text(
                         'Tap anywhere to dismiss',
-                        style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withOpacity(0.24), fontSize: 10),
+                        style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withValues(alpha: 0.24), fontSize: 10),
                       ),
                     ],
                   ),

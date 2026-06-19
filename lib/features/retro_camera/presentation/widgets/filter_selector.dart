@@ -87,12 +87,12 @@ class _FilterSelectorState extends State<FilterSelector> {
                     Expanded(
                       child: Container(
                         decoration: BoxDecoration(
-                          color: color.withOpacity(0.8),
+                          color: color.withValues(alpha: 0.8),
                           gradient: LinearGradient(
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
                             colors: [
-                              color.withOpacity(0.6),
+                              color.withValues(alpha: 0.6),
                               color,
                             ],
                           ),
@@ -106,7 +106,7 @@ class _FilterSelectorState extends State<FilterSelector> {
                     ),
                     // Label
                     Container(
-                      color: AppColors.surfaceLow.withOpacity(0.5),
+                      color: AppColors.surfaceLow.withValues(alpha: 0.5),
                       width: double.infinity,
                       padding: const EdgeInsets.symmetric(vertical: 4),
                       child: Text(

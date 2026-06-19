@@ -1,4 +1,4 @@
-﻿import 'dart:io';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:xingcam/core/widgets/tutorial_overlay.dart';
@@ -100,7 +100,7 @@ class _HairColoristScreenState extends State<HairColoristScreen> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(context.tr('tools.hair.hair_color'), style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withOpacity(0.38), fontSize: 11, letterSpacing: 1.5)),
+          Text(context.tr('tools.hair.hair_color'), style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withValues(alpha: 0.38), fontSize: 11, letterSpacing: 1.5)),
           const SizedBox(height: 16),
           SizedBox(
             height: 56,
@@ -124,11 +124,11 @@ class _HairColoristScreenState extends State<HairColoristScreen> {
                       color: c,
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: isSelected ? AppColors.textPrimary : AppColors.textPrimary.withOpacity(0.24),
+                        color: isSelected ? AppColors.textPrimary : AppColors.textPrimary.withValues(alpha: 0.24),
                         width: isSelected ? 3 : 1,
                       ),
                       boxShadow: isSelected
-                          ? [BoxShadow(color: c.withOpacity(0.6), blurRadius: 12)]
+                          ? [BoxShadow(color: c.withValues(alpha: 0.6), blurRadius: 12)]
                           : null,
                     ),
                   ),

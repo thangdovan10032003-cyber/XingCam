@@ -65,7 +65,7 @@ class SubscriptionPaywallWidget extends StatelessWidget {
             onPressed: () { /* Restore logic */ },
             child: Text(
               'KHÔI PHỤC GÓI MUA',
-              style: TextStyle(fontFamily: 'Outfit', color: AppColors.gold.withOpacity(0.8), fontSize: 11, fontWeight: FontWeight.bold, letterSpacing: 1),
+              style: TextStyle(fontFamily: 'Outfit', color: AppColors.gold.withValues(alpha: 0.8), fontSize: 11, fontWeight: FontWeight.bold, letterSpacing: 1),
             ),
           ),
         ],
@@ -81,14 +81,14 @@ class SubscriptionPaywallWidget extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.05),
+            color: Colors.white.withValues(alpha: 0.05),
             borderRadius: BorderRadius.circular(24),
-            border: Border.all(color: Colors.white.withOpacity(0.1)),
+            border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
           ),
-          child: Column(
+          child: const Column(
             children: [
-              const Text('XINGCAM PRO', style: TextStyle(fontFamily: 'Outfit', color: AppColors.gold, fontSize: 24, fontWeight: FontWeight.w900, letterSpacing: 2)),
-              const SizedBox(height: 24),
+              Text('XINGCAM PRO', style: TextStyle(fontFamily: 'Outfit', color: AppColors.gold, fontSize: 24, fontWeight: FontWeight.w900, letterSpacing: 2)),
+              SizedBox(height: 24),
               _FeatureRow(label: 'Tất cả 120+ Công thức màu', isPro: true),
               _FeatureRow(label: 'Xử lý Video 4K & Cinematic', isPro: true),
               _FeatureRow(label: 'Hút công thức từ ảnh (Stealth)', isPro: true),
@@ -130,7 +130,7 @@ class SubscriptionPaywallWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: isPopular ? AppColors.gold.withOpacity(0.1) : Colors.white.withOpacity(0.03),
+        color: isPopular ? AppColors.gold.withValues(alpha: 0.1) : Colors.white.withValues(alpha: 0.03),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: isPopular ? AppColors.gold : Colors.white12),
       ),
@@ -154,18 +154,18 @@ class SubscriptionPaywallWidget extends StatelessWidget {
   }
 
   Widget _buildComplianceLinks() {
-    return Column(
+    return const Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             _LinkText('Điều khoản sử dụng (EULA)'),
-            const Text(' • ', style: TextStyle(color: Colors.white24)),
+            Text(' • ', style: TextStyle(color: Colors.white24)),
             _LinkText('Quyền riêng tư'),
           ],
         ),
-        const SizedBox(height: 12),
-        const Text(
+        SizedBox(height: 12),
+        Text(
           'Hủy bất cứ lúc nào trong cài đặt App Store. Đăng ký tự động gia hạn.',
           style: TextStyle(color: Colors.white24, fontSize: 10),
         ),
@@ -182,7 +182,7 @@ class SubscriptionPaywallWidget extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppColors.gold,
           borderRadius: BorderRadius.circular(28),
-          boxShadow: [BoxShadow(color: AppColors.gold.withOpacity(0.3), blurRadius: 20, offset: const Offset(0, 10))],
+          boxShadow: [BoxShadow(color: AppColors.gold.withValues(alpha: 0.3), blurRadius: 20, offset: const Offset(0, 10))],
         ),
         child: const Center(
           child: Text('BẮT ĐẦU DÙNG THỬ MIỄN PHÍ', style: TextStyle(fontFamily: 'Outfit', color: Colors.black, fontSize: 14, fontWeight: FontWeight.w900, letterSpacing: 1)),

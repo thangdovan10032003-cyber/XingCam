@@ -1,4 +1,4 @@
-﻿import 'dart:io';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image/image.dart' as img;
@@ -111,7 +111,7 @@ class _SkyReplacementScreenState extends State<SkyReplacementScreen> {
                         setState(() => _autoHarmonize = v);
                         if (_selectedSky != null) _reprocessSky();
                       },
-                      activeColor: AppColors.accent,
+                      activeThumbColor: AppColors.accent,
                     ),
                   ],
                 ),
@@ -130,7 +130,7 @@ class _SkyReplacementScreenState extends State<SkyReplacementScreen> {
                         activeColor: AppColors.accent,
                       ),
                     ),
-                    Text('Fringe', style: const TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary, fontSize: 10)),
+                    const Text('Fringe', style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary, fontSize: 10)),
                   ],
                 ),
               ],
@@ -244,7 +244,7 @@ class _SkyReplacementScreenState extends State<SkyReplacementScreen> {
   }
 
   void _applyAtmosphericTint(img.Image image, Color tint) {
-    final intensity = 0.15; // Subtle harmonization
+    const intensity = 0.15; // Subtle harmonization
     for (int y = 0; y < image.height; y++) {
       for (int x = 0; x < image.width; x++) {
         final pixel = image.getPixel(x, y);

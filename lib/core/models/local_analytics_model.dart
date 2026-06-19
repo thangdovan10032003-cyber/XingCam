@@ -11,11 +11,11 @@ class LocalAnalyticsModel {
 
   late DateTime timestamp;
 
-  late Map<String, String> properties;
+  @ignore
+  Map<String, String> properties = {};
 
   LocalAnalyticsModel({
     required this.eventName,
     required this.timestamp,
-    required this.properties,
   });
 }

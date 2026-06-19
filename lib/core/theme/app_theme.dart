@@ -16,10 +16,9 @@ class AppTheme {
         secondary: AppColors.accent,
         surface: AppColors.surface,
         onSurface: AppColors.textPrimary,
-        background: AppColors.background,
         error: Color(0xFFCF6679),
       ),
-      splashColor: AppColors.primary.withOpacity(0.1),
+      splashColor: AppColors.primary.withValues(alpha: 0.1),
       highlightColor: AppColors.transparent,
       appBarTheme: const AppBarTheme(
         backgroundColor: AppColors.background,
@@ -57,7 +56,7 @@ class AppTheme {
         activeTrackColor: AppColors.accent,
         inactiveTrackColor: AppColors.border,
         thumbColor: AppColors.textPrimary,
-        overlayColor: AppColors.accent.withOpacity(0.1),
+        overlayColor: AppColors.accent.withValues(alpha: 0.1),
         trackHeight: 2,
       ),
       cardTheme: CardThemeData(

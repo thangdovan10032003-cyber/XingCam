@@ -79,7 +79,7 @@ class HybridProcessingDialog extends StatelessWidget {
                 width: 40,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: AppColors.textSecondary.withOpacity(0.4),
+                  color: AppColors.textSecondary.withValues(alpha: 0.4),
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -93,7 +93,7 @@ class HybridProcessingDialog extends StatelessWidget {
                   width: 44,
                   height: 44,
                   decoration: BoxDecoration(
-                    color: Colors.orange.withOpacity(0.15),
+                    color: Colors.orange.withValues(alpha: 0.15),
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(Icons.speed_rounded, color: Colors.orange, size: 24),
@@ -211,13 +211,13 @@ class _OptionCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         decoration: BoxDecoration(
           color: isWarning
-              ? Colors.orange.withOpacity(0.06)
-              : AppColors.background.withOpacity(0.6),
+              ? Colors.orange.withValues(alpha: 0.06)
+              : AppColors.background.withValues(alpha: 0.6),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
             color: isWarning
-                ? Colors.orange.withOpacity(0.3)
-                : AppColors.textSecondary.withOpacity(0.15),
+                ? Colors.orange.withValues(alpha: 0.3)
+                : AppColors.textSecondary.withValues(alpha: 0.15),
           ),
         ),
         child: Row(
@@ -246,7 +246,7 @@ class _OptionCard extends StatelessWidget {
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                           decoration: BoxDecoration(
-                            color: Colors.blueAccent.withOpacity(0.2),
+                            color: Colors.blueAccent.withValues(alpha: 0.2),
                             borderRadius: BorderRadius.circular(6),
                           ),
                           child: Text(

@@ -1,4 +1,4 @@
-﻿import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
 import 'dart:io';
 import 'package:flutter/material.dart';
@@ -72,7 +72,7 @@ class _AiOutfitScreenState extends State<AiOutfitScreen> {
                   Image.file(File(widget.imagePath), fit: BoxFit.contain),
                   if (_isGenerating)
                     Container(
-                      color: AppColors.background.withOpacity(0.45),
+                      color: AppColors.background.withValues(alpha: 0.45),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -123,14 +123,14 @@ class _AiOutfitScreenState extends State<AiOutfitScreen> {
                     margin: const EdgeInsets.only(right: 12),
                     width: 76,
                     decoration: BoxDecoration(
-                      color: isSelected ? (s['color'] as Color).withOpacity(0.15) : AppColors.textPrimary.withOpacity(0.1),
+                      color: isSelected ? (s['color'] as Color).withValues(alpha: 0.15) : AppColors.textPrimary.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(color: isSelected ? (s['color'] as Color) : AppColors.transparent, width: 2),
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(s['icon'] as IconData, color: isSelected ? (s['color'] as Color) : AppColors.textSecondary.withOpacity(0.38), size: 30),
+                        Icon(s['icon'] as IconData, color: isSelected ? (s['color'] as Color) : AppColors.textSecondary.withValues(alpha: 0.38), size: 30),
                         const SizedBox(height: 4),
                         Text(context.tr(s['label'] as String), style: const TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary, fontSize: 10)),
                       ],

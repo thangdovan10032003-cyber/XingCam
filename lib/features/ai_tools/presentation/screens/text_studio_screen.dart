@@ -1,4 +1,4 @@
-﻿import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -54,7 +54,7 @@ class _TextStudioScreenState extends State<TextStudioScreen> {
       color: _textColor,
       fontSize: _textSize,
       fontWeight: FontWeight.bold,
-      shadows: [Shadow(blurRadius: 8, color: AppColors.background.withOpacity(0.54))],
+      shadows: [Shadow(blurRadius: 8, color: AppColors.background.withValues(alpha: 0.54))],
     );
     final appliedStyle = _fonts[_selectedFontIndex](baseStyle);
 
@@ -97,7 +97,7 @@ class _TextStudioScreenState extends State<TextStudioScreen> {
                     child: Container(
                       padding: _hasBackground ? const EdgeInsets.symmetric(horizontal: 12, vertical: 6) : EdgeInsets.zero,
                       decoration: _hasBackground
-                          ? BoxDecoration(color: AppColors.background.withOpacity(0.54), borderRadius: BorderRadius.circular(8))
+                          ? BoxDecoration(color: AppColors.background.withValues(alpha: 0.54), borderRadius: BorderRadius.circular(8))
                           : null,
                       child: Text(_text, style: appliedStyle),
                     ),
@@ -130,9 +130,9 @@ class _TextStudioScreenState extends State<TextStudioScreen> {
                   style: const TextStyle(fontFamily: 'Outfit', color: AppColors.textPrimary, fontSize: 14),
                   decoration: InputDecoration(
                     hintText: context.tr('tools.text.hint'),
-                    hintStyle: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withOpacity(0.38)),
+                    hintStyle: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withValues(alpha: 0.38)),
                     filled: true,
-                    fillColor: AppColors.textPrimary.withOpacity(0.1),
+                    fillColor: AppColors.textPrimary.withValues(alpha: 0.1),
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: BorderSide.none),
                     contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                   ),
@@ -145,11 +145,11 @@ class _TextStudioScreenState extends State<TextStudioScreen> {
                 child: Container(
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: _hasBackground ? AppColors.accent.withOpacity(0.2) : AppColors.surfaceLight.withOpacity(0.1),
+                    color: _hasBackground ? AppColors.accent.withValues(alpha: 0.2) : AppColors.surfaceLight.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(color: _hasBackground ? AppColors.accent : AppColors.transparent),
                   ),
-                  child: Icon(AppIcons.borderAll, color: _hasBackground ? AppColors.accent : AppColors.textSecondary.withOpacity(0.38), size: 22),
+                  child: Icon(AppIcons.borderAll, color: _hasBackground ? AppColors.accent : AppColors.textSecondary.withValues(alpha: 0.38), size: 22),
                 ),
               ),
             ],
@@ -170,7 +170,7 @@ class _TextStudioScreenState extends State<TextStudioScreen> {
                     margin: const EdgeInsets.only(right: 10),
                     padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
                     decoration: BoxDecoration(
-                      color: isSelected ? AppColors.accent.withOpacity(0.2) : AppColors.surfaceLight.withOpacity(0.1),
+                      color: isSelected ? AppColors.accent.withValues(alpha: 0.2) : AppColors.surfaceLight.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(color: isSelected ? AppColors.accent : AppColors.transparent),
                     ),
@@ -194,7 +194,7 @@ class _TextStudioScreenState extends State<TextStudioScreen> {
                   decoration: BoxDecoration(
                     color: c,
                     shape: BoxShape.circle,
-                    border: Border.all(color: _textColor == c ? AppColors.textPrimary : AppColors.textPrimary.withOpacity(0.24), width: _textColor == c ? 2.5 : 1),
+                    border: Border.all(color: _textColor == c ? AppColors.textPrimary : AppColors.textPrimary.withValues(alpha: 0.24), width: _textColor == c ? 2.5 : 1),
                   ),
                 ),
               )),
@@ -206,7 +206,7 @@ class _TextStudioScreenState extends State<TextStudioScreen> {
                   min: 12,
                   max: 72,
                   activeColor: AppColors.accent,
-                  inactiveColor: AppColors.surfaceLight.withOpacity(0.1),
+                  inactiveColor: AppColors.surfaceLight.withValues(alpha: 0.1),
                   onChanged: (v) { setState(() => _textSize = v); HapticsUtility.lightFeedback(); },
                 ),
               ),

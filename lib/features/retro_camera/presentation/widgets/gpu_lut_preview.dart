@@ -3,20 +3,29 @@ import 'package:flutter/material.dart';
 
 /// A widget that applies a professional 3D LUT shader to its child.
 /// Uses the lut_engine.frag GLSL shader for real-time GPU processing.
-class GpuLutPreview extends StatelessWidget {
-  final ui.FragmentShader shader;
+/// A widget that applies professional GPU effects (LUT + Beauty) to its child.
+class GpuEffectPreview extends StatelessWidget {
+  final ui.FragmentShader lutShader;
+  final ui.FragmentShader? beautyShader;
   final ui.Image lutImage;
   final ui.Image? lutBImage;
   final double interpolation;
+  final double beautySmoothness;
+  final double beautyBrightening;
+  final bool beautyEnabled;
   final Size size;
   final Widget child;
 
-  const GpuLutPreview({
+  const GpuEffectPreview({
     super.key,
-    required this.shader,
+    required this.lutShader,
+    this.beautyShader,
     required this.lutImage,
     this.lutBImage,
     this.interpolation = 0.0,
+    this.beautySmoothness = 0.5,
+    this.beautyBrightening = 0.5,
+    this.beautyEnabled = false,
     required this.size,
     required this.child,
   });
@@ -24,11 +33,15 @@ class GpuLutPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
-      painter: _LutShaderPainter(
-        shader: shader,
+      painter: _EffectShaderPainter(
+        lutShader: lutShader,
+        beautyShader: beautyShader,
         lutImage: lutImage,
-        lutBImage: lutBImage ?? lutImage, // Fallback to same image if not provided
+        lutBImage: lutBImage ?? lutImage,
         interpolation: interpolation,
+        beautySmoothness: beautySmoothness,
+        beautyBrightening: beautyBrightening,
+        beautyEnabled: beautyEnabled,
         size: size,
       ),
       child: child,
@@ -36,55 +49,64 @@ class GpuLutPreview extends StatelessWidget {
   }
 }
 
-class _LutShaderPainter extends CustomPainter {
-  final ui.FragmentShader shader;
+class _EffectShaderPainter extends CustomPainter {
+  final ui.FragmentShader lutShader;
+  final ui.FragmentShader? beautyShader;
   final ui.Image lutImage;
   final ui.Image lutBImage;
   final double interpolation;
+  final double beautySmoothness;
+  final double beautyBrightening;
+  final bool beautyEnabled;
   final Size size;
 
-  _LutShaderPainter({
-    required this.shader,
+  _EffectShaderPainter({
+    required this.lutShader,
+    required this.beautyShader,
     required this.lutImage,
     required this.lutBImage,
     required this.interpolation,
+    required this.beautySmoothness,
+    required this.beautyBrightening,
+    required this.beautyEnabled,
     required this.size,
   });
 
   @override
   void paint(Canvas canvas, Size size) {
-    // Set shader uniforms
-    shader.setFloat(0, size.width);
-    shader.setFloat(1, size.height);
-    shader.setFloat(2, interpolation);
+    final paint = Paint();
     
-    // Sampler mapping based on shader order:
-    // 0: uTexture (automatically provided by child rendering if we use specific blend modes, 
-    // but here we might need to capture or use a dummy)
-    // 1: uLutA
-    // 2: uLutB
+    // Pass 1: Beauty Filter (if enabled)
+    if (beautyEnabled && beautyShader != null) {
+      beautyShader!.setFloat(0, size.width);
+      beautyShader!.setFloat(1, size.height);
+      beautyShader!.setFloat(2, beautySmoothness);
+      beautyShader!.setFloat(3, beautyBrightening);
+      // Note: In a real multi-pass, we'd need to capture the child texture.
+      // Flutter's current FragmentShader API is mainly for procedurals or single-pass.
+      // For real-time camera, we usually apply the shader to the whole Layer.
+      paint.shader = beautyShader;
+      canvas.drawRect(Offset.zero & size, paint);
+    }
+
+    // Pass 2: LUT Processing
+    lutShader.setFloat(0, size.width);
+    lutShader.setFloat(1, size.height);
+    lutShader.setFloat(2, interpolation);
+    lutShader.setImageSampler(1, lutImage);
+    lutShader.setImageSampler(2, lutBImage);
     
-    // For this implementation, we assume the user provides a placeholder uTexture
-    // or we are applying it to a canvas where the texture is injected.
-    shader.setImageSampler(1, lutImage);
-    shader.setImageSampler(2, lutBImage);
-    
-    // We can't directly get the 'child' pixels here easily in a CustomPainter 
-    // without using a RepaintBoundary or Layer.
-    // However, for the LIVE PREVIEW, we can apply the shader to the whole canvas
-    // and use a specific blend mode.
-    
-    final paint = Paint()..shader = shader;
-    
-    // We draw a rect that covers the whole child area
+    paint.shader = lutShader;
+    paint.blendMode = BlendMode.overlay; // Blend over the beauty layer
     canvas.drawRect(Offset.zero & size, paint);
   }
 
   @override
-  bool shouldRepaint(covariant _LutShaderPainter oldDelegate) {
+  bool shouldRepaint(covariant _EffectShaderPainter oldDelegate) {
     return oldDelegate.lutImage != lutImage || 
-           oldDelegate.lutBImage != lutBImage ||
            oldDelegate.interpolation != interpolation ||
-           oldDelegate.size != size;
+           oldDelegate.beautyEnabled != beautyEnabled ||
+           oldDelegate.beautySmoothness != beautySmoothness ||
+           oldDelegate.beautyBrightening != beautyBrightening;
   }
 }

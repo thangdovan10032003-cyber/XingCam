@@ -1,4 +1,4 @@
-﻿import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
 import 'dart:io';
 import 'package:flutter/material.dart';
@@ -21,11 +21,11 @@ class _StyleMimicScreenState extends State<StyleMimicScreen> {
   double _styleBalance = 0.85;
 
   final List<Map<String, dynamic>> _moodboard = [
-    {'name': 'Golden Hour', 'filter': 'Kodak Portra', 'color': Color(0xFFE8A838)},
-    {'name': 'Blue Noir', 'filter': 'Classic Negative', 'color': Color(0xFF2D5FA0)},
-    {'name': 'Forest Mood', 'filter': 'Ektachrome', 'color': Color(0xFF2D6A3F)},
-    {'name': 'Velvet Dark', 'filter': 'Velvia', 'color': Color(0xFF4A2C6E)},
-    {'name': 'Faded Film', 'filter': 'Classic Chrome', 'color': Color(0xFF8B7B6B)},
+    {'name': 'Golden Hour', 'filter': 'Kodak Portra', 'color': const Color(0xFFE8A838)},
+    {'name': 'Blue Noir', 'filter': 'Classic Negative', 'color': const Color(0xFF2D5FA0)},
+    {'name': 'Forest Mood', 'filter': 'Ektachrome', 'color': const Color(0xFF2D6A3F)},
+    {'name': 'Velvet Dark', 'filter': 'Velvia', 'color': const Color(0xFF4A2C6E)},
+    {'name': 'Faded Film', 'filter': 'Classic Chrome', 'color': const Color(0xFF8B7B6B)},
   ];
 
   void _applyMoodboard(Map<String, dynamic> mood) {
@@ -116,7 +116,7 @@ class _StyleMimicScreenState extends State<StyleMimicScreen> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text('Sovereign Sync Complete! Applied $_suggestedFilter vibe.'),
-        backgroundColor: AppColors.mint.withOpacity(0.8),
+        backgroundColor: AppColors.mint.withValues(alpha: 0.8),
       ),
     );
     Navigator.pop(context);
@@ -140,9 +140,9 @@ class _StyleMimicScreenState extends State<StyleMimicScreen> {
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: AppColors.textPrimary.withOpacity(0.05),
+                    color: AppColors.textPrimary.withValues(alpha: 0.05),
                     borderRadius: BorderRadius.circular(32),
-                    border: Border.all(color: AppColors.textPrimary.withOpacity(0.1), width: 2),
+                    border: Border.all(color: AppColors.textPrimary.withValues(alpha: 0.1), width: 2),
                   ),
                   child: _referenceImage == null
                       ? Column(
@@ -161,7 +161,7 @@ class _StyleMimicScreenState extends State<StyleMimicScreen> {
                               Image.file(File(_referenceImage!.path), fit: BoxFit.cover),
                               if (_isAnalyzing)
                                 Container(
-                                  color: AppColors.surfaceLow.withOpacity(0.5),
+                                  color: AppColors.surfaceLow.withValues(alpha: 0.5),
                                   child: Center(
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
@@ -194,9 +194,9 @@ class _StyleMimicScreenState extends State<StyleMimicScreen> {
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                       decoration: BoxDecoration(
-                        color: (mood['color'] as Color).withOpacity(0.15),
+                        color: (mood['color'] as Color).withValues(alpha: 0.15),
                         borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: (mood['color'] as Color).withOpacity(0.5)),
+                        border: Border.all(color: (mood['color'] as Color).withValues(alpha: 0.5)),
                       ),
                       child: Row(
                         children: [
@@ -218,7 +218,7 @@ class _StyleMimicScreenState extends State<StyleMimicScreen> {
                   color: AppColors.surface,
                   borderRadius: BorderRadius.circular(24),
                   boxShadow: [
-                    BoxShadow(color: AppColors.gradientPurple.withOpacity(0.3), blurRadius: 40, spreadRadius: -10)
+                    BoxShadow(color: AppColors.gradientPurple.withValues(alpha: 0.3), blurRadius: 40, spreadRadius: -10)
                   ],
                 ),
                 child: Column(
@@ -227,7 +227,7 @@ class _StyleMimicScreenState extends State<StyleMimicScreen> {
                     const SizedBox(height: 12),
                     ElevatedButton.icon(
                       onPressed: _isAnalyzing ? null : _autoHarmonize,
-                      icon: Icon(AppIcons.autoFix, size: 18),
+                      icon: const Icon(AppIcons.autoFix, size: 18),
                       label: const Text('Auto-Harmonize'),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.primary,

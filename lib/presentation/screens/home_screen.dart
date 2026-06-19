@@ -5,10 +5,10 @@ import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
 
-import '../services/home_feed_service.dart';
-import '../services/background_task_service.dart';
-import '../services/recipe_service.dart';
-import '../widgets/active_task_mini_widget.dart';
+import 'package:xingcam/core/services/home_feed_service.dart';
+import 'package:xingcam/core/services/background_task_service.dart';
+import 'package:xingcam/core/services/recipe_service.dart';
+import 'package:xingcam/core/widgets/active_task_mini_widget.dart';
 import 'dart:io';
 
 class HomeScreen extends StatefulWidget {
@@ -273,7 +273,7 @@ class _RecipeFeedCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(24),
-        border: Border.all(color: AppColors.textPrimary.withOpacity(0.05)),
+        border: Border.all(color: AppColors.textPrimary.withValues(alpha: 0.05)),
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(24),
@@ -303,7 +303,7 @@ class _RecipeFeedCard extends StatelessWidget {
                   Container(
                     width: 44,
                     height: 44,
-                    decoration: BoxDecoration(color: AppColors.accent.withOpacity(0.12), shape: BoxShape.circle),
+                    decoration: BoxDecoration(color: AppColors.accent.withValues(alpha: 0.12), shape: BoxShape.circle),
                     child: const Icon(Icons.auto_fix_high_rounded, color: AppColors.accent, size: 20),
                   ),
                 ],
@@ -314,7 +314,6 @@ class _RecipeFeedCard extends StatelessWidget {
       ),
     );
   }
-}
 }
 
 // â”€â”€ Animated gradient background â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -334,8 +333,8 @@ class _AmbientPainter extends CustomPainter {
       size.width * (0.8 - touchPos.dx * 0.2),
       size.height * (0.2 + touchPos.dy * 0.3),
     );
-    _drawOrb(canvas, p1, 200, AppColors.primary.withOpacity(0.18));
-    _drawOrb(canvas, p2, 250, AppColors.gradientPurple.withOpacity(0.15));
+    _drawOrb(canvas, p1, 200, AppColors.primary.withValues(alpha: 0.18));
+    _drawOrb(canvas, p2, 250, AppColors.gradientPurple.withValues(alpha: 0.15));
   }
 
   void _drawOrb(Canvas canvas, Offset center, double radius, Color color) {
@@ -422,7 +421,7 @@ class _AnimatedModuleCardState extends State<_AnimatedModuleCard>
             borderRadius: BorderRadius.circular(24),
             boxShadow: [
               BoxShadow(
-                color: widget.gradientColors.first.withOpacity(0.35),
+                color: widget.gradientColors.first.withValues(alpha: 0.35),
                 blurRadius: 24,
                 offset: const Offset(0, 8),
               ),
@@ -435,7 +434,7 @@ class _AnimatedModuleCardState extends State<_AnimatedModuleCard>
                 width: 56,
                 height: 56,
                 decoration: BoxDecoration(
-                  color: AppColors.textPrimary.withOpacity(0.15),
+                  color: AppColors.textPrimary.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Icon(widget.icon, color: AppColors.textPrimary, size: 28),
@@ -450,7 +449,7 @@ class _AnimatedModuleCardState extends State<_AnimatedModuleCard>
                       children: [
                         Text(
                           widget.title,
-                          style: TextStyle(fontFamily: 'Outfit', 
+                          style: const TextStyle(fontFamily: 'Outfit', 
                             color: AppColors.textPrimary,
                             fontWeight: FontWeight.w800,
                             fontSize: 18,
@@ -461,10 +460,10 @@ class _AnimatedModuleCardState extends State<_AnimatedModuleCard>
                           padding: const EdgeInsets.symmetric(
                               horizontal: 8, vertical: 2),
                           decoration: BoxDecoration(
-                            color: widget.badgeColor.withOpacity(0.2),
+                            color: widget.badgeColor.withValues(alpha: 0.2),
                             borderRadius: BorderRadius.circular(6),
                             border: Border.all(
-                                color: widget.badgeColor.withOpacity(0.5),
+                                color: widget.badgeColor.withValues(alpha: 0.5),
                                 width: 0.5),
                           ),
                           child: Text(
@@ -482,7 +481,7 @@ class _AnimatedModuleCardState extends State<_AnimatedModuleCard>
                     const SizedBox(height: 2),
                     Text(
                       widget.subtitle,
-                      style: TextStyle(fontFamily: 'Outfit', 
+                      style: const TextStyle(fontFamily: 'Outfit', 
                         color: AppColors.textSecondary,
                         fontSize: 11,
                         letterSpacing: 0.5,
@@ -493,7 +492,7 @@ class _AnimatedModuleCardState extends State<_AnimatedModuleCard>
                     Text(
                       widget.description,
                       style: TextStyle(fontFamily: 'Outfit', 
-                        color: AppColors.textSecondary.withOpacity(0.8),
+                        color: AppColors.textSecondary.withValues(alpha: 0.8),
                         fontSize: 13,
                         height: 1.5,
                       ),
@@ -525,9 +524,9 @@ class _GalleryQuickCard extends StatelessWidget {
         width: double.infinity,
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         decoration: BoxDecoration(
-          color: AppColors.textPrimary.withOpacity(0.05),
+          color: AppColors.textPrimary.withValues(alpha: 0.05),
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: AppColors.textPrimary.withOpacity(0.08)),
+          border: Border.all(color: AppColors.textPrimary.withValues(alpha: 0.08)),
         ),
         child: Row(
           children: [
@@ -535,7 +534,7 @@ class _GalleryQuickCard extends StatelessWidget {
               width: 44,
               height: 44,
               decoration: BoxDecoration(
-                color: AppColors.textPrimary.withOpacity(0.08),
+                color: AppColors.textPrimary.withValues(alpha: 0.08),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: const Icon(AppIcons.gallery,
@@ -546,12 +545,12 @@ class _GalleryQuickCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(context.tr('home.gallery.title'),
-                    style: TextStyle(fontFamily: 'Outfit', 
+                    style: const TextStyle(fontFamily: 'Outfit', 
                         color: AppColors.textPrimary,
                         fontWeight: FontWeight.w600,
                         fontSize: 15)),
                 Text(context.tr('home.gallery.subtitle'),
-                    style: TextStyle(fontFamily: 'Outfit', 
+                    style: const TextStyle(fontFamily: 'Outfit', 
                         color: AppColors.textSecondary, fontSize: 12)),
               ],
             ),
@@ -580,9 +579,9 @@ class _GlassButton extends StatelessWidget {
         width: 44,
         height: 44,
         decoration: BoxDecoration(
-          color: AppColors.textPrimary.withOpacity(0.07),
+          color: AppColors.textPrimary.withValues(alpha: 0.07),
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: AppColors.textPrimary.withOpacity(0.1)),
+          border: Border.all(color: AppColors.textPrimary.withValues(alpha: 0.1)),
         ),
         child: Icon(icon, color: AppColors.textSecondary, size: 20),
       ),

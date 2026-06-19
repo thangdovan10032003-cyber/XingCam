@@ -1,9 +1,7 @@
-import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:camera/camera.dart';
-import 'package:go_router/go_router.dart';
 
 import 'package:xingcam/features/retro_camera/presentation/widgets/camera_pose_overlay.dart';
 import 'package:xingcam/features/retro_camera/presentation/widgets/camera_shutter_button.dart';
@@ -16,7 +14,6 @@ import 'package:xingcam/core/utils/haptics_utility.dart';
 import 'package:xingcam/core/services/composition_guide_service.dart';
 import 'package:xingcam/features/retro_camera/presentation/widgets/film_border_overlay.dart';
 import 'package:xingcam/features/retro_camera/presentation/widgets/shader_camera_preview.dart';
-import 'package:xingcam/features/retro_camera/presentation/widgets/filter_selector.dart';
 
 class CameraScreen extends StatefulWidget {
   const CameraScreen({super.key});
@@ -33,10 +30,10 @@ class _CameraScreenState extends State<CameraScreen> with WidgetsBindingObserver
   int _timerSeconds = 0;
   bool _isCounting = false;
   int _countdown = 0;
-  String _selectedPose = 'None';
-  double _subjectX = 0.5;
-  double _subjectY = 0.5;
-  double _currentTilt = 0.0;
+  final String _selectedPose = 'None';
+  final double _subjectX = 0.5;
+  final double _subjectY = 0.5;
+  final double _currentTilt = 0.0;
   final List<String> _quickStack = [];
   String? _peekPath;
 
@@ -158,7 +155,7 @@ class _CameraScreenState extends State<CameraScreen> with WidgetsBindingObserver
   }
 
   Widget _buildLoading() {
-    return Center(child: CircularProgressIndicator(color: AppColors.primary));
+    return const Center(child: CircularProgressIndicator(color: AppColors.primary));
   }
 
   Widget _buildError(String message) {
@@ -317,7 +314,7 @@ class _CameraScreenState extends State<CameraScreen> with WidgetsBindingObserver
                     builder: (_, __) => CircularProgressIndicator(
                       value: _timerRingController.value,
                       strokeWidth: 6,
-                      backgroundColor: AppColors.surface.withOpacity(0.3),
+                      backgroundColor: AppColors.surface.withValues(alpha: 0.3),
                       color: AppColors.primary,
                     ),
                   ),
@@ -391,9 +388,9 @@ class _CameraScreenState extends State<CameraScreen> with WidgetsBindingObserver
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
         decoration: BoxDecoration(
-          color: AppColors.surface.withOpacity(0.5),
+          color: AppColors.surface.withValues(alpha: 0.5),
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: AppColors.primary.withOpacity(0.5)),
+          border: Border.all(color: AppColors.primary.withValues(alpha: 0.5)),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -425,7 +422,7 @@ class _CameraScreenState extends State<CameraScreen> with WidgetsBindingObserver
         // Vertical lines
         ...(analysis['lines'] as List<double>).map((x) => Align(
           alignment: Alignment(x * 2 - 1, 0),
-          child: Container(width: 1, color: AppColors.textPrimary.withOpacity(0.1)),
+          child: Container(width: 1, color: AppColors.textPrimary.withValues(alpha: 0.1)),
         )),
         
         if (guidance.isNotEmpty)
@@ -437,7 +434,7 @@ class _CameraScreenState extends State<CameraScreen> with WidgetsBindingObserver
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 decoration: BoxDecoration(
-                  color: isAligned ? AppColors.mint.withOpacity(0.3) : AppColors.surface.withOpacity(0.5),
+                  color: isAligned ? AppColors.mint.withValues(alpha: 0.3) : AppColors.surface.withValues(alpha: 0.5),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
@@ -515,10 +512,10 @@ class _SmartTrayState extends State<_SmartTray> {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             decoration: BoxDecoration(
-              color: AppColors.surfaceLow.withOpacity(0.8),
+              color: AppColors.surfaceLow.withValues(alpha: 0.8),
               borderRadius: BorderRadius.circular(24),
-              border: Border.all(color: AppColors.primary.withOpacity(_isExpanded ? 1.0 : 0.3)),
-              boxShadow: _isExpanded ? [BoxShadow(color: AppColors.primary.withOpacity(0.2), blurRadius: 20)] : null,
+              border: Border.all(color: AppColors.primary.withValues(alpha: _isExpanded ? 1.0 : 0.3)),
+              boxShadow: _isExpanded ? [BoxShadow(color: AppColors.primary.withValues(alpha: 0.2), blurRadius: 20)] : null,
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
@@ -542,7 +539,7 @@ class _SmartTrayState extends State<_SmartTray> {
       margin: const EdgeInsets.symmetric(horizontal: 24),
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: AppColors.surfaceDeep.withOpacity(0.9),
+        color: AppColors.surfaceDeep.withValues(alpha: 0.9),
         borderRadius: BorderRadius.circular(28),
         border: Border.all(color: AppColors.border),
       ),

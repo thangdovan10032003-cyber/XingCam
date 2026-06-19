@@ -102,7 +102,7 @@ class _SmartCropScreenState extends State<SmartCropScreen> {
   Widget _buildControls() {
     return Container(
       padding: const EdgeInsets.fromLTRB(16, 20, 16, 44),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: AppColors.background,
         borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
       ),
@@ -129,7 +129,7 @@ class _SmartCropScreenState extends State<SmartCropScreen> {
                     margin: const EdgeInsets.only(right: 12),
                     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     decoration: BoxDecoration(
-                      color: isSelected ? AppColors.accent.withOpacity(0.15) : AppColors.textPrimary.withOpacity(0.05),
+                      color: isSelected ? AppColors.accent.withValues(alpha: 0.15) : AppColors.textPrimary.withValues(alpha: 0.05),
                       borderRadius: BorderRadius.circular(16),
                       border: Border.all(color: isSelected ? AppColors.accent : AppColors.transparent, width: 1.5),
                     ),
@@ -144,7 +144,7 @@ class _SmartCropScreenState extends State<SmartCropScreen> {
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold)),
                         Text(context.tr(r['desc'] as String),
-                            style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withOpacity(0.38), fontSize: 10)),
+                            style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withValues(alpha: 0.38), fontSize: 10)),
                       ],
                     ),
                   ),

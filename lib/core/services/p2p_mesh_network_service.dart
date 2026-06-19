@@ -15,7 +15,7 @@ class P2PMeshNetworkService {
       
       // Hardware calls to establish frequency hopping network
     } catch (e) {
-      debugPrint("Mesh broadcasting failed: \$e");
+      debugPrint('Mesh broadcasting failed: \$e');
     }
   }
 
@@ -27,7 +27,7 @@ class P2PMeshNetworkService {
   Future<bool> tunnelPayload(String peerId, List<int> encryptedBits) async {
     if (encryptedBits.isEmpty) return false;
     
-    debugPrint("Tunneling \${encryptedBits.length} bits directly to peer \$peerId without server intervention.");
+    debugPrint('Tunneling \${encryptedBits.length} bits directly to peer \$peerId without server intervention.');
     // Simulated upload
     await Future.delayed(const Duration(seconds: 2));
     return true;

@@ -13,8 +13,8 @@ class CompositionGuideService {
     bool isAligned = false;
 
     // RULE 1: Golden Ratio (Vertical)
-    final double goldenLeft = 0.382;
-    final double goldenRight = 0.618;
+    const double goldenLeft = 0.382;
+    const double goldenRight = 0.618;
     
     if ((subjectX - goldenLeft).abs() < 0.05 || (subjectX - goldenRight).abs() < 0.05) {
       isAligned = true;
@@ -26,7 +26,7 @@ class CompositionGuideService {
 
     // RULE 2: Horizon/Tilt Leveling
     if (deviceTilt.abs() > 0.05) {
-      guidance += (guidance.isEmpty ? '' : ' & ') + 'Level the HORIZON';
+      guidance += '${guidance.isEmpty ? '' : ' & '}Level the HORIZON';
       isAligned = false;
     }
 

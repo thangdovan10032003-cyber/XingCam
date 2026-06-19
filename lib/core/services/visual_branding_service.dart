@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'dart:convert';
 import 'package:native_exif/native_exif.dart';
-import 'package:path_provider/path_provider.dart';
 import 'recipe_service.dart';
 
 /// VisualBrandingService — Expanded for v1.5 with "Stealth Metadata".

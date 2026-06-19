@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
 import 'package:xingcam/core/services/biometric_consent_service.dart';
@@ -13,7 +13,7 @@ class BiometricConsentModal extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: AppColors.background.withOpacity(0.9),
+        color: AppColors.background.withValues(alpha: 0.9),
         borderRadius: const BorderRadius.vertical(top: Radius.circular(30)),
         border: Border.all(color: AppColors.border),
       ),
@@ -67,7 +67,7 @@ class BiometricConsentModal extends StatelessWidget {
           Center(
             child: Text(
               context.tr('legal.consent.compliance'),
-              style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withOpacity(0.24), fontSize: 10),
+              style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withValues(alpha: 0.24), fontSize: 10),
             ),
           ),
         ],

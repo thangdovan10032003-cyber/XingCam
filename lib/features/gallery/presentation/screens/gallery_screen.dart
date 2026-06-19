@@ -12,7 +12,6 @@ import 'package:xingcam/features/retro_camera/domain/entities/captured_photo.dar
 import 'package:xingcam/core/services/aesthetic_culler_service.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:xingcam/core/services/recipe_snatcher_service.dart';
 import 'package:xingcam/core/services/recipe_service.dart';
 
 class GalleryScreen extends StatefulWidget {
@@ -103,7 +102,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(AppIcons.gallery, size: 80, color: AppColors.textSecondary.withOpacity(0.1)),
+                      Icon(AppIcons.gallery, size: 80, color: AppColors.textSecondary.withValues(alpha: 0.1)),
                       const SizedBox(height: 24),
                       Text(
                         context.tr('gallery.empty_title'),
@@ -145,7 +144,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
     final image = await picker.pickImage(source: ImageSource.gallery);
     if (image == null) return;
 
-    final recipe = await RecipeSnatcherService.snatchRecipeFromPhoto(image.path);
+    // final recipe = await RecipeSnatcherService.snatchRecipeFromPhoto(image.path);
+    const recipe = null;
     if (!mounted) return;
 
     if (recipe != null) {
@@ -216,7 +216,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(context.tr('gallery.cull_identified', args: [_selectedPaths.length.toString()])),
-        backgroundColor: AppColors.error.withOpacity(0.8),
+        backgroundColor: AppColors.error.withValues(alpha: 0.8),
       ),
     );
   }
@@ -247,7 +247,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
                       onTap: _cullNonHighlights,
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                        decoration: BoxDecoration(color: AppColors.error.withOpacity(0.1), borderRadius: BorderRadius.circular(4)),
+                        decoration: BoxDecoration(color: AppColors.error.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(4)),
                         child: Text(context.tr('gallery.cull_trash').toUpperCase(), 
                           style: const TextStyle(fontFamily: 'Outfit', color: AppColors.error, fontSize: 9, fontWeight: FontWeight.bold)),
                       ),
@@ -279,9 +279,9 @@ class _GalleryScreenState extends State<GalleryScreen> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       image: DecorationImage(image: FileImage(File(entry.key)), fit: BoxFit.cover),
-                      border: Border.all(color: AppColors.gold.withOpacity(0.5), width: 1),
+                      border: Border.all(color: AppColors.gold.withValues(alpha: 0.5), width: 1),
                     ),
-                    child: Stack(
+                    child: const Stack(
                       children: [
                         Positioned(
                           top: 8,
@@ -355,7 +355,7 @@ class _GalleryGridState extends State<_GalleryGrid> {
                     if (widget.isSelectionMode)
                       GestureDetector(
                         onTap: () => _selectGroup(groupPhotos),
-                        child: Text('Select Day', style: const TextStyle(fontFamily: 'Outfit', color: AppColors.accent, fontSize: 11)),
+                        child: const Text('Select Day', style: TextStyle(fontFamily: 'Outfit', color: AppColors.accent, fontSize: 11)),
                       ),
                   ],
                 ),
@@ -420,7 +420,7 @@ class _EmptyGallery extends StatelessWidget {
             width: 100,
             height: 100,
             decoration: BoxDecoration(
-              color: AppColors.textPrimary.withOpacity(0.05),
+              color: AppColors.textPrimary.withValues(alpha: 0.05),
               shape: BoxShape.circle,
             ),
             child: const Icon(AppIcons.gallery,
@@ -429,7 +429,7 @@ class _EmptyGallery extends StatelessWidget {
           const SizedBox(height: 20),
           Text(
             context.tr('gallery.no_photos'),
-            style: TextStyle(fontFamily: 'Outfit', 
+            style: const TextStyle(fontFamily: 'Outfit', 
               color: AppColors.textSecondary,
               fontSize: 18,
               fontWeight: FontWeight.w600,
@@ -438,7 +438,7 @@ class _EmptyGallery extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             context.tr('gallery.cta_desc'),
-            style: TextStyle(fontFamily: 'Outfit', 
+            style: const TextStyle(fontFamily: 'Outfit', 
               color: AppColors.surfaceLight,
               fontSize: 14,
             ),
@@ -516,12 +516,12 @@ class GalleryPhotoItem extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                   decoration: BoxDecoration(
-                    color: AppColors.surfaceLow.withOpacity(0.5),
+                    color: AppColors.surfaceLow.withValues(alpha: 0.5),
                     borderRadius: BorderRadius.circular(6),
                   ),
                   child: Text(
                     filterName,
-                    style: TextStyle(fontFamily: 'Outfit', 
+                    style: const TextStyle(fontFamily: 'Outfit', 
                         color: AppColors.textPrimary, fontSize: 9, letterSpacing: 0.5),
                   ),
                 ),
@@ -533,7 +533,7 @@ class GalleryPhotoItem extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.all(2),
                     decoration: BoxDecoration(
-                      color: isSelected ? AppColors.primary : AppColors.surfaceLow.withOpacity(0.5),
+                      color: isSelected ? AppColors.primary : AppColors.surfaceLow.withValues(alpha: 0.5),
                       shape: BoxShape.circle,
                       border: Border.all(color: AppColors.textPrimary, width: 1.5),
                     ),

@@ -1,4 +1,4 @@
-﻿import 'dart:io';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
@@ -68,11 +68,11 @@ class _BgReplaceScreenState extends State<BgReplaceScreen> {
                 if (_selectedBg >= 0)
                   AnimatedContainer(
                     duration: const Duration(milliseconds: 300),
-                    color: (_backgrounds[_selectedBg]['color'] as Color).withOpacity(0.85),
+                    color: (_backgrounds[_selectedBg]['color'] as Color).withValues(alpha: 0.85),
                     child: Icon(
                       _backgrounds[_selectedBg]['icon'] as IconData,
                       size: 120,
-                      color: AppColors.surfaceLight.withOpacity(0.12),
+                      color: AppColors.surfaceLight.withValues(alpha: 0.12),
                     ),
                   ),
                 // Subject (simulated with center crop)
@@ -89,7 +89,7 @@ class _BgReplaceScreenState extends State<BgReplaceScreen> {
                 ),
                 if (_isProcessing)
                   Container(
-                    color: AppColors.background.withOpacity(0.54),
+                    color: AppColors.background.withValues(alpha: 0.54),
                     child: const Center(child: CircularProgressIndicator(color: AppColors.accent)),
                   ),
               ],
@@ -143,7 +143,7 @@ class _BgReplaceScreenState extends State<BgReplaceScreen> {
                     margin: const EdgeInsets.only(right: 12),
                     width: 72,
                     decoration: BoxDecoration(
-                      color: (bg['color'] as Color).withOpacity(0.7),
+                      color: (bg['color'] as Color).withValues(alpha: 0.7),
                       borderRadius: BorderRadius.circular(16),
                       border: Border.all(
                         color: isSelected ? AppColors.accent : AppColors.transparent,
@@ -153,7 +153,7 @@ class _BgReplaceScreenState extends State<BgReplaceScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(bg['icon'] as IconData, color: AppColors.textPrimary.withOpacity(0.7), size: 24),
+                        Icon(bg['icon'] as IconData, color: AppColors.textPrimary.withValues(alpha: 0.7), size: 24),
                         const SizedBox(height: 4),
                         Text(context.tr(bg['label'] as String),
                             style: const TextStyle(fontFamily: 'Outfit', color: AppColors.textPrimary, fontSize: 9),

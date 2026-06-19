@@ -18,7 +18,7 @@ class TeethWhiteningScreen extends StatefulWidget {
 
 class _TeethWhiteningScreenState extends State<TeethWhiteningScreen> {
   double _whitening = 0.0;
-  double _naturalTone = 0.5;
+  final double _naturalTone = 0.5;
 
   @override
   void initState() {
@@ -124,7 +124,7 @@ class _TeethWhiteningScreenState extends State<TeethWhiteningScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(label, style: const TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary, fontSize: 11, letterSpacing: 1.5)),
-        Slider(value: value, activeColor: color, inactiveColor: AppColors.textPrimary.withOpacity(0.1), onChanged: onChanged),
+        Slider(value: value, activeColor: color, inactiveColor: AppColors.textPrimary.withValues(alpha: 0.1), onChanged: onChanged),
       ],
     );
   }

@@ -1,4 +1,4 @@
-﻿import 'dart:io';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:xingcam/core/widgets/tutorial_overlay.dart';
@@ -19,7 +19,7 @@ class _MakeupStudioScreenState extends State<MakeupStudioScreen> {
   Color _lipColor = AppColors.transparent;
   double _lipstickIntensity = 0.0;
   double _blushIntensity = 0.0;
-  bool _isProcessing = false;
+  final bool _isProcessing = false;
 
   final List<Color> _lipstickPalette = [
     const Color(0xFFB03060), // Maroon
@@ -116,7 +116,7 @@ class _MakeupStudioScreenState extends State<MakeupStudioScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label.toUpperCase(), style: TextStyle(fontFamily: 'VT323', color: AppColors.textSecondary.withOpacity(0.38), fontSize: 12, letterSpacing: 1.5)),
+        Text(label.toUpperCase(), style: TextStyle(fontFamily: 'VT323', color: AppColors.textSecondary.withValues(alpha: 0.38), fontSize: 12, letterSpacing: 1.5)),
         const SizedBox(height: 12),
         SizedBox(
           height: 50,
@@ -137,7 +137,7 @@ class _MakeupStudioScreenState extends State<MakeupStudioScreen> {
                   decoration: BoxDecoration(
                     color: color,
                     shape: BoxShape.circle,
-                    border: Border.all(color: isSelected ? AppColors.textPrimary : AppColors.textPrimary.withOpacity(0.1), width: isSelected ? 3 : 1),
+                    border: Border.all(color: isSelected ? AppColors.textPrimary : AppColors.textPrimary.withValues(alpha: 0.1), width: isSelected ? 3 : 1),
                   ),
                 ),
               );
@@ -152,11 +152,11 @@ class _MakeupStudioScreenState extends State<MakeupStudioScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withOpacity(0.38), fontSize: 10, letterSpacing: 1.5)),
+        Text(label, style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withValues(alpha: 0.38), fontSize: 10, letterSpacing: 1.5)),
         Slider(
           value: value,
           activeColor: AppColors.primary,
-          inactiveColor: AppColors.textPrimary.withOpacity(0.1),
+          inactiveColor: AppColors.textPrimary.withValues(alpha: 0.1),
           onChanged: (v) {
             onChanged(v);
             HapticsUtility.lightFeedback();

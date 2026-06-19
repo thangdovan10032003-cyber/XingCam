@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:xingcam/core/services/pipeline_context.dart';
 import 'package:xingcam/core/models/edit_command.dart';
@@ -105,6 +105,36 @@ void main() {
       expect(restored.type, cmd.type);
       expect(restored.params['id'], 'kodak_xt3');
       expect(restored.params['intensity'], 0.85);
+    });
+  });
+
+  group('PipelineContext — clear() and Temp Files', () {
+    late PipelineContext ctx;
+
+    setUp(() {
+      ctx = PipelineContext();
+      ctx.reset();
+      ctx.setMasterImage('/test/master.jpg');
+    });
+
+    test('clear correctly preserves master image and deletes temp files with tieng_temp_ prefix', () {
+      final tempDir = Directory.systemTemp;
+      final tempFile1 = File('${tempDir.path}/tieng_temp_test1.jpg')..createSync();
+      final tempFile2 = File('${tempDir.path}/tieng_temp_test2.jpg')..createSync();
+      final keepFile = File('${tempDir.path}/keep_me.jpg')..createSync();
+      
+      ctx.addCommand(EditCommand(type: EditType.lut, params: {}));
+      
+      ctx.clear();
+      
+      expect(ctx.editCommands, isEmpty);
+      expect(ctx.masterImagePath, '/test/master.jpg');
+      expect(tempFile1.existsSync(), isFalse);
+      expect(tempFile2.existsSync(), isFalse);
+      expect(keepFile.existsSync(), isTrue);
+      
+      // Cleanup
+      if (keepFile.existsSync()) keepFile.deleteSync();
     });
   });
 }

@@ -13,7 +13,7 @@ class NativeCameraProvider {
       // The path returned corresponds to exactly where macOS/Android saved the DNG
       final String? rawPath = await _channel.invokeMethod('captureRaw');
       return rawPath;
-    } on PlatformException catch (e) {
+    } on PlatformException {
       print("Deep Tech: Failed to capture RAW: '\${e.message}'.");
       return null;
     }
@@ -27,7 +27,7 @@ class NativeCameraProvider {
         'shutter_speed': shutterSpeed
       });
     } catch (e) {
-      print("Deep Tech: Failed to set exposure bounds: \$e");
+      print('Deep Tech: Failed to set exposure bounds: \$e');
     }
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -126,7 +125,7 @@ class _AiHomeScreenState extends State<AiHomeScreen> {
                           children: [
                             Text(
                               context.tr('ai_home.title'),
-                              style: TextStyle(fontFamily: 'Outfit', 
+                              style: const TextStyle(fontFamily: 'Outfit', 
                                 color: AppColors.textPrimary,
                                 fontSize: 32,
                                 fontWeight: FontWeight.w800,
@@ -166,7 +165,7 @@ class _AiHomeScreenState extends State<AiHomeScreen> {
 
                         // SMART RECENTS SECTION
                         if (usageService.hasRecents && _selectedCategory == 'ai_home.categories.all' && _searchQuery.isEmpty) ...[
-                          Text(context.tr('ai_home.recent').toUpperCase(), style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withOpacity(0.3), fontSize: 10, fontWeight: FontWeight.w900, letterSpacing: 1)),
+                          Text(context.tr('ai_home.recent').toUpperCase(), style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withValues(alpha: 0.3), fontSize: 10, fontWeight: FontWeight.w900, letterSpacing: 1)),
                           const SizedBox(height: 12),
                           SizedBox(
                             height: 100,
@@ -313,7 +312,7 @@ class _ToolCard extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(AppSpacing.md),
               decoration: BoxDecoration(
-                color: AppColors.textPrimary.withOpacity(0.03),
+                color: AppColors.textPrimary.withValues(alpha: 0.03),
                 borderRadius: AppRadius.mdRadius,
               ),
               child: Icon(icon, color: AppColors.primary, size: 24),
@@ -327,7 +326,7 @@ class _ToolCard extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: TextStyle(fontFamily: 'Outfit', 
+                        style: const TextStyle(fontFamily: 'Outfit', 
                           color: AppColors.textPrimary,
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
@@ -342,7 +341,7 @@ class _ToolCard extends StatelessWidget {
                   const SizedBox(height: 2),
                   Text(
                     subtitle,
-                    style: TextStyle(fontFamily: 'Outfit', 
+                    style: const TextStyle(fontFamily: 'Outfit', 
                       color: AppColors.textSecondary,
                       fontSize: 12,
                     ),
@@ -362,7 +361,7 @@ class _ToolCard extends StatelessWidget {
       width: 24,
       height: 14,
       decoration: BoxDecoration(
-        color: AppColors.accent.withOpacity(0.1),
+        color: AppColors.accent.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(4),
       ),
       child: Stack(
@@ -370,12 +369,12 @@ class _ToolCard extends StatelessWidget {
           Positioned(
             left: 2,
             top: 4,
-            child: Container(width: 8, height: 6, color: AppColors.textSecondary.withOpacity(0.2)),
+            child: Container(width: 8, height: 6, color: AppColors.textSecondary.withValues(alpha: 0.2)),
           ),
           Positioned(
             right: 2,
             top: 4,
-            child: Container(width: 8, height: 6, color: AppColors.accent.withOpacity(0.4)),
+            child: Container(width: 8, height: 6, color: AppColors.accent.withValues(alpha: 0.4)),
           ),
         ],
       ),

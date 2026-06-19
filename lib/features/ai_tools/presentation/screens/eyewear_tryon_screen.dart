@@ -170,7 +170,7 @@ class _EyewearTryonScreenState extends State<EyewearTryonScreen> with SingleTick
                                   height: 60,
                                   decoration: BoxDecoration(
                                     gradient: LinearGradient(
-                                      colors: [AppColors.transparent, AppColors.textPrimary.withOpacity(0.2), AppColors.transparent],
+                                      colors: [AppColors.transparent, AppColors.textPrimary.withValues(alpha: 0.2), AppColors.transparent],
                                       stops: const [0.0, 0.5, 1.0],
                                       begin: Alignment.topLeft,
                                       end: Alignment.bottomRight,
@@ -187,7 +187,7 @@ class _EyewearTryonScreenState extends State<EyewearTryonScreen> with SingleTick
                   ),
                   if (_isProcessingCustom || _isSnapping)
                     Container(
-                      color: AppColors.background.withOpacity(0.45),
+                      color: AppColors.background.withValues(alpha: 0.45),
                       child: Center(
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -216,9 +216,9 @@ class _EyewearTryonScreenState extends State<EyewearTryonScreen> with SingleTick
     return Icon(
       frame['icon'] as IconData,
       size: 140,
-      color: color.withOpacity(0.95),
+      color: color.withValues(alpha: 0.95),
       shadows: [
-        Shadow(blurRadius: 10, color: AppColors.background.withOpacity(0.8), offset: const Offset(0, 4)),
+        Shadow(blurRadius: 10, color: AppColors.background.withValues(alpha: 0.8), offset: const Offset(0, 4)),
       ],
     );
   }
@@ -259,7 +259,7 @@ class _EyewearTryonScreenState extends State<EyewearTryonScreen> with SingleTick
                       margin: const EdgeInsets.only(right: 12),
                       width: 70,
                       decoration: BoxDecoration(
-                        color: _selectedFrame == -1 ? AppColors.accent.withOpacity(0.2) : AppColors.surface,
+                        color: _selectedFrame == -1 ? AppColors.accent.withValues(alpha: 0.2) : AppColors.surface,
                         borderRadius: BorderRadius.circular(18),
                         border: Border.all(color: _selectedFrame == -1 ? AppColors.accent : AppColors.transparent, width: 2),
                       ),
@@ -278,7 +278,7 @@ class _EyewearTryonScreenState extends State<EyewearTryonScreen> with SingleTick
                       margin: const EdgeInsets.only(right: 12),
                       width: 70,
                       decoration: BoxDecoration(
-                        color: isSelected ? AppColors.accent.withOpacity(0.1) : AppColors.surface,
+                        color: isSelected ? AppColors.accent.withValues(alpha: 0.1) : AppColors.surface,
                         borderRadius: BorderRadius.circular(18),
                         border: Border.all(color: isSelected ? AppColors.accent : AppColors.transparent, width: 2),
                       ),
@@ -307,7 +307,11 @@ class _EyewearTryonScreenState extends State<EyewearTryonScreen> with SingleTick
           max: max,
           activeColor: AppColors.accent,
           onChanged: (v) {
-            setState(() { if(label == 'SCALE') _scale = v; else _shadowDepth = v; });
+            setState(() { if(label == 'SCALE') {
+              _scale = v;
+            } else {
+              _shadowDepth = v;
+            } });
             HapticsUtility.lightFeedback();
           },
         )),

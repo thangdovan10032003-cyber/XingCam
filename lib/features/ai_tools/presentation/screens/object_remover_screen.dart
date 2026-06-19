@@ -1,9 +1,7 @@
 import 'package:xingcam/core/utils/haptics_utility.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:gal/gal.dart';
-import 'package:xingcam/core/services/haptic_engine.dart';
 import 'package:xingcam/core/widgets/privacy_secure_chip.dart';
 import 'package:xingcam/features/ai_tools/presentation/widgets/before_after_slider.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
@@ -11,7 +9,6 @@ import 'package:xingcam/core/services/cvd_accessibility_service.dart';
 import 'package:xingcam/features/ai_tools/domain/repositories/ai_tools_repository.dart';
 import 'package:xingcam/features/ai_tools/domain/entities/editable_photo.dart';
 import 'package:xingcam/features/ai_tools/domain/entities/removal_mask.dart';
-import 'package:xingcam/features/ai_tools/domain/entities/inpaint_result.dart';
 import 'package:xingcam/core/injection/injection.dart';
 import 'dart:ui' as ui;
 import 'dart:io';
@@ -310,7 +307,7 @@ class _ObjectRemoverScreenState extends State<ObjectRemoverScreen> {
                                             CustomPaint(
                                               painter: _MaskPainter(
                                                 strokes: _strokes,
-                                                strokeColor: AppColors.accent.withOpacity(0.5),
+                                                strokeColor: AppColors.accent.withValues(alpha: 0.5),
                                               ),
                                             ),
                                             // Magic Pulse Effect (Phase 203)
@@ -332,9 +329,9 @@ class _ObjectRemoverScreenState extends State<ObjectRemoverScreen> {
                                 child: Container(
                                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                                   decoration: BoxDecoration(
-                                    color: AppColors.background.withOpacity(0.8),
+                                    color: AppColors.background.withValues(alpha: 0.8),
                                     borderRadius: AppRadius.mdRadius,
-                                    border: Border.all(color: AppColors.accent.withOpacity(0.3)),
+                                    border: Border.all(color: AppColors.accent.withValues(alpha: 0.3)),
                                   ),
                                   child: Row(
                                     children: [
@@ -481,7 +478,7 @@ class _PulseWaveState extends State<_PulseWave> with SingleTickerProviderStateMi
         width: 60, height: 60,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          border: Border.all(color: AppColors.accent.withOpacity(1.0 - _ctrl.value), width: 2 + (4 * _ctrl.value)),
+          border: Border.all(color: AppColors.accent.withValues(alpha: 1.0 - _ctrl.value), width: 2 + (4 * _ctrl.value)),
         ),
       ),
     );

@@ -1,4 +1,4 @@
-﻿import 'dart:io';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image/image.dart' as img;
@@ -67,8 +67,8 @@ class _RelightingScreenState extends State<RelightingScreen> {
                         height: 48,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: AppColors.gold.withOpacity(0.8),
-                          boxShadow: [BoxShadow(color: AppColors.gold.withOpacity(0.5), blurRadius: 20)],
+                          color: AppColors.gold.withValues(alpha: 0.8),
+                          boxShadow: [BoxShadow(color: AppColors.gold.withValues(alpha: 0.5), blurRadius: 20)],
                           border: Border.all(color: AppColors.textPrimary, width: 2),
                         ),
                         child: const Icon(AppIcons.light, color: AppColors.textPrimary, size: 24),
@@ -143,7 +143,7 @@ class _RelightingScreenState extends State<RelightingScreen> {
   }
 
   Gradient? _getGradientForLightType() {
-    final color = AppColors.gold.withOpacity(_intensity * 0.4);
+    final color = AppColors.gold.withValues(alpha: _intensity * 0.4);
     
     // Calculate alignment based on Gizmo position relative to center
     final size = MediaQuery.of(context).size;
@@ -203,7 +203,7 @@ class _RelightingScreenState extends State<RelightingScreen> {
       top: target.dy - 4,
       child: Container(
         width: 8, height: 8,
-        decoration: BoxDecoration(color: AppColors.gold.withOpacity(0.2), shape: BoxShape.circle),
+        decoration: BoxDecoration(color: AppColors.gold.withValues(alpha: 0.2), shape: BoxShape.circle),
       ),
     )).toList();
   }

@@ -1,0 +1,1 @@
+C:\Users\Admin\Pictures\XingCam\rust\target\aarch64-linux-android\release\libxingcam_rust_core.a: C:\Users\Admin\Pictures\XingCam\rust\src\api.rs C:\Users\Admin\Pictures\XingCam\rust\src\frb_generated.rs C:\Users\Admin\Pictures\XingCam\rust\src\lib.rs

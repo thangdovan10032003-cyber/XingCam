@@ -1,4 +1,4 @@
-﻿import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -156,7 +156,7 @@ class _ZineEditorScreenState extends State<ZineEditorScreen> {
             decoration: BoxDecoration(
               color: AppColors.textPrimary,
               boxShadow: [
-                BoxShadow(color: AppColors.background.withOpacity(0.1), blurRadius: 20, offset: const Offset(0, 10))
+                BoxShadow(color: AppColors.background.withValues(alpha: 0.1), blurRadius: 20, offset: const Offset(0, 10))
               ],
               border: Border.all(color: AppColors.textPrimary, width: 8),
             ),
@@ -166,7 +166,7 @@ class _ZineEditorScreenState extends State<ZineEditorScreen> {
                 const Center(child: Icon(AppIcons.addPhoto, color: AppColors.background, size: 40)),
                 if (_isLive[index])
                   Container(
-                    color: AppColors.background.withOpacity(0.05),
+                    color: AppColors.background.withValues(alpha: 0.05),
                     child: const Align(
                       alignment: Alignment.topRight,
                       child: Padding(
@@ -188,7 +188,7 @@ class _ZineEditorScreenState extends State<ZineEditorScreen> {
       padding: const EdgeInsets.symmetric(vertical: 20),
       decoration: BoxDecoration(
         color: AppColors.textPrimary,
-        border: Border(top: BorderSide(color: AppColors.background.withOpacity(0.05))),
+        border: Border(top: BorderSide(color: AppColors.background.withValues(alpha: 0.05))),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -218,7 +218,7 @@ class _ToolbarIcon extends StatelessWidget {
         children: [
           Icon(icon, color: AppColors.textSecondary),
           const SizedBox(height: 4),
-          Text(label, style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withOpacity(0.5), fontSize: 10)),
+          Text(label, style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withValues(alpha: 0.5), fontSize: 10)),
         ],
       ),
     );

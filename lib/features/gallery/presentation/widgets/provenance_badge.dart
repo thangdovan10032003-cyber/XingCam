@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 /// ProvenanceBadge: A premium HUD element for Content Credentials.
 /// Displays a human-readable "Trust Card" instead of raw technical data.
@@ -17,9 +16,9 @@ class ProvenanceBadge extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: AppColors.background.withOpacity(0.98),
+        color: AppColors.background.withValues(alpha: 0.98),
         borderRadius: const BorderRadius.vertical(top: Radius.circular(32)),
-        border: Border.all(color: AppColors.border.withOpacity(0.5)),
+        border: Border.all(color: AppColors.border.withValues(alpha: 0.5)),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -35,7 +34,7 @@ class ProvenanceBadge extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             'This image contains a cryptographically signed manifest proving its origin and editing history.',
-            style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withOpacity(0.7), fontSize: 13),
+            style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withValues(alpha: 0.7), fontSize: 13),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 32),
@@ -59,7 +58,7 @@ class ProvenanceBadge extends StatelessWidget {
           const SizedBox(height: 32),
           Text(
              'Verified via XingCam Content Credentials v1.0',
-             style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withOpacity(0.3), fontSize: 10),
+             style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withValues(alpha: 0.3), fontSize: 10),
           ),
           const SizedBox(height: 16),
         ],
@@ -93,7 +92,7 @@ class _TrustItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(label, style: const TextStyle(fontFamily: 'Outfit', color: AppColors.textPrimary, fontWeight: FontWeight.bold, fontSize: 13)),
-            Text(value, style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withOpacity(0.5), fontSize: 11)),
+            Text(value, style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withValues(alpha: 0.5), fontSize: 11)),
           ],
         ),
       ],

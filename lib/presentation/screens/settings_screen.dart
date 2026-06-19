@@ -23,7 +23,7 @@ class SettingsScreen extends StatelessWidget {
           ),
           title: Text(
             context.tr('settings.title'),
-            style: TextStyle(fontFamily: 'Outfit', 
+            style: const TextStyle(fontFamily: 'Outfit', 
               color: AppColors.textPrimary,
               fontWeight: FontWeight.w700,
               fontSize: 20,
@@ -69,7 +69,7 @@ class SettingsScreen extends StatelessWidget {
             Center(
               child: Column(
                 children: [
-                  Text(
+                  const Text(
                     'XINGCAM',
                     style: TextStyle(fontFamily: 'Outfit', 
                       color: AppColors.primary,
@@ -81,7 +81,7 @@ class SettingsScreen extends StatelessWidget {
                   const SizedBox(height: 4),
                   Text(
                     '${context.tr('settings.version')} 1.0.0',
-                    style: TextStyle(fontFamily: 'Outfit', 
+                    style: const TextStyle(fontFamily: 'Outfit', 
                       color: AppColors.textSecondary,
                       fontSize: 13,
                     ),
@@ -102,7 +102,7 @@ class SettingsScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.surfaceDeep,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: AppColors.primary.withOpacity(0.2)),
+        border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,7 +118,7 @@ class SettingsScreen extends StatelessWidget {
           const SizedBox(height: 16),
           ClipRRect(
             borderRadius: BorderRadius.circular(4),
-            child: LinearProgressIndicator(
+            child: const LinearProgressIndicator(
               value: 0.75, // Simulated 75% protected
               backgroundColor: AppColors.background,
               color: AppColors.primary,
@@ -147,7 +147,7 @@ class SettingsScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(context.tr('settings.export_quality.title'),
-                style: TextStyle(fontFamily: 'Outfit', 
+                style: const TextStyle(fontFamily: 'Outfit', 
                     color: AppColors.textPrimary,
                     fontSize: 18,
                     fontWeight: FontWeight.w700)),
@@ -216,7 +216,7 @@ class _SectionHeader extends StatelessWidget {
       child: Text(
         title.toUpperCase(),
         style: TextStyle(fontFamily: 'Outfit', 
-          color: AppColors.textSecondary.withOpacity(0.4),
+          color: AppColors.textSecondary.withValues(alpha: 0.4),
           fontSize: 11,
           letterSpacing: 1.5,
           fontWeight: FontWeight.w600,
@@ -255,16 +255,16 @@ class _SettingsTile extends StatelessWidget {
           width: 40,
           height: 40,
           decoration: BoxDecoration(
-            color: (iconColor ?? AppColors.textPrimary).withOpacity(0.1),
+            color: (iconColor ?? AppColors.textPrimary).withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Icon(icon, color: iconColor ?? AppColors.textSecondary, size: 20),
         ),
         title: Text(title,
-            style: TextStyle(fontFamily: 'Outfit', 
+            style: const TextStyle(fontFamily: 'Outfit', 
                 color: AppColors.textPrimary, fontWeight: FontWeight.w500)),
         subtitle: Text(subtitle,
-            style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withOpacity(0.6), fontSize: 12)),
+            style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withValues(alpha: 0.6), fontSize: 12)),
         trailing:
             const Icon(AppIcons.chevron, color: AppColors.surfaceLight),
         onTap: onTap,

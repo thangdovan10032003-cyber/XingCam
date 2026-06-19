@@ -1,4 +1,4 @@
-﻿import 'package:xingcam/core/theme/design_tokens.dart';
+import 'package:xingcam/core/theme/design_tokens.dart';
 import 'package:flutter/material.dart';
 
 enum FilmBorderType { none, kodakPortra, polaroid, fujiPro }
@@ -50,7 +50,7 @@ class _KodakBorder extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(color: AppColors.background, width: 20),
       ),
-      child: Stack(
+      child: const Stack(
         children: [
           // Kodak branding text on top
           Positioned(
@@ -106,7 +106,7 @@ class _PolaroidBorder extends StatelessWidget {
           child: Text(
             'XINGCAM',
             style: TextStyle(fontFamily: 'PlayfairDisplay', 
-              color: AppColors.background.withOpacity(0.45),
+              color: AppColors.background.withValues(alpha: 0.45),
               fontSize: 24,
             ),
           ),

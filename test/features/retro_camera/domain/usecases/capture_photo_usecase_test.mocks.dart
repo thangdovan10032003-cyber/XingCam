@@ -104,4 +104,22 @@ class MockRetroCameraRepository extends _i1.Mock
           ),
         )),
       ) as _i4.Future<_i2.Either<_i5.Failure, _i7.CapturedPhoto>>);
+
+  @override
+  _i4.Future<_i2.Either<_i5.Failure, List<_i7.CapturedPhoto>>>
+      getCapturedPhotos() => (super.noSuchMethod(
+            Invocation.method(
+              #getCapturedPhotos,
+              [],
+            ),
+            returnValue: _i4
+                .Future<_i2.Either<_i5.Failure, List<_i7.CapturedPhoto>>>.value(
+                _FakeEither_0<_i5.Failure, List<_i7.CapturedPhoto>>(
+              this,
+              Invocation.method(
+                #getCapturedPhotos,
+                [],
+              ),
+            )),
+          ) as _i4.Future<_i2.Either<_i5.Failure, List<_i7.CapturedPhoto>>>);
 }

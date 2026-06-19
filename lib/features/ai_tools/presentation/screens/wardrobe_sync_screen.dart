@@ -1,4 +1,4 @@
-﻿import 'dart:io';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:xingcam/core/widgets/tutorial_overlay.dart';
@@ -19,7 +19,7 @@ class WardrobeSyncScreen extends StatefulWidget {
 class _WardrobeSyncScreenState extends State<WardrobeSyncScreen> {
   Color _selectedColor = AppColors.wardrobe;
   double _intensity = 0.5;
-  bool _isAnalyzing = false;
+  final bool _isAnalyzing = false;
 
   final List<Color> _harmonies = [
     AppColors.wardrobe,
@@ -67,7 +67,7 @@ class _WardrobeSyncScreenState extends State<WardrobeSyncScreen> {
                 Positioned.fill(
                   child: ColorFiltered(
                     colorFilter: ColorFilter.mode(
-                      _selectedColor.withOpacity(_intensity * 0.4),
+                      _selectedColor.withValues(alpha: _intensity * 0.4),
                       BlendMode.hue,
                     ),
                     child: Container(color: AppColors.transparent),
@@ -77,7 +77,7 @@ class _WardrobeSyncScreenState extends State<WardrobeSyncScreen> {
                  Positioned.fill(
                   child: ColorFiltered(
                     colorFilter: ColorFilter.mode(
-                      _selectedColor.withOpacity(_intensity * 0.2),
+                      _selectedColor.withValues(alpha: _intensity * 0.2),
                       BlendMode.softLight,
                     ),
                     child: Container(color: AppColors.transparent),
@@ -128,7 +128,7 @@ class _WardrobeSyncScreenState extends State<WardrobeSyncScreen> {
                         color: isSelected ? AppColors.textPrimary : AppColors.transparent,
                         width: 3,
                       ),
-                      boxShadow: isSelected ? [BoxShadow(color: color.withOpacity(0.5), blurRadius: 15)] : null,
+                      boxShadow: isSelected ? [BoxShadow(color: color.withValues(alpha: 0.5), blurRadius: 15)] : null,
                     ),
                   ),
                 );

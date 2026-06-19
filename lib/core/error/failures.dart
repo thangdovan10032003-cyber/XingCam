@@ -1,4 +1,4 @@
-﻿import 'package:equatable/equatable.dart';
+import 'package:equatable/equatable.dart';
 
 sealed class Failure extends Equatable {
   final String message;
@@ -25,6 +25,6 @@ class ServerFailure extends Failure {
 }
 
 class DatabaseFailure extends Failure {
-  const DatabaseFailure([super.message = "Database Error"]);
+  const DatabaseFailure([super.message = 'Database Error']);
 }
 

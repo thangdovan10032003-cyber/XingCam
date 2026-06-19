@@ -22,7 +22,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
           ),
           title: Text(
             context.tr('settings.privacy'),
-            style: TextStyle(fontFamily: 'Outfit', 
+            style: const TextStyle(fontFamily: 'Outfit', 
               color: AppColors.textPrimary,
               fontWeight: FontWeight.w700,
               fontSize: 20,
@@ -83,7 +83,7 @@ class _PolicySection extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(fontFamily: 'Outfit', 
+            style: const TextStyle(fontFamily: 'Outfit', 
               color: AppColors.textPrimary,
               fontSize: 16,
               fontWeight: FontWeight.w700,
@@ -92,7 +92,7 @@ class _PolicySection extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             body,
-            style: TextStyle(fontFamily: 'Outfit', 
+            style: const TextStyle(fontFamily: 'Outfit', 
               color: AppColors.textSecondary,
               fontSize: 14,
               height: 1.7,

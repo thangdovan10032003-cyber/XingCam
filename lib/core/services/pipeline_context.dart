@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:xingcam/core/models/edit_command.dart';
 
@@ -84,8 +85,22 @@ class PipelineContext extends ChangeNotifier {
   }
 
   void clear() {
-    _masterImagePath = null;
+    // Do not set _masterImagePath = null; preserve the master image
     _commandStack.clear();
+    _proxyImagePath = null;
+    
+    try {
+      // Purge all standardized temp files
+      final tempDir = Directory.systemTemp;
+      for (final entity in tempDir.listSync()) {
+        if (entity is File && entity.path.contains('tieng_temp_')) {
+          entity.deleteSync();
+        }
+      }
+    } catch (e) {
+      debugPrint('Failed to purge temp files: \$e');
+    }
+    
     notifyListeners();
   }
 

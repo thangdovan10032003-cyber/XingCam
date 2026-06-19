@@ -38,7 +38,7 @@ void main() {
     processedAt: DateTime(2026, 5, 29),
   );
 
-  final tParams = RemoveObjectParams(image: tImage, mask: tMask);
+  const tParams = RemoveObjectParams(image: tImage, mask: tMask);
 
   test('should call repository.removeObject with correct params', () async {
     // arrange
@@ -83,8 +83,8 @@ void main() {
   });
 
   test('RemoveObjectParams equality works correctly', () {
-    final params1 = RemoveObjectParams(image: tImage, mask: tMask);
-    final params2 = RemoveObjectParams(image: tImage, mask: tMask);
+    const params1 = RemoveObjectParams(image: tImage, mask: tMask);
+    const params2 = RemoveObjectParams(image: tImage, mask: tMask);
     expect(params1, equals(params2));
   });
 }

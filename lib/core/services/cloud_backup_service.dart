@@ -38,7 +38,7 @@ class CloudBackupService {
 
       return backupFile.path;
     } catch (e) {
-      debugPrint("Sovereign Backup Failed: \$e");
+      debugPrint('Sovereign Backup Failed: \$e');
       rethrow;
     }
   }
@@ -55,7 +55,7 @@ class CloudBackupService {
       
       return true;
     } catch (e) {
-      debugPrint("Sovereign Restore Failed: \$e");
+      debugPrint('Sovereign Restore Failed: \$e');
       return false;
     }
   }

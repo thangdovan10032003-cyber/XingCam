@@ -22,12 +22,12 @@ class ActiveTaskMiniWidget extends StatelessWidget {
         margin: const EdgeInsets.symmetric(vertical: 8),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: AppColors.surface.withOpacity(0.8),
+          color: AppColors.surface.withValues(alpha: 0.8),
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: AppColors.accent.withOpacity(0.2)),
+          border: Border.all(color: AppColors.accent.withValues(alpha: 0.2)),
           boxShadow: [
             BoxShadow(
-              color: AppColors.accent.withOpacity(0.1),
+              color: AppColors.accent.withValues(alpha: 0.1),
               blurRadius: 12,
               offset: const Offset(0, 4),
             ),

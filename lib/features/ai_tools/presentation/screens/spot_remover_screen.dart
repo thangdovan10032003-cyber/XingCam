@@ -1,4 +1,4 @@
-﻿import 'dart:io';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:xingcam/core/widgets/tutorial_overlay.dart';
@@ -18,7 +18,7 @@ class SpotRemoverScreen extends StatefulWidget {
 
 class _SpotRemoverScreenState extends State<SpotRemoverScreen> {
   double _smoothness = 0.0;
-  double _clarityBoost = 0.0;
+  final double _clarityBoost = 0.0;
   double _brushSize = 0.5;
   final List<Offset> _removedSpots = [];
   bool _isEraseMode = true;
@@ -139,7 +139,7 @@ class _SpotPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = AppColors.mint.withOpacity(0.4)
+      ..color = AppColors.mint.withValues(alpha: 0.4)
       ..style = PaintingStyle.fill;
     for (final spot in spots) {
       canvas.drawCircle(spot, 18, paint);
@@ -164,14 +164,14 @@ class _ModeBtn extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 12),
           decoration: BoxDecoration(
-            color: isActive ? color.withOpacity(0.2) : AppColors.textPrimary.withOpacity(0.05),
+            color: isActive ? color.withValues(alpha: 0.2) : AppColors.textPrimary.withValues(alpha: 0.05),
             borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: isActive ? color : AppColors.textPrimary.withOpacity(0.1)),
+            border: Border.all(color: isActive ? color : AppColors.textPrimary.withValues(alpha: 0.1)),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(icon, color: isActive ? color : AppColors.textSecondary.withOpacity(0.38), size: 18),
+              Icon(icon, color: isActive ? color : AppColors.textSecondary.withValues(alpha: 0.38), size: 18),
               const SizedBox(width: 8),
               Text(label, style: TextStyle(fontFamily: 'Outfit', color: isActive ? color : AppColors.textSecondary, fontSize: 13)),
             ],

@@ -107,11 +107,11 @@ class _StoryTemplatesScreenState extends State<StoryTemplatesScreen> {
                     if (tmpl['layout'] == 'cinematic') ...[
                       Container(
                         alignment: Alignment.topCenter,
-                        child: Container(height: 60, color: AppColors.background.withOpacity(0.87)),
+                        child: Container(height: 60, color: AppColors.background.withValues(alpha: 0.87)),
                       ),
                       Container(
                         alignment: Alignment.bottomCenter,
-                        child: Container(height: 80, color: AppColors.background.withOpacity(0.87)),
+                        child: Container(height: 80, color: AppColors.background.withValues(alpha: 0.87)),
                       ),
                     ],
                     // Color overlay
@@ -122,7 +122,7 @@ class _StoryTemplatesScreenState extends State<StoryTemplatesScreen> {
                           end: Alignment.bottomCenter,
                           colors: [
                             AppColors.transparent,
-                            accent.withOpacity(0.3),
+                            accent.withValues(alpha: 0.3),
                           ],
                         ),
                       ),
@@ -155,7 +155,7 @@ class _StoryTemplatesScreenState extends State<StoryTemplatesScreen> {
                                       setState(() => _captionText = ctrl.text);
                                       Navigator.pop(context);
                                     },
-                                    child: Text('OK', style: const TextStyle(fontFamily: 'Outfit', fontWeight: FontWeight.bold)),
+                                    child: const Text('OK', style: TextStyle(fontFamily: 'Outfit', fontWeight: FontWeight.bold)),
                                   ),
                                 ],
                               ),
@@ -164,7 +164,7 @@ class _StoryTemplatesScreenState extends State<StoryTemplatesScreen> {
                           child: Container(
                             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                             decoration: BoxDecoration(
-                              color: AppColors.background.withOpacity(0.54),
+                              color: AppColors.background.withValues(alpha: 0.54),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Text(
@@ -221,13 +221,13 @@ class _StoryTemplatesScreenState extends State<StoryTemplatesScreen> {
                       decoration: BoxDecoration(
                         gradient: isSelected
                             ? LinearGradient(
-                                colors: [(t['accent'] as Color).withOpacity(0.8), (t['accent'] as Color).withOpacity(0.3)],
+                                colors: [(t['accent'] as Color).withValues(alpha: 0.8), (t['accent'] as Color).withValues(alpha: 0.3)],
                               )
                             : null,
                         color: isSelected ? null : AppColors.surface,
                         borderRadius: BorderRadius.circular(30),
                         border: Border.all(
-                          color: isSelected ? (t['accent'] as Color) : AppColors.textPrimary.withOpacity(0.12),
+                          color: isSelected ? (t['accent'] as Color) : AppColors.textPrimary.withValues(alpha: 0.12),
                           width: 1.5,
                         ),
                       ),

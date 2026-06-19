@@ -92,13 +92,13 @@ class _BatchEditScreenState extends State<BatchEditScreen> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(context.tr('gallery.select_recipe'), style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withOpacity(0.5), fontSize: 13)),
+                Text(context.tr('gallery.select_recipe'), style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withValues(alpha: 0.5), fontSize: 13)),
                 const SizedBox(height: 16),
                 BlocBuilder<RetroCameraCubit, RetroCameraState>(
                   builder: (context, state) {
                     if (state is! RetroCameraReady) return const SizedBox();
                     final recipes = state.recipes;
-                    if (recipes.isEmpty) return Text(context.tr('recipe.no_recipes'), style: TextStyle(color: AppColors.textSecondary.withOpacity(0.3)));
+                    if (recipes.isEmpty) return Text(context.tr('recipe.no_recipes'), style: TextStyle(color: AppColors.textSecondary.withValues(alpha: 0.3)));
                     
                     return SizedBox(
                       height: 80,
@@ -115,7 +115,7 @@ class _BatchEditScreenState extends State<BatchEditScreen> {
                               width: 120,
                               padding: const EdgeInsets.all(12),
                               decoration: BoxDecoration(
-                                color: isSelected ? AppColors.primary.withOpacity(0.2) : AppColors.textPrimary.withOpacity(0.05),
+                                color: isSelected ? AppColors.primary.withValues(alpha: 0.2) : AppColors.textPrimary.withValues(alpha: 0.05),
                                 borderRadius: BorderRadius.circular(16),
                                 border: Border.all(color: isSelected ? AppColors.primary : AppColors.transparent),
                               ),
@@ -137,7 +137,7 @@ class _BatchEditScreenState extends State<BatchEditScreen> {
                     onPressed: (_selectedRecipe == null || _isProcessing) ? null : _runBatchEdit,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primary,
-                      disabledBackgroundColor: AppColors.surfaceLight.withOpacity(0.1),
+                      disabledBackgroundColor: AppColors.surfaceLight.withValues(alpha: 0.1),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                     ),
                     child: Text(context.tr('gallery.process_btn'), style: const TextStyle(fontFamily: 'Outfit', fontWeight: FontWeight.bold, fontSize: 16)),
@@ -179,7 +179,7 @@ class _BatchEditScreenState extends State<BatchEditScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Succesfully processed ${results.length} photos with ${_selectedRecipe!.name}!'),
-            backgroundColor: AppColors.mint.withOpacity(0.8),
+            backgroundColor: AppColors.mint.withValues(alpha: 0.8),
           ),
         );
         context.pop();

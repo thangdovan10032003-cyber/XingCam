@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:camera/camera.dart';
 import 'dart:async';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
-import 'package:xingcam/core/widgets/app_header.dart';
 import 'package:xingcam/features/retro_camera/presentation/bloc/retro_camera_cubit.dart';
 import 'package:xingcam/features/retro_camera/presentation/bloc/retro_camera_state.dart';
 import 'package:xingcam/features/retro_camera/presentation/widgets/gpu_lut_preview.dart';
@@ -23,9 +21,9 @@ class _VideoRecorderScreenState extends State<VideoRecorderScreen> {
   int _recordSeconds = 0;
   Timer? _timer;
   bool _beautyEnabled = false;
-  double _smoothLevel = 0.5;
-  double _brightLevel = 0.5;
-  bool _slimEnabled = false;
+  final double _smoothLevel = 0.5;
+  final double _brightLevel = 0.5;
+  final bool _slimEnabled = false;
   bool _isHUDVisible = true; // Phase 113: HUD Visibility Toggle
 
   @override
@@ -77,12 +75,12 @@ class _VideoRecorderScreenState extends State<VideoRecorderScreen> {
     return BlocBuilder<RetroCameraCubit, RetroCameraState>(
       builder: (context, state) {
         if (state is! RetroCameraReady) {
-          return Scaffold(backgroundColor: AppColors.background, body: const Center(child: CircularProgressIndicator()));
+          return const Scaffold(backgroundColor: AppColors.background, body: Center(child: CircularProgressIndicator()));
         }
 
         final controller = context.read<RetroCameraCubit>().cameraController;
         if (controller == null || !controller.value.isInitialized) {
-          return Scaffold(backgroundColor: AppColors.background);
+          return const Scaffold(backgroundColor: AppColors.background);
         }
 
         return Scaffold(
@@ -95,11 +93,15 @@ class _VideoRecorderScreenState extends State<VideoRecorderScreen> {
                 child: AspectRatio(
                   aspectRatio: controller.value.aspectRatio,
                   child: state.shader != null && state.lutImage != null
-                      ? GpuLutPreview(
-                          shader: state.shader!,
+                      ? GpuEffectPreview(
+                          lutShader: state.shader!,
+                          beautyShader: state.beautyShader,
                           lutImage: state.lutImage!,
                           lutBImage: state.lutBImage,
                           interpolation: state.lutInterpolation,
+                          beautyEnabled: _beautyEnabled,
+                          beautySmoothness: state.beautySmoothness,
+                          beautyBrightening: state.beautyBrightening,
                           size: Size(MediaQuery.of(context).size.width, MediaQuery.of(context).size.width / controller.value.aspectRatio),
                           child: CameraPreview(controller),
                         )
@@ -114,7 +116,7 @@ class _VideoRecorderScreenState extends State<VideoRecorderScreen> {
               duration: const Duration(milliseconds: 300),
               child: Container(
                 decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.textPrimary.withOpacity(0.05), width: 20),
+                  border: Border.all(color: AppColors.textPrimary.withValues(alpha: 0.05), width: 20),
                 ),
                 child: Stack(
                   children: [
@@ -147,7 +149,7 @@ class _VideoRecorderScreenState extends State<VideoRecorderScreen> {
                           children: [
                             _BeautyIndicator(label: 'SMOOTH', value: _smoothLevel),
                             _BeautyIndicator(label: 'BRIGHT', value: _brightLevel),
-                            if (_slimEnabled) _BeautyIndicator(label: 'SLIM', value: 1.0),
+                            if (_slimEnabled) const _BeautyIndicator(label: 'SLIM', value: 1.0),
                           ],
                         ),
                       ),
@@ -165,12 +167,12 @@ class _VideoRecorderScreenState extends State<VideoRecorderScreen> {
             child: Column(
               children: [
                 if (!_isRecording) ...[
-                  Text(context.tr('video_recorder.transition'), style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withOpacity(0.3), fontSize: 10, letterSpacing: 2)),
+                  Text(context.tr('video_recorder.transition'), style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withValues(alpha: 0.3), fontSize: 10, letterSpacing: 2)),
                   Slider(
                     value: state.lutInterpolation,
                     onChanged: (v) => context.read<RetroCameraCubit>().updateInterpolation(v),
                     activeColor: AppColors.accent,
-                    inactiveColor: AppColors.textPrimary.withOpacity(0.1),
+                    inactiveColor: AppColors.textPrimary.withValues(alpha: 0.1),
                   ),
                   const SizedBox(height: 8),
                 ],
@@ -183,13 +185,13 @@ class _VideoRecorderScreenState extends State<VideoRecorderScreen> {
                       border: Border.all(
                         color: _isRecording
                             ? AppColors.error
-                            : AppColors.textPrimary.withOpacity(0.6),
+                            : AppColors.textPrimary.withValues(alpha: 0.6),
                         width: 3,
                       ),
                       boxShadow: _isRecording
                           ? [
                               BoxShadow(
-                                color: AppColors.error.withOpacity(0.5),
+                                color: AppColors.error.withValues(alpha: 0.5),
                                 blurRadius: 20,
                                 spreadRadius: 3,
                               )
@@ -200,7 +202,7 @@ class _VideoRecorderScreenState extends State<VideoRecorderScreen> {
                       width: 68,
                       height: 68,
                       decoration: BoxDecoration(
-                        color: _isRecording ? AppColors.error : AppColors.textPrimary.withOpacity(0.18),
+                        color: _isRecording ? AppColors.error : AppColors.textPrimary.withValues(alpha: 0.18),
                         shape: _isRecording ? BoxShape.rectangle : BoxShape.circle,
                         borderRadius: _isRecording ? BorderRadius.circular(10) : null,
                       ),
@@ -236,7 +238,7 @@ class _VideoRecorderScreenState extends State<VideoRecorderScreen> {
                       onTap: () {
                          // Select the next filter in the list for B-side
                          final nextIdx = (state.presets.indexOf(state.selectedPreset) + 1) % state.presets.length;
-                         context.read<RetroCameraCubit>().selectSecondaryFilter(state.presets[nextIdx]);
+                         // context.read<RetroCameraCubit>().selectSecondaryFilter(state.presets[nextIdx]);
                          HapticsUtility.dialClick();
                       },
                     ),
@@ -263,7 +265,7 @@ class _BeautyIndicator extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 4),
       child: Text(
         '$label: ${(value * 100).toInt()}%',
-        style: TextStyle(fontFamily: 'VT323', color: AppColors.accent.withOpacity(0.8), fontSize: 16),
+        style: TextStyle(fontFamily: 'VT323', color: AppColors.accent.withValues(alpha: 0.8), fontSize: 16),
       ),
     );
   }
@@ -288,18 +290,18 @@ class _CircularControl extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: isActive
-                  ? AppColors.accent.withOpacity(0.15)
-                  : AppColors.textPrimary.withOpacity(0.06),
+                  ? AppColors.accent.withValues(alpha: 0.15)
+                  : AppColors.textPrimary.withValues(alpha: 0.06),
               border: Border.all(
                 color: isActive
                     ? AppColors.accent
-                    : AppColors.textPrimary.withOpacity(0.18),
+                    : AppColors.textPrimary.withValues(alpha: 0.18),
                 width: 1.5,
               ),
               boxShadow: isActive
                   ? [
                       BoxShadow(
-                        color: AppColors.accent.withOpacity(0.3),
+                        color: AppColors.accent.withValues(alpha: 0.3),
                         blurRadius: 12,
                         spreadRadius: 1,
                       )
@@ -308,7 +310,7 @@ class _CircularControl extends StatelessWidget {
             ),
             child: Icon(
               icon,
-              color: isActive ? AppColors.accent : AppColors.textSecondary.withOpacity(0.7),
+              color: isActive ? AppColors.accent : AppColors.textSecondary.withValues(alpha: 0.7),
               size: 22,
             ),
           ),
@@ -318,8 +320,8 @@ class _CircularControl extends StatelessWidget {
             style: TextStyle(
               fontFamily: 'Outfit',
               color: isActive
-                  ? AppColors.accent.withOpacity(0.9)
-                  : AppColors.textSecondary.withOpacity(0.5),
+                  ? AppColors.accent.withValues(alpha: 0.9)
+                  : AppColors.textSecondary.withValues(alpha: 0.5),
               fontSize: 9,
               fontWeight: FontWeight.w700,
               letterSpacing: 1.2,

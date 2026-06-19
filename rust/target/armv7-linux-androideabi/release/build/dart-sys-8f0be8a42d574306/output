@@ -1,0 +1,39 @@
+cargo:rerun-if-env-changed=CC_FORCE_DISABLE
+CC_FORCE_DISABLE = None
+cargo:rerun-if-env-changed=CC_armv7-linux-androideabi
+CC_armv7-linux-androideabi = Some(C:\Users\Admin\AppData\Local\Android\sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang)
+cargo:rerun-if-env-changed=CC_ENABLE_DEBUG_OUTPUT
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+cargo:rerun-if-env-changed=CFLAGS
+CFLAGS = None
+cargo:rerun-if-env-changed=TARGET_CFLAGS
+TARGET_CFLAGS = None
+cargo:rerun-if-env-changed=CFLAGS_armv7_linux_androideabi
+CFLAGS_armv7_linux_androideabi = None
+cargo:rerun-if-env-changed=CFLAGS_armv7-linux-androideabi
+CFLAGS_armv7-linux-androideabi = Some(--target=armv7a-linux-androideabi21)
+cargo:rerun-if-env-changed=CC_SHELL_ESCAPED_FLAGS
+CC_SHELL_ESCAPED_FLAGS = None
+cargo:rerun-if-env-changed=AR_armv7-linux-androideabi
+AR_armv7-linux-androideabi = Some(C:\Users\Admin\AppData\Local\Android\sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\llvm-ar)
+cargo:rerun-if-env-changed=ARFLAGS
+ARFLAGS = None
+cargo:rerun-if-env-changed=TARGET_ARFLAGS
+TARGET_ARFLAGS = None
+cargo:rerun-if-env-changed=ARFLAGS_armv7_linux_androideabi
+ARFLAGS_armv7_linux_androideabi = None
+cargo:rerun-if-env-changed=ARFLAGS_armv7-linux-androideabi
+ARFLAGS_armv7-linux-androideabi = None
+cargo:rerun-if-env-changed=AR_armv7-linux-androideabi
+AR_armv7-linux-androideabi = Some(C:\Users\Admin\AppData\Local\Android\sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\llvm-ar)
+cargo:rerun-if-env-changed=ARFLAGS
+ARFLAGS = None
+cargo:rerun-if-env-changed=TARGET_ARFLAGS
+TARGET_ARFLAGS = None
+cargo:rerun-if-env-changed=ARFLAGS_armv7_linux_androideabi
+ARFLAGS_armv7_linux_androideabi = None
+cargo:rerun-if-env-changed=ARFLAGS_armv7-linux-androideabi
+ARFLAGS_armv7-linux-androideabi = None
+cargo:rustc-link-lib=static=dart_api_dl
+cargo:rustc-link-search=native=C:\Users\Admin\Pictures\XingCam\rust\target\armv7-linux-androideabi\release\build\dart-sys-8f0be8a42d574306\out

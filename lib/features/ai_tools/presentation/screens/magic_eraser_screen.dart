@@ -84,7 +84,7 @@ class _MagicEraserScreenState extends State<MagicEraserScreen> {
                   ),
                   if (_isProcessing)
                     Container(
-                      color: AppColors.background.withOpacity(0.45),
+                      color: AppColors.background.withValues(alpha: 0.45),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -139,7 +139,7 @@ class _EraserMaskPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     if (points.isEmpty) return;
     final paint = Paint()
-      ..color = AppColors.accent.withOpacity(0.5)
+      ..color = AppColors.accent.withValues(alpha: 0.5)
       ..strokeWidth = brushSize
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke;

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
 import 'package:provider/provider.dart';
 import 'package:xingcam/core/services/ai_credit_service.dart';
-import 'package:xingcam/features/monetization/presentation/modals/ai_credit_store.dart';
 
 /// AiCreditBadge: A premium glowing HUD element showing the current credit balance.
 /// Serves as a constant reminder of the app's generative power.
@@ -19,12 +18,12 @@ class AiCreditBadge extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
-              color: AppColors.textPrimary.withOpacity(0.05),
+              color: AppColors.textPrimary.withValues(alpha: 0.05),
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: AppColors.accent.withOpacity(0.3)),
+              border: Border.all(color: AppColors.accent.withValues(alpha: 0.3)),
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.accent.withOpacity(0.1),
+                  color: AppColors.accent.withValues(alpha: 0.1),
                   blurRadius: 10,
                   spreadRadius: 1,
                 ),
@@ -37,7 +36,7 @@ class AiCreditBadge extends StatelessWidget {
                 const SizedBox(width: 6),
                 Text(
                   context.tr('monetization.remaining_credits', args: [getRemainingCredits(creditService)]),
-                  style: TextStyle(fontFamily: 'Outfit', 
+                  style: const TextStyle(fontFamily: 'Outfit', 
                     color: AppColors.textPrimary,
                     fontSize: 12,
                     fontWeight: FontWeight.bold,

@@ -1,4 +1,4 @@
-﻿import 'dart:ui' as ui;
+import 'dart:ui' as ui;
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -107,7 +107,7 @@ class _MagicBrushScreenState extends State<MagicBrushScreen> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(context.tr('tools.magic_brush.brush_style'), style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withOpacity(0.38), fontSize: 11, letterSpacing: 1.5)),
+          Text(context.tr('tools.magic_brush.brush_style'), style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withValues(alpha: 0.38), fontSize: 11, letterSpacing: 1.5)),
           const SizedBox(height: 16),
           SizedBox(
             height: 60,
@@ -126,11 +126,11 @@ class _MagicBrushScreenState extends State<MagicBrushScreen> {
                     margin: const EdgeInsets.only(right: 12),
                     width: 60,
                     decoration: BoxDecoration(
-                      color: isSelected ? (_brushes[i]['color'] as Color).withOpacity(0.1) : AppColors.textPrimary.withOpacity(0.1),
+                      color: isSelected ? (_brushes[i]['color'] as Color).withValues(alpha: 0.1) : AppColors.textPrimary.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(16),
                       border: Border.all(color: isSelected ? (_brushes[i]['color'] as Color) : AppColors.transparent, width: 2),
                     ),
-                    child: Icon(_brushes[i]['icon'] as IconData, color: isSelected ? (_brushes[i]['color'] as Color) : AppColors.textSecondary.withOpacity(0.38), size: 24),
+                    child: Icon(_brushes[i]['icon'] as IconData, color: isSelected ? (_brushes[i]['color'] as Color) : AppColors.textSecondary.withValues(alpha: 0.38), size: 24),
                   ),
                 );
               },
@@ -191,7 +191,7 @@ class _MagicBrushPainter extends CustomPainter {
               style: TextStyle(
                 fontFamily: 'MaterialIcons',
                 fontSize: path.size,
-                color: (brushes[path.brushType]['color'] as Color).withOpacity(0.4),
+                color: (brushes[path.brushType]['color'] as Color).withValues(alpha: 0.4),
               ),
             ),
             textDirection: ui.TextDirection.ltr,

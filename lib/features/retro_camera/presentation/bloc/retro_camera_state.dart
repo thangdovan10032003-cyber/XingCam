@@ -1,4 +1,5 @@
 import 'dart:ui' as ui;
+import 'package:camera/camera.dart';
 import 'package:equatable/equatable.dart';
 import 'package:xingcam/features/retro_camera/presentation/widgets/film_border_overlay.dart';
 import 'package:xingcam/features/retro_camera/domain/entities/captured_photo.dart';
@@ -34,24 +35,32 @@ class RetroCameraReady extends RetroCameraState {
   final CameraAspectRatio aspectRatio;
   final bool isTakingPhoto;
   final ui.FragmentShader? shader;
+  final ui.FragmentShader? beautyShader;
   final ui.Image? lutImage;
   final ui.Image? lutBImage;
   final double lutInterpolation;
+  final double beautySmoothness;
+  final double beautyBrightening;
   final FilmBorderType selectedBorder;
   final List<FilmRecipe> recipes;
+  final CameraController controller;
 
   const RetroCameraReady({
     required this.presets,
     required this.selectedPreset,
+    required this.controller,
     this.grainSettings = const GrainSettings(),
     this.lightLeakSettings,
     this.isTakingPhoto = false,
     this.zoomLevel = 1.0,
     this.aspectRatio = CameraAspectRatio.ratio4_3,
     this.shader,
+    this.beautyShader,
     this.lutImage,
     this.lutBImage,
     this.lutInterpolation = 0.0,
+    this.beautySmoothness = 0.5,
+    this.beautyBrightening = 0.5,
     this.selectedBorder = FilmBorderType.none,
     this.recipes = const [],
   });
@@ -59,6 +68,7 @@ class RetroCameraReady extends RetroCameraState {
   RetroCameraReady copyWith({
     List<FilterPreset>? presets,
     FilterPreset? selectedPreset,
+    CameraController? controller,
     GrainSettings? grainSettings,
     LightLeakSettings? lightLeakSettings,
     bool clearLightLeak = false,
@@ -66,13 +76,17 @@ class RetroCameraReady extends RetroCameraState {
     CameraAspectRatio? aspectRatio,
     bool? isTakingPhoto,
     ui.FragmentShader? shader,
+    ui.FragmentShader? beautyShader,
     ui.Image? lutImage,
+    double? beautySmoothness,
+    double? beautyBrightening,
     FilmBorderType? selectedBorder,
     List<FilmRecipe>? recipes,
   }) {
     return RetroCameraReady(
       presets: presets ?? this.presets,
       selectedPreset: selectedPreset ?? this.selectedPreset,
+      controller: controller ?? this.controller,
       grainSettings: grainSettings ?? this.grainSettings,
       lightLeakSettings:
           clearLightLeak ? null : (lightLeakSettings ?? this.lightLeakSettings),
@@ -80,9 +94,12 @@ class RetroCameraReady extends RetroCameraState {
       aspectRatio: aspectRatio ?? this.aspectRatio,
       isTakingPhoto: isTakingPhoto ?? this.isTakingPhoto,
       shader: shader ?? this.shader,
+      beautyShader: beautyShader ?? this.beautyShader,
       lutImage: lutImage ?? this.lutImage,
-      lutBImage: lutBImage ?? this.lutBImage,
-      lutInterpolation: lutInterpolation ?? this.lutInterpolation,
+      lutBImage: lutBImage ?? lutBImage,
+      lutInterpolation: lutInterpolation ?? lutInterpolation,
+      beautySmoothness: beautySmoothness ?? this.beautySmoothness,
+      beautyBrightening: beautyBrightening ?? this.beautyBrightening,
       selectedBorder: selectedBorder ?? this.selectedBorder,
       recipes: recipes ?? this.recipes,
     );
@@ -92,6 +109,7 @@ class RetroCameraReady extends RetroCameraState {
   List<Object?> get props => [
         presets,
         selectedPreset,
+        controller,
         grainSettings,
         lightLeakSettings,
         zoomLevel,
@@ -99,6 +117,9 @@ class RetroCameraReady extends RetroCameraState {
         isTakingPhoto,
         lutBImage,
         lutInterpolation,
+        beautyShader,
+        beautySmoothness,
+        beautyBrightening,
       ];
 }
 

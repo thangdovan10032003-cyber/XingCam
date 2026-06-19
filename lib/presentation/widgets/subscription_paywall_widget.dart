@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../services/ai_credit_service.dart';
-import '../theme/design_tokens.dart';
+import 'package:xingcam/core/theme/design_tokens.dart';
 
 class SubscriptionPaywallWidget extends StatelessWidget {
   final VoidCallback onPremiumStarted;
@@ -19,7 +17,7 @@ class SubscriptionPaywallWidget extends StatelessWidget {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            AppColors.gold.withOpacity(0.1),
+            AppColors.gold.withValues(alpha: 0.1),
             AppColors.background,
           ],
         ),
@@ -32,9 +30,9 @@ class SubscriptionPaywallWidget extends StatelessWidget {
             padding: const EdgeInsets.all(24),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: AppColors.gold.withOpacity(0.15),
+              color: AppColors.gold.withValues(alpha: 0.15),
               boxShadow: [
-                BoxShadow(color: AppColors.gold.withOpacity(0.3), blurRadius: 40, spreadRadius: 10),
+                BoxShadow(color: AppColors.gold.withValues(alpha: 0.3), blurRadius: 40, spreadRadius: 10),
               ],
             ),
             child: const Icon(Icons.workspace_premium_rounded, color: AppColors.gold, size: 64),
@@ -79,7 +77,7 @@ class SubscriptionPaywallWidget extends StatelessWidget {
             decoration: BoxDecoration(
               color: AppColors.surface,
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: AppColors.gold.withOpacity(0.3)),
+              border: Border.all(color: AppColors.gold.withValues(alpha: 0.3)),
             ),
             child: const Column(
               children: [

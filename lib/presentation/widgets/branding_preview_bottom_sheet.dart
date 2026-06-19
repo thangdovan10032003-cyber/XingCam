@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import '../services/visual_branding_service.dart';
-import '../services/recipe_service.dart';
-import '../theme/design_tokens.dart';
+import 'package:xingcam/core/services/visual_branding_service.dart';
+import 'package:xingcam/core/services/recipe_sharing_service.dart';
+import 'package:xingcam/core/theme/design_tokens.dart';
 import 'package:share_plus/share_plus.dart';
 
 class BrandingPreviewBottomSheet extends StatefulWidget {

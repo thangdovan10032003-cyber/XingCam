@@ -1,6 +1,5 @@
-﻿import 'package:xingcam/core/utils/haptics_utility.dart';
+import 'package:xingcam/core/utils/haptics_utility.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:xingcam/core/models/edit_command.dart';
 import 'package:xingcam/core/services/pipeline_context.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
@@ -23,9 +22,9 @@ class HistoryPanel extends StatelessWidget {
         return Container(
           width: 280,
           decoration: BoxDecoration(
-            color: AppColors.background.withOpacity(0.85),
+            color: AppColors.background.withValues(alpha: 0.85),
             borderRadius: const BorderRadius.only(topLeft: Radius.circular(20), bottomLeft: Radius.circular(20)),
-            border: Border.all(color: AppColors.textSecondary.withOpacity(0.12)),
+            border: Border.all(color: AppColors.textSecondary.withValues(alpha: 0.12)),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +39,7 @@ class HistoryPanel extends StatelessWidget {
               const Divider(color: AppColors.border, height: 1),
               Expanded(
                 child: commands.isEmpty
-                    ? Center(child: Text(context.tr('tools.history.empty'), style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withOpacity(0.3))))
+                    ? Center(child: Text(context.tr('tools.history.empty'), style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withValues(alpha: 0.3))))
                     : ListView.separated(
                         padding: const EdgeInsets.all(12),
                         itemCount: commands.length,
@@ -89,7 +88,7 @@ class _HistoryTile extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
-        color: AppColors.textPrimary.withOpacity(0.05),
+        color: AppColors.textPrimary.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: AppColors.border),
       ),
@@ -126,7 +125,7 @@ class _HistoryTile extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               margin: const EdgeInsets.only(left: 4),
               decoration: BoxDecoration(
-                color: AppColors.accent.withOpacity(0.1),
+                color: AppColors.accent.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: const Text('â†©', style: TextStyle(color: AppColors.accent, fontSize: 14)),

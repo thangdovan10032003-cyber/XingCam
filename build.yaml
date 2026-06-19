@@ -1,0 +1,18 @@
+targets:
+  $default:
+    builders:
+      # Exclude FRB-generated web file from Isar and injectable generators
+      # because `frb_generated.web.dart` uses Dart 3.3+ `extension type` syntax
+      # which is not supported by the analyzer plug-ins used in build_runner.
+      isar_generator:
+        generate_for:
+          exclude:
+            - lib/src/rust/**
+      injectable_generator|injectable_builder:
+        generate_for:
+          exclude:
+            - lib/src/rust/**
+      injectable_generator|injectable_config_builder:
+        generate_for:
+          exclude:
+            - lib/src/rust/**

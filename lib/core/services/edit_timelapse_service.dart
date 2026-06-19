@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:xingcam/core/services/pipeline_context.dart';
-import 'package:xingcam/core/models/edit_command.dart';
 
 /// EditTimeLapseService: Orchestrates the generation of "Before/After" 
 /// transformation videos by incrementally applying NDE commands.

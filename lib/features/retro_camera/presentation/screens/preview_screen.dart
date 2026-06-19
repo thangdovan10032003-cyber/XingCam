@@ -88,7 +88,7 @@ class _PreviewScreenState extends State<PreviewScreen> {
                    Container(
                     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                     decoration: BoxDecoration(
-                      color: AppColors.background.withOpacity(0.54),
+                      color: AppColors.background.withValues(alpha: 0.54),
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: Row(
@@ -139,7 +139,7 @@ class _PreviewScreenState extends State<PreviewScreen> {
                   width: 56,
                   height: 56,
                   decoration: BoxDecoration(
-                    color: AppColors.surface.withOpacity(0.8),
+                    color: AppColors.surface.withValues(alpha: 0.8),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: AppColors.border),
                   ),
@@ -217,7 +217,7 @@ class _PreviewScreenState extends State<PreviewScreen> {
         width: 44,
         height: 44,
         decoration: BoxDecoration(
-          color: color?.withOpacity(0.2) ?? AppColors.background.withOpacity(0.45),
+          color: color?.withValues(alpha: 0.2) ?? AppColors.background.withValues(alpha: 0.45),
           shape: BoxShape.circle,
           border: color != null ? Border.all(color: color, width: 1.5) : null,
         ),

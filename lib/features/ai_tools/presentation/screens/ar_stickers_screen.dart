@@ -1,4 +1,4 @@
-﻿import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
 import 'dart:io';
 import 'package:flutter/material.dart';
@@ -110,7 +110,7 @@ class _ArStickersScreenState extends State<ArStickersScreen> {
                   ..._placedStickers.map((pos) => Positioned(
                     left: pos.dx - 25,
                     top: pos.dy - 25,
-                    child: Icon(_stickers[_selectedSticker], color: AppColors.gold, size: 50, shadows: [Shadow(blurRadius: 10, color: AppColors.background.withOpacity(0.54))]),
+                    child: Icon(_stickers[_selectedSticker], color: AppColors.gold, size: 50, shadows: [Shadow(blurRadius: 10, color: AppColors.background.withValues(alpha: 0.54))]),
                   )),
                   
                   // LAYER 3: Sovereign Foreground Depth Overlay
@@ -121,14 +121,14 @@ class _ArStickersScreenState extends State<ArStickersScreen> {
                     
                   if (_isScanningDepth)
                     Container(
-                      color: AppColors.background.withOpacity(0.4),
-                      child: Center(
+                      color: AppColors.background.withValues(alpha: 0.4),
+                      child: const Center(
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            const CircularProgressIndicator(color: AppColors.primary),
-                            const SizedBox(height: 16),
-                            Text('Sovereign ML Kit: Scanning 3D Depth...', style: const TextStyle(fontFamily: 'Outfit', color: AppColors.primary, fontWeight: FontWeight.bold)),
+                            CircularProgressIndicator(color: AppColors.primary),
+                            SizedBox(height: 16),
+                            Text('Sovereign ML Kit: Scanning 3D Depth...', style: TextStyle(fontFamily: 'Outfit', color: AppColors.primary, fontWeight: FontWeight.bold)),
                           ],
                         ),
                       ),
@@ -170,7 +170,7 @@ class _ArStickersScreenState extends State<ArStickersScreen> {
                     margin: const EdgeInsets.only(right: 12),
                     width: 60,
                     decoration: BoxDecoration(
-                      color: isSelected ? AppColors.gold.withOpacity(0.1) : AppColors.textPrimary.withOpacity(0.1),
+                      color: isSelected ? AppColors.gold.withValues(alpha: 0.1) : AppColors.textPrimary.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(16),
                       border: Border.all(color: isSelected ? AppColors.gold : AppColors.transparent, width: 2),
                     ),

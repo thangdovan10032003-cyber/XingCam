@@ -1,4 +1,4 @@
-﻿import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -111,7 +111,7 @@ class PhotoDetailScreen extends StatelessWidget {
                     begin: Alignment.bottomCenter,
                     end: Alignment.topCenter,
                     colors: [
-                      AppColors.background.withOpacity(0.7),
+                      AppColors.background.withValues(alpha: 0.7),
                       AppColors.transparent,
                     ],
                   ),
@@ -138,16 +138,16 @@ class PhotoDetailScreen extends StatelessWidget {
                               child: Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                                 decoration: BoxDecoration(
-                                  color: AppColors.mint.withOpacity(0.1),
+                                  color: AppColors.mint.withValues(alpha: 0.1),
                                   borderRadius: BorderRadius.circular(12),
-                                  border: Border.all(color: AppColors.mint.withOpacity(0.3)),
+                                  border: Border.all(color: AppColors.mint.withValues(alpha: 0.3)),
                                 ),
-                                child: Row(
+                                child: const Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    const Icon(AppIcons.privacy, color: AppColors.mint, size: 10),
-                                    const SizedBox(width: 4),
-                                    const Text(
+                                    Icon(AppIcons.privacy, color: AppColors.mint, size: 10),
+                                    SizedBox(width: 4),
+                                    Text(
                                       'VERIFIED PROVENANCE',
                                       style: TextStyle(fontFamily: 'Outfit', color: AppColors.mint, fontSize: 8, fontWeight: FontWeight.bold),
                                     ),
@@ -184,7 +184,7 @@ class _IconButtonDark extends StatelessWidget {
         width: 40,
         height: 40,
         decoration: BoxDecoration(
-          color: AppColors.surfaceLow.withOpacity(0.5),
+          color: AppColors.surfaceLow.withValues(alpha: 0.5),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Icon(icon, color: AppColors.textPrimary, size: 20),

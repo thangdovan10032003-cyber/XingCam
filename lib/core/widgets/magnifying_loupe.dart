@@ -1,4 +1,3 @@
-import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:xingcam/core/theme/design_tokens.dart';
 
@@ -40,7 +39,7 @@ class MagnifyingLoupe extends StatelessWidget {
           border: Border.all(color: AppColors.textPrimary, width: 3),
           boxShadow: [
             BoxShadow(
-              color: AppColors.background.withOpacity(0.5),
+              color: AppColors.background.withValues(alpha: 0.5),
               blurRadius: 10,
               spreadRadius: 2,
             ),

@@ -20,7 +20,7 @@ class GoboPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = AppColors.background.withOpacity(intensity)
+      ..color = AppColors.background.withValues(alpha: intensity)
       ..style = PaintingStyle.fill;
 
     canvas.save();

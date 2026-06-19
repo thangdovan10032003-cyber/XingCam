@@ -24,16 +24,16 @@ class SubscriptionService {
       await Purchases.configure(configuration);
       await _checkSubscriptionStatus();
     } catch (e) {
-      debugPrint("RevenueCat Init Error: \$e");
+      debugPrint('RevenueCat Init Error: \$e');
     }
   }
 
   Future<void> _checkSubscriptionStatus() async {
     try {
       final customerInfo = await Purchases.getCustomerInfo();
-      _isPro = customerInfo.entitlements.all["pro_entitlement"]?.isActive ?? false;
+      _isPro = customerInfo.entitlements.all['pro_entitlement']?.isActive ?? false;
     } catch (e) {
-      debugPrint("Failed to fetch subscription status: \$e");
+      debugPrint('Failed to fetch subscription status: \$e');
     }
   }
 
@@ -43,11 +43,11 @@ class SubscriptionService {
       if (offerings.current != null && offerings.current!.availablePackages.isNotEmpty) {
         final package = offerings.current!.availablePackages.first;
         final customerInfo = await Purchases.purchasePackage(package);
-        _isPro = customerInfo.entitlements.all["pro_entitlement"]?.isActive ?? false;
+        _isPro = customerInfo.entitlements.all['pro_entitlement']?.isActive ?? false;
         return _isPro;
       }
     } catch (e) {
-      debugPrint("Purchase Failed: \$e");
+      debugPrint('Purchase Failed: \$e');
     }
     return false;
   }

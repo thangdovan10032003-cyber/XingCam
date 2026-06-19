@@ -66,8 +66,9 @@ class _PortraitSculptorScreenState extends State<PortraitSculptorScreen> {
                     onTapUp: (details) {
                       final y = details.localPosition.dy / 400; // Normalized estimate
                       setState(() {
-                         if (y > 0.6) _highlightedKey = 'slender';
-                         else if (y < 0.3) _highlightedKey = 'glow';
+                         if (y > 0.6) {
+                           _highlightedKey = 'slender';
+                         } else if (y < 0.3) _highlightedKey = 'glow';
                          else _highlightedKey = 'skin';
                       });
                       HapticsUtility.lightImpact();
@@ -82,7 +83,7 @@ class _PortraitSculptorScreenState extends State<PortraitSculptorScreen> {
                           Positioned.fill(
                             child: BackdropFilter(
                               filter: ImageFilter.blur(sigmaX: _textureValue * 4, sigmaY: _textureValue * 4),
-                              child: Container(color: AppColors.textPrimary.withOpacity(_textureValue * 0.05)),
+                              child: Container(color: AppColors.textPrimary.withValues(alpha: _textureValue * 0.05)),
                             ),
                           ),
                       ],
@@ -95,7 +96,7 @@ class _PortraitSculptorScreenState extends State<PortraitSculptorScreen> {
                     child: BackdropFilter(
                       filter: ImageFilter.blur(sigmaX: _glowValue * 15, sigmaY: _glowValue * 15),
                       child: Container(
-                        color: AppColors.textPrimary.withOpacity(_glowValue * 0.2),
+                        color: AppColors.textPrimary.withValues(alpha: _glowValue * 0.2),
                       ),
                     ),
                   ),
@@ -147,7 +148,7 @@ class _PortraitSculptorScreenState extends State<PortraitSculptorScreen> {
       duration: const Duration(milliseconds: 300),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
-        color: active ? AppColors.primary.withOpacity(0.1) : AppColors.transparent,
+        color: active ? AppColors.primary.withValues(alpha: 0.1) : AppColors.transparent,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: active ? AppColors.primary : AppColors.transparent),
       ),

@@ -121,7 +121,7 @@ class _DownloadPromptState extends State<_DownloadPrompt> {
                 width: 80,
                 height: 80,
                 decoration: BoxDecoration(
-                  color: AppColors.accent.withOpacity(0.12),
+                  color: AppColors.accent.withValues(alpha: 0.12),
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(Icons.download_rounded, size: 40, color: AppColors.accent),

@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/foundation.dart';
 
 /// ColorProfileService: Preserves Wide Color Gamut (Display P3) metadata.

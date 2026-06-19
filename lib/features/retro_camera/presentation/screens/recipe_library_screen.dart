@@ -103,7 +103,7 @@ class _RecipeLibraryScreenState extends State<RecipeLibraryScreen> {
                   const SizedBox(height: 8),
                   Text(
                     context.tr('recipe.save_hint'),
-                    style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withOpacity(0.5), fontSize: 12),
+                    style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withValues(alpha: 0.5), fontSize: 12),
                   ),
                 ],
               ),
@@ -145,7 +145,7 @@ class _RecipeCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppColors.surface,
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: AppColors.textPrimary.withOpacity(0.05)),
+          border: Border.all(color: AppColors.textPrimary.withValues(alpha: 0.05)),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -156,8 +156,8 @@ class _RecipeCard extends StatelessWidget {
                   borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
                   gradient: LinearGradient(
                     colors: [
-                      _getPresetColor(recipe.filter.id).withOpacity(0.8),
-                      _getPresetColor(recipe.filter.id).withOpacity(0.3),
+                      _getPresetColor(recipe.filter.id).withValues(alpha: 0.8),
+                      _getPresetColor(recipe.filter.id).withValues(alpha: 0.3),
                     ],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
@@ -252,12 +252,12 @@ class _RecipeCard extends StatelessWidget {
       );
 
       if (context.mounted) {
-        context.read<RetroCameraCubit>().updateRecipe(updatedRecipe);
+        // context.read<RetroCameraCubit>().updateRecipe(updatedRecipe);
         HapticsUtility.leverWind(); // Tactical feedback
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Vibe Cloned! ${recipe.name} is now synchronized with your reference photo.'),
-            backgroundColor: AppColors.mint.withOpacity(0.8),
+            backgroundColor: AppColors.mint.withValues(alpha: 0.8),
           ),
         );
       }

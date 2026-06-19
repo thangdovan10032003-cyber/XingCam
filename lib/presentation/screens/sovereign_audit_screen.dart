@@ -27,7 +27,7 @@ class SovereignAuditScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: AppColors.gold.withOpacity(0.1),
+                      color: AppColors.gold.withValues(alpha: 0.1),
                     ),
                     child: const Icon(Icons.shield_outlined, color: AppColors.gold, size: 48),
                   ),
@@ -60,7 +60,7 @@ class SovereignAuditScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 color: AppColors.surface,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: AppColors.gold.withOpacity(0.2)),
+                border: Border.all(color: AppColors.gold.withValues(alpha: 0.2)),
               ),
               child: const Row(
                 children: [
@@ -97,7 +97,7 @@ class SovereignAuditScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(item.name, style: const TextStyle(color: AppColors.textPrimary, fontSize: 14, fontWeight: FontWeight.bold)),
-                  Text(item.location, style: TextStyle(color: AppColors.textSecondary.withOpacity(0.6), fontSize: 11)),
+                  Text(item.location, style: TextStyle(color: AppColors.textSecondary.withValues(alpha: 0.6), fontSize: 11)),
                 ],
               ),
               const Spacer(),

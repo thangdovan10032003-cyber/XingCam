@@ -6,14 +6,14 @@ import 'package:xingcam/core/services/recipe_service.dart';
 /// FilmRecipeSharingService — v1.5 Core EXIF Engine.
 /// Handles embedding recipe metadata into JPEG files for "Stealth Viral" growth.
 class FilmRecipeSharingService {
-  static const String _recipeToken = "XINGCAM_RECIPE:";
+  static const String _recipeToken = 'XINGCAM_RECIPE:';
 
   /// Embeds a recipe into a JPEG image's UserComment field.
   static Future<void> embedRecipeInPhoto(String imagePath, EditRecipe recipe) async {
     final exif = await Exif.fromPath(imagePath);
     try {
       final recipeJson = jsonEncode(recipe.toJson());
-      final metadataString = "$_recipeToken$recipeJson";
+      final metadataString = '$_recipeToken$recipeJson';
       
       await exif.writeAttribute('UserComment', metadataString);
     } finally {
@@ -24,7 +24,7 @@ class FilmRecipeSharingService {
 
 /// RecipeSnatcherService — Extracts and parses recipe metadata from shared photos.
 class RecipeSnatcherService {
-  static const String _recipeToken = "XINGCAM_RECIPE:";
+  static const String _recipeToken = 'XINGCAM_RECIPE:';
 
   /// Extracts recipe from photo metadata.
   static Future<EditRecipe?> extractRecipeFromPhoto(String imagePath) async {

@@ -119,7 +119,7 @@ class _SkinToneScreenState extends State<SkinToneScreen> {
                     margin: const EdgeInsets.only(right: 10),
                     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     decoration: BoxDecoration(
-                      color: (p['color'] as Color).withOpacity(isSelected ? 0.9 : 0.4),
+                      color: (p['color'] as Color).withValues(alpha: isSelected ? 0.9 : 0.4),
                       borderRadius: BorderRadius.circular(30),
                       border: Border.all(color: isSelected ? AppColors.textPrimary : AppColors.transparent, width: 2),
                     ),

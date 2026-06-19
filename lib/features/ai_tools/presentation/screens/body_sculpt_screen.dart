@@ -1,4 +1,4 @@
-﻿import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'dart:io';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
@@ -121,7 +121,7 @@ class _BodySculptScreenState extends State<BodySculptScreen> {
   Widget _buildBodySlider(String label, double value, IconData icon, ValueChanged<double> onChanged) {
     return Row(
       children: [
-        Icon(icon, color: AppColors.accent.withOpacity(0.7), size: 18),
+        Icon(icon, color: AppColors.accent.withValues(alpha: 0.7), size: 18),
         const SizedBox(width: 10),
         SizedBox(width: 100, child: Text(label, style: const TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary, fontSize: 12))),
         Expanded(
@@ -231,7 +231,7 @@ class _MeshLiquifyPainter extends CustomPainter {
   void _drawAnatomicalGuides(Canvas canvas, Size size) {
     if (activeArea == null) return;
     final paint = Paint()
-      ..color = AppColors.accent.withOpacity(0.3)
+      ..color = AppColors.accent.withValues(alpha: 0.3)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.5;
       

@@ -76,6 +76,8 @@ dependencies:
   # Metadata & EXIF (Phase 2 Stealth)
   native_exif: ^0.6.0
 
+  flutter_rust_bridge: 2.12.0
+  http: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -127,6 +129,7 @@ flutter:
     - assets/shaders/relighting_engine.frag
     - assets/shaders/depth_bokeh_engine.frag
     - assets/shaders/ultra_hdr_shader.frag
+    - assets/shaders/beauty_engine.frag
 
 flutter_launcher_icons:
   android: true

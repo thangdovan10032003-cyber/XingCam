@@ -1,4 +1,4 @@
-﻿import 'dart:io';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -78,7 +78,7 @@ class _FaceSwapScreenState extends State<FaceSwapScreen> {
                   ),
                   if (_isProcessing)
                     Container(
-                      color: AppColors.background.withOpacity(0.54),
+                      color: AppColors.background.withValues(alpha: 0.54),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -109,7 +109,7 @@ class _FaceSwapScreenState extends State<FaceSwapScreen> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(context.tr('tools.face_swap.select_target'), style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withOpacity(0.38), fontSize: 11, letterSpacing: 1.5)),
+          Text(context.tr('tools.face_swap.select_target'), style: TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary.withValues(alpha: 0.38), fontSize: 11, letterSpacing: 1.5)),
           const SizedBox(height: 16),
           SizedBox(
             height: 80,
@@ -125,14 +125,14 @@ class _FaceSwapScreenState extends State<FaceSwapScreen> {
                     margin: const EdgeInsets.only(right: 12),
                     width: 72,
                     decoration: BoxDecoration(
-                      color: isSelected ? AppColors.accent.withOpacity(0.2) : AppColors.textPrimary.withOpacity(0.1),
+                      color: isSelected ? AppColors.accent.withValues(alpha: 0.2) : AppColors.textPrimary.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(16),
                       border: Border.all(color: isSelected ? AppColors.accent : AppColors.transparent, width: 2),
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(_targets[i]['icon'] as IconData, color: isSelected ? AppColors.accent : AppColors.textPrimary.withOpacity(0.7), size: 28),
+                        Icon(_targets[i]['icon'] as IconData, color: isSelected ? AppColors.accent : AppColors.textPrimary.withValues(alpha: 0.7), size: 28),
                         const SizedBox(height: 4),
                         Text(context.tr(_targets[i]['name'] as String), style: const TextStyle(fontFamily: 'Outfit', color: AppColors.textSecondary, fontSize: 9)),
                       ],
@@ -148,7 +148,7 @@ class _FaceSwapScreenState extends State<FaceSwapScreen> {
               onPressed: () {},
               icon: const Icon(AppIcons.addPhoto, size: 18),
               label: Text(context.tr('tools.face_swap.upload_custom'), style: const TextStyle(fontFamily: 'Outfit', fontWeight: FontWeight.bold)),
-              style: TextButton.styleFrom(foregroundColor: AppColors.textPrimary.withOpacity(0.7)),
+              style: TextButton.styleFrom(foregroundColor: AppColors.textPrimary.withValues(alpha: 0.7)),
             ),
           ),
         ],

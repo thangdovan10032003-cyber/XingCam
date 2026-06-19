@@ -1,5 +1,4 @@
-﻿import 'dart:io';
-import 'dart:ui' as ui;
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:xingcam/core/widgets/tutorial_overlay.dart';
@@ -178,10 +177,10 @@ class _MaskPainter extends CustomPainter {
         ..style = PaintingStyle.stroke;
 
       if (path.type == 0) { // Mosaic simulation
-        paint.color = AppColors.textSecondary.withOpacity(0.8);
+        paint.color = AppColors.textSecondary.withValues(alpha: 0.8);
         paint.maskFilter = const MaskFilter.blur(BlurStyle.normal, 2);
       } else if (path.type == 1) { // Blur simulation
-        paint.color = AppColors.textPrimary.withOpacity(0.15);
+        paint.color = AppColors.textPrimary.withValues(alpha: 0.15);
         paint.maskFilter = const MaskFilter.blur(BlurStyle.normal, 15);
       } else { // Dot simulation
         paint.color = AppColors.background;
@@ -213,7 +212,7 @@ class _ModeButton extends StatelessWidget {
       onTap: onTap,
       child: Column(
         children: [
-          Icon(icon, color: isSelected ? AppColors.accent : AppColors.textSecondary.withOpacity(0.3), size: 28),
+          Icon(icon, color: isSelected ? AppColors.accent : AppColors.textSecondary.withValues(alpha: 0.3), size: 28),
           const SizedBox(height: 4),
           Text(label, style: TextStyle(fontFamily: 'Outfit', color: isSelected ? AppColors.textPrimary : AppColors.textSecondary, fontSize: 10)),
         ],

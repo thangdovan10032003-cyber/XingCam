@@ -30,7 +30,7 @@ class CinematicStoryOverlay extends StatelessWidget {
             child: Container(
               width: MediaQuery.of(context).size.width * 0.9,
               height: 1,
-              color: AppColors.gold.withOpacity(0.3),
+              color: AppColors.gold.withValues(alpha: 0.3),
             ),
           ),
 
@@ -43,9 +43,9 @@ class CinematicStoryOverlay extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.6),
+                  color: Colors.black.withValues(alpha: 0.6),
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: AppColors.gold.withOpacity(0.5)),
+                  border: Border.all(color: AppColors.gold.withValues(alpha: 0.5)),
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,

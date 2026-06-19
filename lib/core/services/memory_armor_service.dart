@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:isolate';
 import 'package:flutter/foundation.dart';
 import 'package:image/image.dart' as img;
 import 'package:path_provider/path_provider.dart';
@@ -113,10 +112,10 @@ class MemoryArmorService {
   }) async {
     final spec = await PlatformCapabilityService.getDeviceSpec();
     final file = File(imagePath);
-    final sizeBytes = file.existsSync() ? file.lengthSync() : 5_000_000;
+    final sizeBytes = file.existsSync() ? file.lengthSync() : 5000000;
 
     // Estimate megapixels from file size (JPEG heuristic: ~0.4 bytes/pixel compressed)
-    final estimatedMp = (sizeBytes / 400_000).clamp(1.0, 50.0);
+    final estimatedMp = (sizeBytes / 400000).clamp(1.0, 50.0);
 
     final baseSeconds = spec.estimateProcessingSeconds(operationType);
     // Scale by megapixels — 12MP as baseline

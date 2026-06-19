@@ -1,6 +1,5 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
-import 'package:xingcam/core/theme/design_tokens.dart';
 
 /// KineticCaptionPainter: Renders text with physics-based distortions.
 /// Features Chromatic Aberration and Jitter for a cinematic feel.
@@ -32,7 +31,7 @@ class KineticCaptionPainter extends CustomPainter {
           fontSize: 48 * scale * elastic,
           fontWeight: FontWeight.bold,
           letterSpacing: 4,
-          color: color.withOpacity(opacity),
+          color: color.withValues(alpha: opacity),
         ),
       ),
       textDirection: TextDirection.ltr,
@@ -53,7 +52,7 @@ class KineticCaptionPainter extends CustomPainter {
         style: TextStyle(
           fontFamily: 'VT323',
           fontSize: 48 * scale * elastic,
-          color: Colors.red.withOpacity(opacity * 0.3),
+          color: Colors.red.withValues(alpha: opacity * 0.3),
         ),
       );
       textPainter.layout();
@@ -66,7 +65,7 @@ class KineticCaptionPainter extends CustomPainter {
         style: TextStyle(
           fontFamily: 'VT323',
           fontSize: 48 * scale * elastic,
-          color: Colors.blue.withOpacity(opacity * 0.3),
+          color: Colors.blue.withValues(alpha: opacity * 0.3),
         ),
       );
       textPainter.layout();
@@ -79,9 +78,9 @@ class KineticCaptionPainter extends CustomPainter {
       style: TextStyle(
         fontFamily: 'VT323',
         fontSize: 48 * scale * elastic,
-        color: color.withOpacity(opacity),
+        color: color.withValues(alpha: opacity),
         shadows: [
-           Shadow(color: Colors.black.withOpacity(0.5), blurRadius: 10, offset: const Offset(2, 2)),
+           Shadow(color: Colors.black.withValues(alpha: 0.5), blurRadius: 10, offset: const Offset(2, 2)),
         ],
       ),
     );
